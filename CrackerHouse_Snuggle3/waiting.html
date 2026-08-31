@@ -289,6 +289,21 @@
       margin-right: 8px;
     }
   </style>
+<script>
+  // Phone Number Lookup Handler for waiting.html
+  function lookupWaitingByPhone(phoneStr) {
+    const cleanPhone = (phoneStr || "").replace(/[^0-9]/g, "");
+    if (!cleanPhone) return null;
+    try {
+      const data = localStorage.getItem("kracker_waitings");
+      if (data) {
+        const list = JSON.parse(data);
+        return list.find(w => w.phone === cleanPhone || (w.rawPhone && w.rawPhone.replace(/[^0-9]/g, "") === cleanPhone));
+      }
+    } catch(e) {}
+    return null;
+  }
+</script>
 </head>
 <body>
   <div class="noise-overlay"></div>

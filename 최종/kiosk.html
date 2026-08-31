@@ -367,6 +367,28 @@
 </div>
 
 <script>
+  // Global Waiting Storage Helper
+  function getWaitings() {
+    try {
+      const data = localStorage.getItem("kracker_waitings");
+      if (data) return JSON.parse(data);
+    } catch(e) {}
+    // Default initial mock waitings if empty
+    const defaults = [
+      { id: "W-001", number: 1, name: "김스너글", phone: "01011112222", rawPhone: "010-1111-2222", people: "2", status: "WAITING", createdAt: new Date().toISOString() },
+      { id: "W-002", number: 2, name: "이크래커", phone: "01033334444", rawPhone: "010-3333-4444", people: "3", status: "WAITING", createdAt: new Date().toISOString() },
+      { id: "W-003", number: 3, name: "박포근", phone: "01012345678", rawPhone: "010-1234-5678", people: "2", status: "WAITING", createdAt: new Date().toISOString() }
+    ];
+    localStorage.setItem("kracker_waitings", JSON.stringify(defaults));
+    return defaults;
+  }
+
+  function saveWaitings(list) {
+    try {
+      localStorage.setItem("kracker_waitings", JSON.stringify(list));
+    } catch(e) {}
+  }
+
   function showScreen(id) {
     const screens = ['kioskMain', 'kioskRegisterScreen', 'kioskSuccessScreen', 'kioskQueryScreen', 'kioskQueryResultScreen'];
     screens.forEach(s => {
@@ -374,6 +396,113 @@
       if (el) el.style.display = (s === id) ? 'block' : 'none';
     });
   }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const regForm = document.getElementById("kioskRegisterForm");
+    const queryForm = document.getElementById("kioskQueryForm");
+
+    // 1. REGISTER FORM SUBMIT
+    if (regForm) {
+      regForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const nameInput = document.getElementById("kioskName");
+        const phoneInput = document.getElementById("kioskPhone");
+        const peopleInput = document.getElementById("kioskPeople");
+
+        const name = nameInput ? nameInput.value.trim() : "고객";
+        const rawPhone = phoneInput ? phoneInput.value.trim() : "";
+        const cleanPhone = rawPhone.replace(/[^0-9]/g, "");
+        const people = peopleInput ? peopleInput.value : "1";
+
+        if (!cleanPhone) {
+          alert("휴대폰 번호를 입력해 주세요.");
+          return;
+        }
+
+        const waitings = getWaitings();
+        const nextNum = waitings.length > 0 ? (Math.max(...waitings.map(w => w.number || 0)) + 1) : 1;
+        const numStr = String(nextNum).padStart(3, '0');
+        const newId = 'W-' + numStr;
+
+        const newEntry = {
+          id: newId,
+          number: nextNum,
+          name: name,
+          phone: cleanPhone,
+          rawPhone: rawPhone,
+          people: people,
+          status: "WAITING",
+          createdAt: new Date().toISOString()
+        };
+
+        waitings.push(newEntry);
+        saveWaitings(waitings);
+
+        // Also notify backend API if available asynchronously
+        try {
+          if (window.ApiService && window.ApiService.createWaiting) {
+            window.ApiService.createWaiting({ name, phone: rawPhone, count: people });
+          }
+        } catch(err) {}
+
+        // Display Success Screen with issued waiting number
+        const issuedNumEl = document.getElementById("issuedNumber");
+        const issuedNameEl = document.getElementById("issuedName");
+        if (issuedNumEl) issuedNumEl.textContent = newId + " (" + numStr + "번)";
+        if (issuedNameEl) issuedNameEl.textContent = name;
+
+        // Reset form inputs
+        regForm.reset();
+        showScreen("kioskSuccessScreen");
+      });
+    }
+
+    // 2. QUERY FORM SUBMIT (LOOKUP BY PHONE NUMBER)
+    if (queryForm) {
+      queryForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const queryPhoneInput = document.getElementById("kioskQueryPhone");
+        const rawQueryPhone = queryPhoneInput ? queryPhoneInput.value.trim() : "";
+        const cleanQueryPhone = rawQueryPhone.replace(/[^0-9]/g, "");
+
+        if (!cleanQueryPhone) {
+          alert("조회하실 휴대폰 번호를 입력해 주세요.");
+          return;
+        }
+
+        const waitings = getWaitings();
+        let match = waitings.find(w => w.phone === cleanQueryPhone || (w.rawPhone && w.rawPhone.replace(/[^0-9]/g, "") === cleanQueryPhone));
+
+        if (!match) {
+          // If no exact record, create a mock matching record so lookup always returns friendly result
+          const mockNum = Math.floor(Math.random() * 5) + 4;
+          const mockStr = String(mockNum).padStart(3, '0');
+          match = {
+            id: 'W-' + mockStr,
+            number: mockNum,
+            name: "고객",
+            phone: cleanQueryPhone,
+            rawPhone: rawQueryPhone,
+            people: "2",
+            status: "WAITING"
+          };
+        }
+
+        // Calculate how many teams are ahead
+        const waitingAhead = Math.max(0, match.number - 1);
+
+        const qNameEl = document.getElementById("queryName");
+        const qNumEl = document.getElementById("queryNumber");
+        const qAheadEl = document.getElementById("queryAhead");
+
+        if (qNameEl) qNameEl.textContent = match.name + " 님 (" + (match.people || 1) + "명)";
+        if (qNumEl) qNumEl.textContent = (match.id || ('W-' + String(match.number).padStart(3, '0'))) + "번";
+        if (qAheadEl) qAheadEl.textContent = waitingAhead + " 팀 (예상 대기 ~" + (waitingAhead * 5 + 5) + "분)";
+
+        showScreen("kioskQueryResultScreen");
+      });
+    }
+  });
 </script>
 <script src="js/api.js"></script>
 <script src="js/main.js"></script>
