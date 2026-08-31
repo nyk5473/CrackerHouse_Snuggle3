@@ -791,191 +791,326 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
 
 <section id="zones-section" style="padding: 90px 48px; background: var(--dark); overflow:hidden;">
   <style>
-    /* REAL 3D ZONE SHOWCASE STYLES */
-    .zones-header { max-width: 1200px; margin: 0 auto 36px; }
+    /* 6-ZONE LAYOUT & 3D MAIN MAP STYLES */
+    .zones-header { max-width: 1200px; margin: 0 auto 36px; text-align: center; }
     .zones-headline {
       font-family: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif !important;
       font-size: clamp(38px, 5.5vw, 68px);
       font-weight: 900;
       line-height: 1.05;
       color: var(--white);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .zones-headline em { font-style: italic; color: var(--orange); }
 
-    /* 3D Showcase & Controls Layout */
-    .zone-showcase-container {
+    /* Top Main 3D Floorplan Box */
+    .main-3d-map-box {
+      max-width: 1200px;
+      margin: 0 auto 52px;
+      background: var(--dark2);
+      border: 2px solid var(--orange);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.85), 0 0 45px rgba(242,92,5,0.3);
+      position: relative;
+    }
+    .main-3d-map-img {
+      width: 100%;
+      height: auto;
+      max-height: 620px;
+      object-fit: cover;
+      display: block;
+    }
+    .main-3d-map-bar {
+      background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 100%);
+      padding: 20px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    /* 6 Zone Grid Cards */
+    .six-zones-grid {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1.25fr 1fr;
-      gap: 44px;
-      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
     }
-    @media (max-width: 900px) {
-      .zone-showcase-container { grid-template-columns: 1fr; }
+    @media (max-width: 992px) {
+      .six-zones-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .six-zones-grid { grid-template-columns: 1fr; }
     }
 
-    /* 3D Stage Box */
-    .zone-3d-stage {
-      perspective: 1200px;
-      width: 100%;
-      height: 480px;
-      position: relative;
-    }
-    .zone-3d-card {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transform: rotateY(-7deg) rotateX(3deg);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.75), 0 0 40px rgba(242,92,5,0.3);
-      border: 2px solid rgba(242,92,5,0.5);
+    .six-zone-card {
       background: var(--dark2);
-      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+      transition: all 0.35s ease;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
     }
-    .zone-3d-card:hover {
-      transform: rotateY(0deg) rotateX(0deg) scale(1.02);
-      box-shadow: 0 32px 90px rgba(0,0,0,0.9), 0 0 60px rgba(242,92,5,0.5);
+    .six-zone-card:hover {
+      transform: translateY(-8px) scale(1.02);
       border-color: var(--orange);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.7), 0 0 30px rgba(242,92,5,0.35);
     }
-    .zone-3d-img {
+    .six-zone-img-wrap {
+      aspect-ratio: 16/10;
+      position: relative;
+      overflow: hidden;
+      background: #110B04;
+    }
+    .six-zone-img-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: opacity 0.4s ease, transform 0.5s ease;
+      transition: transform 0.5s ease;
     }
-    .zone-3d-overlay {
+    .six-zone-card:hover .six-zone-img-wrap img {
+      transform: scale(1.06);
+    }
+    .six-zone-badge {
       position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.35) 55%, transparent 100%);
-      padding: 32px;
+      top: 12px;
+      left: 12px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .six-zone-body {
+      padding: 22px;
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      z-index: 2;
+      justify-content: space-between;
     }
-    .zone-3d-num {
-      font-family: var(--ff-mono);
-      font-size: 12px;
-      color: var(--orange);
-      letter-spacing: 0.2em;
-      margin-bottom: 6px;
-      font-weight: 700;
-    }
-    .zone-3d-title {
+    .six-zone-title {
       font-family: 'LeeOkSun', 'SheLeeOkSun', serif !important;
-      font-size: 28px;
+      font-size: 22px;
       color: var(--white);
       font-weight: 700;
       margin-bottom: 8px;
     }
-    .zone-3d-desc {
-      font-size: 14px;
-      color: rgba(255,255,255,0.88);
-      line-height: 1.6;
-    }
-
-    /* 5 Zone Cards Selector Grid */
-    .zone-selector-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .zone-select-card {
-      background: var(--dark2);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px;
-      padding: 18px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .zone-select-card:hover, .zone-select-card.active {
-      background: rgba(242,92,5,0.14);
-      border-color: var(--orange);
-      transform: translateX(10px);
-    }
-    .zone-select-card.active {
-      box-shadow: 0 6px 24px rgba(242,92,5,0.3);
-    }
-    .zone-select-num {
-      font-family: var(--ff-mono);
+    .six-zone-desc {
       font-size: 13px;
-      font-weight: 700;
-      color: var(--orange);
-      width: 40px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
     }
-    .zone-select-name {
-      font-family: 'LeeOkSun', 'SheLeeOkSun', serif !important;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--white);
-      flex: 1;
-    }
-    .zone-select-en {
+    .six-zone-sqm {
       font-family: var(--ff-mono);
       font-size: 11px;
-      color: var(--muted);
+      color: var(--clay);
       letter-spacing: 0.1em;
     }
   </style>
 
   <div class="zones-header">
-    <div style="font-family:var(--ff-mono);font-size:11px;letter-spacing:0.2em;color:var(--clay);margin-bottom:14px;">// 3D SPATIAL EXPERIENCE ZONES</div>
-    <h2 class="zones-headline">FIVE ROOMS,<br/><em>ONE DRUM</em></h2>
-    <p style="font-size:15px;color:rgba(255,255,255,0.88);line-height:1.9;">한 바퀴 돌면 취향이 남는다. 01~05 버튼을 눌러 각 존의 실사 3D 전경과 포근한 상세 설명을 확인해 보세요.</p>
+    <div style="font-family:var(--ff-mono);font-size:11px;letter-spacing:0.2em;color:var(--clay);margin-bottom:14px;">// 3D SPATIAL MAP &amp; 6 EXPERIENCE ZONES</div>
+    <h2 class="zones-headline">SIX ROOMS,<br/><em>ONE DRUM</em></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.88);line-height:1.9;">크래커하우스 x 스너글 팝업스토어 3D 전체 공간 조감도와 6개 전용 체험 존을 만나보세요.</p>
   </div>
 
-  <div class="zone-showcase-container">
-    <!-- 1. Central Real 3D Interactive Photo Showcase Box -->
-    <div class="zone-3d-stage">
-      <div class="zone-3d-card" id="zone3dBox" onclick="openZoneModal()">
-        <img id="z3dImg" class="zone-3d-img" src="images/zone_001.png?v=20260831_3d" alt="Zone 01 3D 공간 이미지" onerror="this.src='zone_001.png'; this.onerror=null;" />
-        <div class="zone-3d-overlay">
-          <div id="z3dNum" class="zone-3d-num">ZONE 01 // ENTRANCE DRUM</div>
-          <div id="z3dTitle" class="zone-3d-title">01. 대형 드럼 세탁기 입구 존</div>
-          <div id="z3dDesc" class="zone-3d-desc">거대한 드럼 세탁기 입구를 지나며 마치 포근한 세탁 공간 속으로 들어가는 몰입감을 선사하는 팝업스토어 대표 메인 3D 존입니다. (클릭시 3D 크게보기)</div>
+  <!-- 1. Top Big Main 3D Floorplan Map Image -->
+  <div class="main-3d-map-box">
+    <img src="images/zone_main_3d_map.png?v=20260831_map1" alt="크래커하우스 x 스너글 팝업스토어 3D 공간 전체 아이소메트릭 조감도" class="main-3d-map-img" onerror="this.src='zone_main_3d_map.png'; this.onerror=null;" />
+    <div class="main-3d-map-bar">
+      <div>
+        <span style="font-family:var(--ff-mono); font-size:11px; color:var(--orange); letter-spacing:0.15em; font-weight:700;">ISOMETRIC 3D MAP</span>
+        <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:22px; color:var(--white); margin-top:2px;">팝업스토어 전체 공간 3D 조감도</h3>
+      </div>
+      <span style="font-family:var(--ff-mono); font-size:12px; color:rgba(255,255,255,0.7); background:rgba(255,255,255,0.1); padding:6px 14px; border-radius:20px;">총 6개 주요 체험 존 배치</span>
+    </div>
+  </div>
+
+  <!-- 2. 6 Zone Grid Below Main Map -->
+  <div class="six-zones-grid">
+    <!-- Zone 01 -->
+    <div class="six-zone-card" onclick="openSixZoneModal(0)">
+      <div class="six-zone-img-wrap">
+        <img src="images/zone_003.png?v=20260831_z3" alt="01. 취향 테스트존" onerror="this.src='zone_003.png'; this.onerror=null;" />
+        <span class="six-zone-badge">ZONE 01</span>
+      </div>
+      <div class="six-zone-body">
+        <div>
+          <h3 class="six-zone-title">01. 취향 테스트존</h3>
+          <p class="six-zone-desc">나만의 스너글 향기 취향을 테스트하고 맞춤 섬유유연제 시침지를 받아보는 취향 발견 전용 공간입니다.</p>
         </div>
+        <div class="six-zone-sqm">WHAT'S YOUR TASTE? &nbsp;|&nbsp; 8.0 sqm</div>
       </div>
     </div>
 
-    <!-- 2. 5 Zone Click Selectors -->
-    <div class="zone-selector-list">
-      <div class="zone-select-card active" onclick="switchZone(0)">
-        <span class="zone-select-num">01</span>
-        <span class="zone-select-name">대형 드럼 세탁기 입구</span>
-        <span class="zone-select-en">ENTRANCE DRUM</span>
+    <!-- Zone 02 -->
+    <div class="six-zone-card" onclick="openSixZoneModal(1)">
+      <div class="six-zone-img-wrap">
+        <img src="images/zone_001.png?v=20260831_z1" alt="02. 세탁기 포토부스존" onerror="this.src='zone_001.png'; this.onerror=null;" />
+        <span class="six-zone-badge">ZONE 02</span>
       </div>
-      <div class="zone-select-card" onclick="switchZone(1)">
-        <span class="zone-select-num">02</span>
-        <span class="zone-select-name">레트로 세탁기 & 세제 존</span>
-        <span class="zone-select-en">COIN LAUNDRY</span>
+      <div class="six-zone-body">
+        <div>
+          <h3 class="six-zone-title">02. 세탁기 포토부스존</h3>
+          <p class="six-zone-desc">드럼 세탁기 인테리어 배경에서 특별한 순간을 폴라로이드 사진으로 남기는 레트로 포토부스 존입니다.</p>
+        </div>
+        <div class="six-zone-sqm">LAUNDRY PHOTO &nbsp;|&nbsp; 11.0 sqm</div>
       </div>
-      <div class="zone-select-card" onclick="switchZone(2)">
-        <span class="zone-select-num">03</span>
-        <span class="zone-select-name">스너글 바닐라 향기 케어</span>
-        <span class="zone-select-en">SCENT CARE</span>
+    </div>
+
+    <!-- Zone 03 -->
+    <div class="six-zone-card" onclick="openSixZoneModal(2)">
+      <div class="six-zone-img-wrap">
+        <img src="images/zone_004.png?v=20260831_z4" alt="03. 굿즈존" onerror="this.src='zone_004.png'; this.onerror=null;" />
+        <span class="six-zone-badge">ZONE 03</span>
       </div>
-      <div class="zone-select-card" onclick="switchZone(3)">
-        <span class="zone-select-num">04</span>
-        <span class="zone-select-name">크래커 x 스너글 굿즈 쇼룸</span>
-        <span class="zone-select-en">GOODS SHOWROOM</span>
+      <div class="six-zone-body">
+        <div>
+          <h3 class="six-zone-title">03. 굿즈존</h3>
+          <p class="six-zone-desc">크래커하우스 x 스너글 빈티지 코랄 레드 티셔츠, 옐로우 넥티, 캔버스 토트백 한정판 굿즈 쇼룸입니다.</p>
+        </div>
+        <div class="six-zone-sqm">GOODS SHOWROOM &nbsp;|&nbsp; 25.5 sqm</div>
       </div>
-      <div class="zone-select-card" onclick="switchZone(4)">
-        <span class="zone-select-num">05</span>
-        <span class="zone-select-name">포근한 빨랫줄 & 라운지</span>
-        <span class="zone-select-en">LAUNDRY LINE</span>
+    </div>
+
+    <!-- Zone 04 -->
+    <div class="six-zone-card" onclick="openSixZoneModal(3)">
+      <div class="six-zone-img-wrap">
+        <img src="images/zone_002.png?v=20260831_z2" alt="04. DIY 존" onerror="this.src='zone_002.png'; this.onerror=null;" />
+        <span class="six-zone-badge">ZONE 04</span>
+      </div>
+      <div class="six-zone-body">
+        <div>
+          <h3 class="six-zone-title">04. DIY 존</h3>
+          <p class="six-zone-desc">원하는 자수 와펜과 스트랩으로 나만의 커스텀 크래커 T &amp; 세탁 굿즈를 직접 인쇄하고 제작해보는 커스텀 존입니다.</p>
+        </div>
+        <div class="six-zone-sqm">MAKE YOUR CRACKER T &nbsp;|&nbsp; 8.5 sqm</div>
+      </div>
+    </div>
+
+    <!-- Zone 05 -->
+    <div class="six-zone-card" onclick="openSixZoneModal(4)">
+      <div class="six-zone-img-wrap">
+        <img src="images/hero_laundry_store.jpg?v=20260831_z5" alt="05. 커피 &amp; 미니어존" onerror="this.src='hero_laundry_store.jpg'; this.onerror=null;" />
+        <span class="six-zone-badge">ZONE 05</span>
+      </div>
+      <div class="six-zone-body">
+        <div>
+          <h3 class="six-zone-title">05. 커피 &amp; 미니어존</h3>
+          <p class="six-zone-desc">포근한 잔디밭 라운지에서 고소한 커피와 베이커리를 즐기며 편안하게 쉬어가는 힐링 휴식 공간입니다.</p>
+        </div>
+        <div class="six-zone-sqm">CAFE &amp; MINIER &nbsp;|&nbsp; 26.5 sqm</div>
+      </div>
+    </div>
+
+    <!-- Zone 06 -->
+    <div class="six-zone-card" onclick="openSixZoneModal(5)">
+      <div class="six-zone-img-wrap">
+        <img src="images/zone_005.png?v=20260831_z6" alt="06. 방명록 존" onerror="this.src='zone_005.png'; this.onerror=null;" />
+        <span class="six-zone-badge">ZONE 06</span>
+      </div>
+      <div class="six-zone-body">
+        <div>
+          <h3 class="six-zone-title">06. 방명록 존 (방팩록)</h3>
+          <p class="six-zone-desc">팝업스토어에서의 소중한 소감과 축하 메시지를 남기고 따뜻한 방명록을 함께 완성하는 참여 공간입니다.</p>
+        </div>
+        <div class="six-zone-sqm">CRACKER GUESTBOOK &nbsp;|&nbsp; 6.0 sqm</div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- 6-ZONE DETAIL MODAL -->
+<div id="sixZoneModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(12px);" onclick="if(event.target===this) closeSixZoneModal()">
+  <div style="background:var(--dark2); border:2px solid var(--orange); border-radius:14px; max-width:850px; width:92%; padding:28px; text-align:center; position:relative; box-shadow:0 35px 90px rgba(0,0,0,0.85);">
+    <button onclick="closeSixZoneModal()" style="position:absolute; top:16px; right:20px; background:none; border:none; color:var(--white); font-size:32px; cursor:pointer;">×</button>
+    <div style="font-family:var(--ff-mono); font-size:12px; color:var(--orange); letter-spacing:0.2em; margin-bottom:8px;" id="szNum">ZONE 01</div>
+    <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:32px; color:var(--white); margin-bottom:18px;" id="szTitle">01. 취향 테스트존</h3>
+    <div style="aspect-ratio:16/9; overflow:hidden; border-radius:10px; margin-bottom:20px; border:1px solid rgba(255,255,255,0.1);">
+      <img id="szImg" src="" alt="Zone Full Preview" style="width:100%; height:100%; object-fit:cover; display:block;" />
+    </div>
+    <p style="font-size:15px; color:var(--muted); line-height:1.75;" id="szDesc"></p>
+  </div>
+</div>
+
+<script>
+  const sixZoneData = [
+    {
+      num: "ZONE 01 // WHAT'S YOUR TASTE? (8.0 sqm)",
+      title: "01. 취향 테스트존",
+      desc: "나만의 스너글 향기 취향을 테스트하고 맞춤 섬유유연제 시침지를 받아보는 취향 발견 전용 공간입니다.",
+      img: "images/zone_003.png?v=20260831_sz1",
+      fallback: "zone_003.png"
+    },
+    {
+      num: "ZONE 02 // LAUNDRY PHOTO (11.0 sqm)",
+      title: "02. 세탁기 포토부스존",
+      desc: "드럼 세탁기 인테리어 배경에서 특별한 순간을 폴라로이드 사진으로 남기는 레트로 포토부스 존입니다.",
+      img: "images/zone_001.png?v=20260831_sz2",
+      fallback: "zone_001.png"
+    },
+    {
+      num: "ZONE 03 // GOODS SHOWROOM (25.5 sqm)",
+      title: "03. 굿즈존",
+      desc: "크래커하우스 x 스너글 빈티지 코랄 레드 티셔츠, 옐로우 넥티, 캔버스 토트백 한정판 굿즈 쇼룸입니다.",
+      img: "images/zone_004.png?v=20260831_sz3",
+      fallback: "zone_004.png"
+    },
+    {
+      num: "ZONE 04 // MAKE YOUR CRACKER T (8.5 sqm)",
+      title: "04. DIY 존",
+      desc: "원하는 자수 와펜과 스트랩으로 나만의 커스텀 크래커 T & 세탁 굿즈를 직접 인쇄하고 제작해보는 커스텀 존입니다.",
+      img: "images/zone_002.png?v=20260831_sz4",
+      fallback: "zone_002.png"
+    },
+    {
+      num: "ZONE 05 // CAFE & MINIER (26.5 sqm)",
+      title: "05. 커피 & 미니어존",
+      desc: "포근한 잔디밭 라운지에서 고소한 커피와 베이커리를 즐기며 편안하게 쉬어가는 힐링 휴식 공간입니다.",
+      img: "images/hero_laundry_store.jpg?v=20260831_sz5",
+      fallback: "hero_laundry_store.jpg"
+    },
+    {
+      num: "ZONE 06 // CRACKER GUESTBOOK (6.0 sqm)",
+      title: "06. 방명록 존 (방팩록)",
+      desc: "팝업스토어에서의 소중한 소감과 축하 메시지를 남기고 따뜻한 방명록을 함께 완성하는 참여 공간입니다.",
+      img: "images/zone_005.png?v=20260831_sz6",
+      fallback: "zone_005.png"
+    }
+  ];
+
+  function openSixZoneModal(idx) {
+    const item = sixZoneData[idx];
+    if (!item) return;
+    document.getElementById("szNum").textContent = item.num;
+    document.getElementById("szTitle").textContent = item.title;
+    document.getElementById("szDesc").textContent = item.desc;
+    const szImg = document.getElementById("szImg");
+    szImg.src = item.img;
+    szImg.onerror = function() { this.src = item.fallback; };
+
+    const modal = document.getElementById("sixZoneModal");
+    if (modal) modal.style.display = "flex";
+  }
+
+  function closeSixZoneModal() {
+    const modal = document.getElementById("sixZoneModal");
+    if (modal) modal.style.display = "none";
+  }
+</script>
 
 <!-- 3D ZONE EXPANDED MODAL -->
 <div id="zone3DModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(12px);" onclick="if(event.target===this) closeZoneModal()">
