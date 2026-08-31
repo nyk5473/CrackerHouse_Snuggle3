@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const isKioskPage = document.getElementById("kioskRegisterForm") !== null;
 
   if (isIndexPage) loadIndexPage();
-  if (isProductsPage) loadProductsPage();
+  if (isProductsPage) // loadProductsPage(); static products used
   if (isGuestbookPage) loadGuestbookPage();
   if (isLaundryPage) loadLaundryPage();
   if (isUploadPage) initUploadPage();
@@ -56,7 +56,7 @@ function formatDate(dateStr) {
 
 // ── 1. INDEX PAGE LOAD ──
 async function loadIndexPage() {
-  loadProductsPage();
+  // loadProductsPage(); static products used
   const infoLocation = document.getElementById("infoLocation");
   const infoDate = document.getElementById("infoDate");
   const infoHours = document.getElementById("infoHours");
