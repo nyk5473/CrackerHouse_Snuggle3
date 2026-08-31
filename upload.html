@@ -633,6 +633,74 @@
       }
     });
   </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const uploadForm = document.getElementById("uploadForm");
+    if (!uploadForm) return;
+
+    uploadForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nickname = document.getElementById("nickname").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const pinType = document.getElementById("pinType").value;
+      const fileInput = document.getElementById("imageFile");
+      const file = fileInput.files[0];
+      const btn = document.getElementById("uploadSubmit");
+
+      if (!nickname) {
+        alert("닉네임을 입력해 주세요.");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "업로드 중...";
+
+      const processSave = (imgDataUrl) => {
+        try {
+          const data = localStorage.getItem("kracker_laundry_pins");
+          const list = data ? JSON.parse(data) : [];
+          const newPin = {
+            id: Date.now(),
+            nickname: nickname,
+            message: message || "포근한 세탁소에서 🧺",
+            pin_type: pinType || "PHOTO",
+            image_url: imgDataUrl || "images/snuggle_photo_sample.jpg",
+            created_at: new Date().toISOString()
+          };
+          list.unshift(newPin);
+          localStorage.setItem("kracker_laundry_pins", JSON.stringify(list));
+        } catch(err) {}
+
+        btn.disabled = false;
+        btn.textContent = "📎 빨랫줄에 집게로 달기";
+
+        // Show Success Modal or Redirect
+        if (typeof openUpModal === 'function') {
+          openUpModal(
+            true,
+            '사진이 <em>달렸어요!</em>',
+            '지금 바로 빨랫줄 갤러리에서 확인하실 수 있습니다 🧺',
+            '갤러리 보러 가기',
+            () => { window.location.href = 'laundry.html'; }
+          );
+        } else {
+          alert("사진이 성공적으로 빨랫줄에 등록되었습니다!");
+          window.location.href = "laundry.html";
+        }
+      };
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          processSave(evt.target.result);
+        };
+        reader.readAsDataURL(file);
+      } else {
+        processSave("images/snuggle_photo_sample.jpg");
+      }
+    });
+  });
+</script>
 </body>
 
 </html>
