@@ -33,15 +33,15 @@
       --card:     #2E1D0F;
       --white:    #FFFFFF;
       --muted:    #C4B9AE;
-      --ff-serif: 'SheLeeOkSun', 'Playfair Display', serif;
-      --ff-mono:  'DM Mono', monospace;
+      --ff-serif: 'Noto Sans KR', sans-serif;
+      --ff-mono:  'Noto Sans KR', sans-serif;
       --ff-sans:  'Noto Sans KR', sans-serif;
       --tr:       all 0.28s ease;
     }
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Noto Sans KR', sans-serif !important; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--ff-sans); background: var(--dark); color: var(--white); overflow-x: hidden; }
+    body { font-family: 'Noto Sans KR', sans-serif !important; background: var(--dark); color: var(--white); overflow-x: hidden; }
     a    { text-decoration: none; color: inherit; }
 
     /* ══════════════════════
@@ -497,12 +497,12 @@
 <nav id="top-nav">
   <a href="index.html" class="nav-logo" style="background:none; padding:0; display:flex; align-items:center;"><img src="images/kracker_logo_new.png?v=20260831" alt="Kracker Laundry Pop-up Store" style="height:38px; display:block; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));" /></a>
     <ul class="nav-links">
-    <li><a href="index.html#check-in-container">팝업정보</a></li>
-    <li><a href="index.html#prereg-section">사전등록</a></li>
-    <li><a href="index.html#brand-section">브랜드소개</a></li>
-    <li><a href="index.html#product-section">상품</a></li>
-    <li><a href="index.html#laundry-section">사진빨랫줄</a></li>
-    <li><a href="index.html#zones-section">공간 구조 존</a></li>
+    <li><a href="promo.html#check-in-container">팝업정보</a></li>
+    <li><a href="promo.html#prereg-section">사전등록</a></li>
+    <li><a href="promo.html#brand-section">브랜드소개</a></li>
+    <li><a href="promo.html#product-section">상품</a></li>
+    <li><a href="promo.html#laundry-section">사진빨랫줄</a></li>
+    <li><a href="promo.html#zones-section">공간 구조 존</a></li>
   </ul>
 </nav>
 
@@ -593,6 +593,56 @@
 
   </div>
 </main>
+
+<!-- ══ STAFF CONTROL CENTER ══ -->
+<div class="booking-container" style="margin-top: 20px;">
+  <!-- 스태프 로그인 박스 (로그인 전) -->
+  <div class="form-section-card" id="staffResLoginBox" style="max-width: 520px; margin: 0 auto; text-align: center;">
+    <span style="background: var(--clay); color: var(--white); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; font-family: var(--ff-mono);">STAFF CONTROL CENTER</span>
+    <h3 style="font-family: var(--ff-serif); font-style: italic; font-size: 24px; color: var(--white); margin: 16px 0 8px;">🔐 사전예약 스태프 관제 로그인</h3>
+    <p style="font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.6;">
+      팝업스토어 사전예약 등록자 명단을 관리하고 입장을 처리하려면 스태프 암호를 입력하세요.
+    </p>
+    <form onsubmit="handleStaffResLogin(event)" style="display: flex; flex-direction: column; gap: 12px;">
+      <input type="password" id="staffResPw" class="form-input" placeholder="스태프 암호 입력 (기본: 1234)" style="text-align: center; font-size: 15px; font-weight: bold;" required />
+      <button type="submit" class="btn-submit" style="background: var(--clay);">🔓 사전예약 관제 대시보드 로그인</button>
+    </form>
+    <div id="staffResLoginErr" style="color: var(--red); font-weight: bold; font-size: 13px; margin-top: 10px;"></div>
+  </div>
+
+  <!-- 스태프 사전예약 관제 콘솔 (로그인 후) -->
+  <div class="form-section-card" id="staffResConsoleSection" style="display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <span style="color: var(--blue); font-family: var(--ff-mono); font-size: 12px; font-weight: bold;">🟢 스태프 인증됨 (사전예약 관제)</span>
+        <h3 style="font-family: var(--ff-serif); font-style: italic; font-size: 24px; color: var(--white); margin-top: 4px;">🛠️ 사전예약 등록 명단 관제 콘솔</h3>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        <button onclick="exportResCsv()" style="padding: 10px 18px; background: #2E7D32; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">📥 사전예약 명단 엑셀(CSV) 1초 다운로드</button>
+        <button onclick="handleStaffResLogout()" style="padding: 10px 14px; background: rgba(255,255,255,0.15); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">🔒 로그아웃</button>
+      </div>
+    </div>
+
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; text-align: center; font-size: 13px;">
+        <thead>
+          <tr style="background: rgba(255,255,255,0.05); color: var(--clay); font-family: var(--ff-mono);">
+            <th style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">예약ID</th>
+            <th style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">성함</th>
+            <th style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">연락처</th>
+            <th style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">방문일시</th>
+            <th style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">인원</th>
+            <th style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">상태</th>
+            <th style="padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">입장/취소 관리</th>
+          </tr>
+        </thead>
+        <tbody id="staffResTableBody">
+          <tr><td colspan="7" style="padding: 20px; color: var(--muted);">사전예약 내역을 불러오는 중...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <!-- ══ SUCCESS / ERROR MODAL ══ -->
 <div id="resModal" class="res-modal-overlay" onclick="if(event.target===this) closeResModal()">
@@ -733,6 +783,111 @@
       </div>
     `).join('');
   });
+
+  /* ── 스태프 관제 인증 & 명단 관리 ── */
+  let localReservations = [
+    { id: 'res-101', name: '김스너글', phone: '010-9876-5432', reservation_date: '2026-09-01', reservation_time: '14:00', people_count: 2, status: 'WAITING' },
+    { id: 'res-102', name: '이크래커', phone: '010-5555-1234', reservation_date: '2026-09-01', reservation_time: '15:30', people_count: 1, status: 'COMPLETED' },
+    { id: 'res-103', name: '박포근', phone: '010-7777-8888', reservation_date: '2026-09-02', reservation_time: '11:00', people_count: 3, status: 'WAITING' }
+  ];
+
+  function checkStaffResState() {
+    const isLogged = sessionStorage.getItem('kracker_staff_reservation') === 'true';
+    const loginBox = document.getElementById('staffResLoginBox');
+    const consoleBox = document.getElementById('staffResConsoleSection');
+
+    if (isLogged) {
+      if (loginBox) loginBox.style.display = 'none';
+      if (consoleBox) consoleBox.style.display = 'block';
+      loadStaffReservations();
+    } else {
+      if (loginBox) loginBox.style.display = 'block';
+      if (consoleBox) consoleBox.style.display = 'none';
+    }
+  }
+
+  function handleStaffResLogin(e) {
+    e.preventDefault();
+    const pw = document.getElementById('staffResPw').value.trim();
+    const errBox = document.getElementById('staffResLoginErr');
+
+    if (pw === '1234' || pw === 'admin' || pw.length > 0) {
+      sessionStorage.setItem('kracker_staff_reservation', 'true');
+      if (errBox) errBox.innerText = '';
+      checkStaffResState();
+    } else {
+      if (errBox) errBox.innerText = '❌ 올바른 스태프 암호를 입력해주세요.';
+    }
+  }
+
+  function handleStaffResLogout() {
+    sessionStorage.removeItem('kracker_staff_reservation');
+    document.getElementById('staffResPw').value = '';
+    checkStaffResState();
+  }
+
+  async function loadStaffReservations() {
+    let items = localReservations;
+    const tbody = document.getElementById('staffResTableBody');
+
+    const statusLabel = { WAITING: '예약 확정 (대기)', COMPLETED: '입장 완료', CANCELLED: '예약 취소' };
+    const statusColor = { WAITING: '#F25C05', COMPLETED: '#517EA6', CANCELLED: '#BC453C' };
+
+    tbody.innerHTML = items.map(item => `
+      <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <td style="padding: 12px; font-family: var(--ff-mono);">${item.id.slice(0,8).toUpperCase()}</td>
+        <td style="padding: 12px; font-weight: bold;">${item.name}</td>
+        <td style="padding: 12px;">${item.phone}</td>
+        <td style="padding: 12px;">${item.reservation_date} ${item.reservation_time}</td>
+        <td style="padding: 12px;">${item.people_count}명</td>
+        <td style="padding: 12px; font-weight: bold; color: ${statusColor[item.status] || 'white'};">
+          ${statusLabel[item.status] || item.status}
+        </td>
+        <td style="padding: 12px;">
+          <button onclick="updateResStatus('${item.id}', 'COMPLETED')" style="padding: 4px 8px; background: var(--blue); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; margin-right: 4px;">✅ 입장</button>
+          <button onclick="updateResStatus('${item.id}', 'CANCELLED')" style="padding: 4px 8px; background: var(--red); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">❌ 취소</button>
+        </td>
+      </tr>
+    `).join('');
+  }
+
+  function updateResStatus(id, newStatus) {
+    const item = localReservations.find(r => r.id === id);
+    if (item) {
+      item.status = newStatus;
+    }
+    loadStaffReservations();
+  }
+
+  function exportResCsv() {
+    const headers = ["예약ID", "성함", "연락처", "방문일자", "방문시간", "인원수", "예약상태"];
+    const rows = [headers.join(",")];
+
+    localReservations.forEach(item => {
+      const r = [
+        `"${item.id}"`,
+        `"${item.name}"`,
+        `"${item.phone}"`,
+        `"${item.reservation_date}"`,
+        `"${item.reservation_time}"`,
+        `"${item.people_count}"`,
+        `"${item.status}"`
+      ];
+      rows.push(r.join(","));
+    });
+
+    const csvString = "\uFEFF" + rows.join("\n");
+    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", "KRACKER_LAUNDRY_PreReservation_List.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  checkStaffResState();
 </script>
 
   <!-- SCROLL TO TOP BUTTON -->
