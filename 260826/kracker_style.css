@@ -14,7 +14,7 @@
     --brown-light: #BF6E50;
     --border-color: rgba(89, 67, 53, 0.25);
     
-    --font-heading: 'Archivo', 'Noto Sans KR', sans-serif;
+    --font-heading: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif;
     --font-mono: ui-monospace, Menlo, monospace;
     --font-display: 'SheLeeOkSun', 'Archivo', sans-serif;
 }

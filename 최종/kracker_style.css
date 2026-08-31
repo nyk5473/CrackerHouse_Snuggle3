@@ -24,7 +24,7 @@
     --text-main: var(--white);
     --border-color: rgba(255, 255, 255, 0.1);
     
-    --font-heading: 'SheLeeOkSun', 'Playfair Display', serif;
+    --font-heading: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif;
     --font-mono: 'DM Mono', monospace;
     --font-display: 'Noto Sans KR', sans-serif;
     

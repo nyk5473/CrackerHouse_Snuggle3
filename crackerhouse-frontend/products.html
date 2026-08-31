@@ -33,7 +33,7 @@
       --card:     #2E1D0F;
       --white:    #FFFFFF;
       --muted:    #C4B9AE;
-      --ff-serif: 'SheLeeOkSun', 'Playfair Display', serif;
+      --ff-serif: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif;
       --ff-mono:  'DM Mono', monospace;
       --ff-sans:  'Noto Sans KR', sans-serif;
       --tr:       all 0.28s ease;
@@ -311,6 +311,28 @@
       box-shadow: 0 8px 24px rgba(235, 69, 60, 0.4);
     }
   </style>
+<style>
+@font-face {
+  font-family: 'LeeOkSun';
+  src: url('images/그녀_이옥선.ttf') format('truetype'),
+       url('그녀_이옥선.ttf') format('truetype'),
+       url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_ten@1.0/Her-Leeoksun.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SheLeeOkSun';
+  src: url('images/그녀_이옥선.ttf') format('truetype'),
+       url('그녀_이옥선.ttf') format('truetype'),
+       url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_ten@1.0/Her-Leeoksun.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline, .page-title, .kiosk-title, .waiting-title, .zone-header {
+  font-family: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif !important;
+}
+</style>
 </head>
 <body>
 
