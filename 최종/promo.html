@@ -484,7 +484,8 @@
     <div class="products-eyebrow">// COLLABORATION COLLECTION</div>
     <h2 class="products-big-title">have<br/><em>a good</em> time.</h2>
   </div>
-      <div class="products-asym">
+
+  <div class="products-asym">
     <!-- 파란색 영역 (좌측 대형): 빨간색 옷 (빈티지 피그먼트 티셔츠) -->
     <div class="pa-big">
       <img src="images/mock_product_2.png?v=20260831_v99" alt="빈티지 피그먼트 티셔츠" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.src='mock_product_2.png'; this.onerror=null;" />
@@ -521,69 +522,85 @@
     </div>
   </div>
 
-    <!-- 3번째 사진: 전체 컬렉션 보기 (KAFFEINE 스너글 포토) -->
-    <div class="pa-info" style="position:relative; overflow:hidden; padding:0; background:none;">
-      <img src="images/collab_collection.jpg?v=20260831_3feature" alt="전체 컬렉션 보기" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;" onerror="this.src='collab_collection.jpg'; this.onerror=null;" />
-      <div style="position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:32px 30px; background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(242,92,5,0.3) 100%);">
+  <div class="brand-tabs" style="justify-content: space-between; align-items: center; margin: 30px 48px 24px; display: flex; gap: 12px; flex-wrap: wrap;">
+    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+      <button class="tab-btn active" data-filter="all">전체 상품</button>
+      <button class="tab-btn" data-filter="KRACKER_HOUSE">크래커하우스 (패션)</button>
+      <button class="tab-btn" data-filter="SNUGGLE">스너글 (케어 & 라이프)</button>
+    </div>
+    <a href="products.html" class="more-btn" style="font-family: var(--ff-mono); font-size: 12px; font-weight: 700; color: var(--orange); border: 1px solid var(--orange); padding: 5px 14px; border-radius: 20px; text-decoration: none; transition: var(--tr);" onmouseover="this.style.background='var(--orange)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='var(--orange)';">more +</a>
+  </div>
+
+  <div class="products-row" id="productsGrid" style="display: flex; gap: 24px; overflow-x: auto; padding: 0 48px 60px; justify-content: center; flex-wrap: wrap;">
+    <!-- 1. 옐로우 티셔츠 -->
+    <div class="product-card" data-brand="KRACKER_HOUSE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
+      <div class="product-card__img" style="aspect-ratio: 3/4; overflow: hidden; position: relative;">
+        <img src="images/kracker_basic_t_shirts_yellow.jpg?v=20260831_v4" alt="크래커하우스 시그니처 옐로우 티셔츠" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='kracker_basic_t_shirts_yellow.jpg'; this.onerror=null;" />
+        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">크래커하우스</span>
+      </div>
+      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
         <div>
-          <h3 style="font-family:var(--ff-serif);font-size:24px;color:var(--white);line-height:1.35;margin-bottom:12px;">COLLABORATION<br/>COLLECTION</h3>
-          <p style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;">크래커하우스의 워크웨어 실루엣과 스너글의 포근한 세탁 케어가 만났습니다. 한정 콜라보레이션 굿즈 컬렉션.</p>
+          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Apparel</span>
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">크래커하우스 시그니처 옐로우 티셔츠</h3>
+          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">선명한 옐로우 넥 링거 디테일의 프리미엄 반팔 티셔츠</p>
         </div>
-        <a href="products.html" class="pa-info-link" style="color:var(--orange); text-decoration:none; font-family:var(--ff-mono); font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">전체 컬렉션 보기 &#8594;</a>
-      </div>
-    </div>
-
-    <!-- 2번째 사진: 백로고 옐로우 티셔츠 -->
-    <div class="pa-small">
-      <img src="images/mock_product_1.png?v=20260831_3feature" alt="백로고 옐로우 티셔츠" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.src='mock_product_1.png'; this.onerror=null;" />
-      <div class="pa-overlay">
-        <div class="pa-tag">KRACKER HOUSE</div>
-        <div class="pa-name">백로고 옐로우 티셔츠</div>
-        <div class="pa-price">&#8361;42,000</div>
-      </div>
-    </div>
-  </div>
-
-        <div class="pa-info" style="position:relative; overflow:hidden; padding:0; background:none;">
-      <img src="images/collab_collection.jpg" alt="Collection Info" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;" />
-      <div style="position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:32px 30px; background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(242,92,5,0.3) 100%);">
         <div>
-          <h3 style="font-family:var(--ff-serif);font-size:24px;color:var(--white);line-height:1.35;margin-bottom:12px;">COLLABORATION<br/>COLLECTION</h3>
-          <p style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;">크래커하우스의 워크웨어 실루엣과 스너글의 포근한 세탁 케어가 만났습니다. 한정 콜라보레이션 굿즈 컬렉션.</p>
+          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">42,000원</p>
         </div>
-        <a href="products.html" class="pa-info-link" style="color:var(--orange); text-decoration:none; font-family:var(--ff-mono); font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">전체 컬렉션 보기 &#8594;</a>
       </div>
     </div>
-    <div class="hero-bottom">
-      <span class="hero-credit">Kracker House &#215; Snuggle 2026</span>
-      <span class="hero-scroll">scroll</span>
-      <a href="#prereg-section" class="hero-pill">9.11 &#8212; 9.23 &nbsp; 사전등록 &#8594;</a>
+
+    <!-- 2. 코랄 레드 티셔츠 -->
+    <div class="product-card" data-brand="KRACKER_HOUSE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
+      <div class="product-card__img" style="aspect-ratio: 3/4; overflow: hidden; position: relative;">
+        <img src="images/kracker_basic_t_shirts_red.jpg?v=20260831_v4" alt="크래커하우스 빈티지 코랄 레드 티셔츠" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='kracker_basic_t_shirts_red.jpg'; this.onerror=null;" />
+        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">크래커하우스</span>
+      </div>
+      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
+        <div>
+          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Apparel</span>
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">크래커하우스 빈티지 코랄 레드 티셔츠</h3>
+          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">감각적인 피그먼트 워싱 코랄 레드 컬러 티셔츠</p>
+        </div>
+        <div>
+          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">45,000원</p>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="film-topbar">
-    <div class="film-seg"><div class="film-perfs"><div class="fperf"></div><div class="fperf"></div><div class="fperf"></div></div><span>8305</span></div>
-    <div class="film-seg"><span>8A &#9658; SSF STARFIELD VILLAGE</span></div>
-    <div class="film-seg"><span>9</span><div class="film-perfs"><div class="fperf"></div><div class="fperf"></div></div></div>
-    <div class="film-seg"><span>&#9658;&#9658; KRACKER &#215; SNUGGLE POP-UP</span></div>
-    <div class="film-seg"><div class="film-perfs"><div class="fperf"></div><div class="fperf"></div><div class="fperf"></div></div><span>8305</span></div>
-  </div>
-
-        <div id="check-in-container" style="text-align:center; padding: 120px 20px;">
-    <a id="btn-check-in" href="info.html" target="_blank" style="display: inline-block; padding: 18px 50px; font-size: 24px; font-weight: 900; background: var(--orange); color: var(--white); text-decoration: none; border-radius: 4px; cursor: pointer; font-family: var(--ff-serif); font-style: italic; letter-spacing: 0.08em; transition: var(--tr); box-shadow: 0 4px 20px rgba(242, 92, 5, 0.3);" onmouseover="this.style.background='var(--red)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--orange)'; this.style.transform=''">CHECK IN</a>
-  </div>
-
-<section id="prereg-section">
-  <div class="prereg-inner">
-    <div>
-      <div class="prereg-label">// PRE REGISTRATION</div>
-      <h2 class="prereg-headline">have<br/><em>a good</em> time.</h2>
+    <!-- 3. 캔버스 토트백 -->
+    <div class="product-card" data-brand="KRACKER_HOUSE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
+      <div class="product-card__img" style="aspect-ratio: 3/4; overflow: hidden; position: relative;">
+        <img src="images/kracker_tote_bag.jpg?v=20260831_v4" alt="크래커하우스 X 스너글 캔버스 토트백" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='kracker_tote_bag.jpg'; this.onerror=null;" />
+        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">크래커하우스</span>
+      </div>
+      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
+        <div>
+          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Fashion & Goods</span>
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">크래커하우스 X 스너글 캔버스 토트백</h3>
+          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">귀여운 새 캐릭터 자수가 포함된 튼튼한 캔버스백</p>
+        </div>
+        <div>
+          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">38,000원</p>
+        </div>
+      </div>
     </div>
-    <div>
-      <p class="prereg-desc">스타필드 빌리지에서 크래커하우스 &#215; 스너글 콜라보의 특별한 순간을 경험하세요. 사전 예약 시 선착순 굿즈 증정 및 체험존 우선 입장 혜택이 있습니다.</p>
-      <div class="prereg-btns">
-        <a href="reservation.html" class="reg-btn reg-btn--web" id="btn-web-reservation"><span>🌐 &nbsp;웹 사전예약 신청하기</span><span>&#8594;</span></a>
-        <a href="kiosk.html" class="reg-btn reg-btn--kiosk" id="btn-kiosk"><span>📱 &nbsp;현장 대기 등록 (키오스크)</span><span>&#8599;</span></a>
+
+    <!-- 4. 스너글 빈티지 바닐라 -->
+    <div class="product-card" data-brand="SNUGGLE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
+      <div class="product-card__img" style="aspect-ratio: 3/4; overflow: hidden; position: relative;">
+        <img src="images/snuggle_vintage_vanilla.jpg?v=20260831_v4" alt="스너글 빈티지 바닐라 섬유유연제 2L" style="width: 100%; height: 100%; object-fit: contain; background: #fff; padding: 10px; display: block;" onerror="this.src='snuggle_vintage_vanilla.jpg'; this.onerror=null;" />
+        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">스너글</span>
+      </div>
+      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
+        <div>
+          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Care & Life</span>
+          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">스너글 빈티지 바닐라 섬유유연제 2L</h3>
+          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">실내건조 포근한 바닐라 잔향의 스너글 섬유유연제</p>
+        </div>
+        <div>
+          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">16,500원</p>
+        </div>
       </div>
     </div>
   </div>
@@ -616,7 +633,8 @@
     <div class="products-eyebrow">// COLLABORATION COLLECTION</div>
     <h2 class="products-big-title">have<br/><em>a good</em> time.</h2>
   </div>
-      <div class="products-asym">
+
+  <div class="products-asym">
     <!-- 파란색 영역 (좌측 대형): 빨간색 옷 (빈티지 피그먼트 티셔츠) -->
     <div class="pa-big">
       <img src="images/mock_product_2.png?v=20260831_v99" alt="빈티지 피그먼트 티셔츠" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.src='mock_product_2.png'; this.onerror=null;" />
@@ -653,41 +671,6 @@
     </div>
   </div>
 
-    <!-- 3번째 사진: 전체 컬렉션 보기 (KAFFEINE 스너글 포토) -->
-    <div class="pa-info" style="position:relative; overflow:hidden; padding:0; background:none;">
-      <img src="images/collab_collection.jpg?v=20260831_3feature" alt="전체 컬렉션 보기" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;" onerror="this.src='collab_collection.jpg'; this.onerror=null;" />
-      <div style="position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:32px 30px; background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(242,92,5,0.3) 100%);">
-        <div>
-          <h3 style="font-family:var(--ff-serif);font-size:24px;color:var(--white);line-height:1.35;margin-bottom:12px;">COLLABORATION<br/>COLLECTION</h3>
-          <p style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;">크래커하우스의 워크웨어 실루엣과 스너글의 포근한 세탁 케어가 만났습니다. 한정 콜라보레이션 굿즈 컬렉션.</p>
-        </div>
-        <a href="products.html" class="pa-info-link" style="color:var(--orange); text-decoration:none; font-family:var(--ff-mono); font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">전체 컬렉션 보기 &#8594;</a>
-      </div>
-    </div>
-
-    <!-- 2번째 사진: 백로고 옐로우 티셔츠 -->
-    <div class="pa-small">
-      <img src="images/mock_product_1.png?v=20260831_3feature" alt="백로고 옐로우 티셔츠" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.src='mock_product_1.png'; this.onerror=null;" />
-      <div class="pa-overlay">
-        <div class="pa-tag">KRACKER HOUSE</div>
-        <div class="pa-name">백로고 옐로우 티셔츠</div>
-        <div class="pa-price">&#8361;42,000</div>
-      </div>
-    </div>
-  </div>
-
-        <div class="pa-info" style="position:relative; overflow:hidden; padding:0; background:none;">
-      <img src="images/collab_collection.jpg" alt="Collection Info" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;" />
-      <div style="position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:32px 30px; background:linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(242,92,5,0.3) 100%);">
-        <div>
-          <h3 style="font-family:var(--ff-serif);font-size:24px;color:var(--white);line-height:1.35;margin-bottom:12px;">COLLABORATION<br/>COLLECTION</h3>
-          <p style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;">크래커하우스의 워크웨어 실루엣과 스너글의 포근한 세탁 케어가 만났습니다. 한정 콜라보레이션 굿즈 컬렉션.</p>
-        </div>
-        <a href="products.html" class="pa-info-link" style="color:var(--orange); text-decoration:none; font-family:var(--ff-mono); font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">전체 컬렉션 보기 &#8594;</a>
-      </div>
-    </div>
-    <div class="pa-small"><img src="images/mock_product_1.png" alt="Styling" style="width:100%;height:100%;object-fit:cover;display:block;" /><div class="pa-overlay"><div class="pa-tag">KRACKER HOUSE</div><div class="pa-name">백로고 옐로우 티셔츠</div><div class="pa-price">&#8361;42,000</div></div></div>
-  </div>
   <div class="brand-tabs" style="justify-content: space-between; align-items: center; margin: 30px 48px 24px; display: flex; gap: 12px; flex-wrap: wrap;">
     <div style="display: flex; gap: 12px; flex-wrap: wrap;">
       <button class="tab-btn active" data-filter="all">전체 상품</button>
@@ -697,8 +680,8 @@
     <a href="products.html" class="more-btn" style="font-family: var(--ff-mono); font-size: 12px; font-weight: 700; color: var(--orange); border: 1px solid var(--orange); padding: 5px 14px; border-radius: 20px; text-decoration: none; transition: var(--tr);" onmouseover="this.style.background='var(--orange)'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='var(--orange)';">more +</a>
   </div>
 
-      <div class="products-row" id="productsGrid" style="display: flex; gap: 24px; overflow-x: auto; padding: 0 48px 60px; justify-content: center; flex-wrap: wrap;">
-    <!-- 1. 옐로우 티셔츠 (크래커하우스) -->
+  <div class="products-row" id="productsGrid" style="display: flex; gap: 24px; overflow-x: auto; padding: 0 48px 60px; justify-content: center; flex-wrap: wrap;">
+    <!-- 1. 옐로우 티셔츠 -->
     <div class="product-card" data-brand="KRACKER_HOUSE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
       <div class="product-card__img" style="aspect-ratio: 3/4; overflow: hidden; position: relative;">
         <img src="images/kracker_basic_t_shirts_yellow.jpg?v=20260831_v4" alt="크래커하우스 시그니처 옐로우 티셔츠" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='kracker_basic_t_shirts_yellow.jpg'; this.onerror=null;" />
@@ -716,7 +699,7 @@
       </div>
     </div>
 
-    <!-- 2. 코랄 레드 티셔츠 (크래커하우스) -->
+    <!-- 2. 코랄 레드 티셔츠 -->
     <div class="product-card" data-brand="KRACKER_HOUSE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
       <div class="product-card__img" style="aspect-ratio: 3/4; overflow: hidden; position: relative;">
         <img src="images/kracker_basic_t_shirts_red.jpg?v=20260831_v4" alt="크래커하우스 빈티지 코랄 레드 티셔츠" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='kracker_basic_t_shirts_red.jpg'; this.onerror=null;" />
@@ -734,7 +717,7 @@
       </div>
     </div>
 
-    <!-- 3. 캔버스 토트백 (크래커하우스 패션 카테고리) -->
+    <!-- 3. 캔버스 토트백 -->
     <div class="product-card" data-brand="KRACKER_HOUSE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
       <div class="product-card__img" style="aspect-ratio: 3/4; overflow: hidden; position: relative;">
         <img src="images/kracker_tote_bag.jpg?v=20260831_v4" alt="크래커하우스 X 스너글 캔버스 토트백" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='kracker_tote_bag.jpg'; this.onerror=null;" />
@@ -752,7 +735,7 @@
       </div>
     </div>
 
-    <!-- 4. 스너글 빈티지 바닐라 섬유유연제 (스너글 케어 & 라이프 카테고리) -->
+    <!-- 4. 스너글 빈티지 바닐라 -->
     <div class="product-card" data-brand="SNUGGLE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
       <div class="product-card__img" style="aspect-ratio: 3/4; overflow: hidden; position: relative;">
         <img src="images/snuggle_vintage_vanilla.jpg?v=20260831_v4" alt="스너글 빈티지 바닐라 섬유유연제 2L" style="width: 100%; height: 100%; object-fit: contain; background: #fff; padding: 10px; display: block;" onerror="this.src='snuggle_vintage_vanilla.jpg'; this.onerror=null;" />
@@ -763,80 +746,6 @@
           <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Care & Life</span>
           <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">스너글 빈티지 바닐라 섬유유연제 2L</h3>
           <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">실내건조 포근한 바닐라 잔향의 스너글 섬유유연제</p>
-        </div>
-        <div>
-          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">16,500원</p>
-        </div>
-      </div>
-    </div>
-  </div>
-    </div>
-
-    <!-- 상품 2: 빈티지 코랄 레드 티셔츠 -->
-    <div class="product-card" data-brand="KRACKER_HOUSE" style="flex: 0 0 280px; width: 280px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
-      <div class="product-card__img" style="aspect-ratio: 3/4; overflow: hidden; position: relative;">
-        <img src="images/kracker_basic_t_shirts_red.jpg?v=20260831_3p" alt="크래커하우스 빈티지 코랄 레드 티셔츠" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='kracker_basic_t_shirts_red.jpg'; this.onerror=null;" />
-        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">크래커하우스</span>
-      </div>
-      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
-        <div>
-          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Apparel</span>
-          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">크래커하우스 빈티지 코랄 레드 티셔츠</h3>
-          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">감각적인 피그먼트 워싱 코랄 레드 컬러 티셔츠</p>
-        </div>
-        <div>
-          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">45,000원</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- 상품 3: 한정판 캔버스 토트백 -->
-    <div class="product-card" data-brand="SNUGGLE" style="flex: 0 0 280px; width: 280px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
-      <div class="product-card__img" style="aspect-ratio: 3/4; overflow: hidden; position: relative;">
-        <img src="images/kracker_tote_bag.jpg?v=20260831_3p" alt="크래커하우스 X 스너글 한정 캔버스 토트백" style="width: 100%; height: 100%; object-fit: cover; display: block;" onerror="this.src='kracker_tote_bag.jpg'; this.onerror=null;" />
-        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">콜라보 굿즈</span>
-      </div>
-      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
-        <div>
-          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Goods</span>
-          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">크래커하우스 X 스너글 캔버스 토트백</h3>
-          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">귀여운 새 캐릭터 자수가 포함된 튼튼한 캔버스백</p>
-        </div>
-        <div>
-          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">38,000원</p>
-        </div>
-      </div>
-    </div>
-  </div>
-    </div>
-
-    <div class="product-card" data-brand="KRACKER_HOUSE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
-      <div class="product-card__img" style="aspect-ratio: 4/3; overflow: hidden; position: relative;">
-        <img src="images/mock_product_1.png" alt="크래커하우스 백로고 티셔츠" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">크래커</span>
-      </div>
-      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
-        <div>
-          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Apparel</span>
-          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">크래커하우스 백로고 티셔츠</h3>
-          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">뒷면 그래픽 로고 포인트 시그니처 옐로우 티셔츠</p>
-        </div>
-        <div>
-          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">42,000원</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" data-brand="SNUGGLE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
-      <div class="product-card__img" style="aspect-ratio: 4/3; overflow: hidden; position: relative;">
-        <img src="images/vintage_vanilla.jpg" alt="스너글 빈티지 바닐라 섬유유연제" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">스너글</span>
-      </div>
-      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
-        <div>
-          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Care</span>
-          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">스너글 빈티지 바닐라 섬유유연제</h3>
-          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">포근한 가을 바닐라 잔향의 완벽한 조화</p>
         </div>
         <div>
           <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">16,500원</p>
