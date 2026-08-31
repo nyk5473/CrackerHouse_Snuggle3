@@ -849,7 +849,7 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     }
     .main-3d-map-bar {
       background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0) 100%);
-      padding: 20px 28px;
+      padding: 18px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -857,7 +857,71 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
       bottom: 0;
       left: 0;
       right: 0;
-      z-index: 5;
+      z-index: 12;
+      pointer-events: none;
+    }
+    .main-3d-map-bar * { pointer-events: auto; }
+
+    /* INTERACTIVE HOTSPOTS ON 3D MAP */
+    .map-hotspot-pin {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--ff-sans);
+      font-weight: 900;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 22px rgba(242, 92, 5, 0.95), 0 4px 12px rgba(0, 0, 0, 0.6);
+      border: 2px solid #FFFFFF;
+      transition: all 0.3s ease;
+      z-index: 15;
+    }
+    .map-hotspot-pin:hover {
+      transform: translate(-50%, -50%) scale(1.35);
+      background: #FF2A00;
+      box-shadow: 0 0 35px rgba(255, 42, 0, 1), 0 6px 20px rgba(0, 0, 0, 0.8);
+      z-index: 25;
+    }
+    .hotspot-pulse {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 2.5px solid var(--orange);
+      animation: hotspotPulse 1.8s infinite ease-out;
+      pointer-events: none;
+    }
+    @keyframes hotspotPulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    .hotspot-tooltip {
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      background: rgba(18, 12, 6, 0.95);
+      color: var(--white);
+      border: 1.5px solid var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 6px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    }
+    .map-hotspot-pin:hover .hotspot-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
 
     /* 6 Zone Cards Grid */
@@ -946,20 +1010,66 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
   <div class="zones-header">
     <div style="font-family:var(--ff-mono);font-size:11px;letter-spacing:0.2em;color:var(--clay);margin-bottom:14px;">// 3D SPATIAL MAP &amp; 6 EXPERIENCE ZONES</div>
     <h2 class="zones-headline">SIX ZONES,<br/><em>ONE DRUM</em></h2>
-    <p style="font-size:15px;color:rgba(255,255,255,0.88);line-height:1.9;">크래커하우스 x 스너글 팝업스토어 3D 전체 공간 조감도와 6개 전용 체험 존을 만나보세요.</p>
+    <p style="font-size:15px;color:rgba(255,255,255,0.88);line-height:1.9;">크래커하우스 x 스너글 팝업스토어 3D 전체 공간 조감도와 6개 전용 체험 존을 만나보세요.<br/><span style="color:var(--orange); font-size:13px; font-weight:700;">💡 조감도 상의 번호 동그라미(1~6)를 클릭하면 각 존의 상세 설명과 사진이 열립니다!</span></p>
   </div>
 
-  <!-- 2. 3D EFFECT BOX CONTAINER RIGHT BELOW DESCRIPTION -->
+  <!-- 2. 3D EFFECT BOX CONTAINER RIGHT BELOW DESCRIPTION WITH CLICKABLE HOTSPOTS 1~6 -->
   <div class="main-3d-map-stage">
     <div class="main-3d-map-card" id="main3dCard" onclick="openMain3DMapModal()" onmousemove="tilt3dCard(event)" onmouseleave="reset3dCard()">
-      <img src="images/zone_main_3d_map.png?v=20260831_3dmain_force_1788161632" alt="팝업스토어 전체 공간 3D 조감도" class="main-3d-map-img" onerror="this.src='images/zone_main_3d_map.png?v=20260831_3dmain_force_1788161632'; this.onerror=null;" />
+      <img src="images/zone_main_3d_map.png?v=20260831_hotspot_1788163614" alt="팝업스토어 전체 공간 3D 조감도" class="main-3d-map-img" onerror="this.src='zone_main_3d_map.png?v=20260831_hotspot_1788163614'; this.onerror=null;" />
+      
+      <!-- INTERACTIVE CLICKABLE HOTSPOTS OVERLAY (1 ~ 6) -->
+      <div style="position:absolute; inset:0; z-index:10; pointer-events:none;">
+        <!-- Hotspot 1: 취향 테스트존 -->
+        <div class="map-hotspot-pin" style="top:9%; left:24%; pointer-events:auto;" onclick="event.stopPropagation(); openSixZoneModal(0); scrollToZoneCard(0);" title="01. 취향 테스트존">
+          <span class="hotspot-pulse"></span>
+          <span>1</span>
+          <span class="hotspot-tooltip">01. 취향 테스트존 상세보기</span>
+        </div>
+
+        <!-- Hotspot 2: 세탁기 포토부스존 -->
+        <div class="map-hotspot-pin" style="top:9%; left:74%; pointer-events:auto;" onclick="event.stopPropagation(); openSixZoneModal(1); scrollToZoneCard(1);" title="02. 세탁기 포토부스존">
+          <span class="hotspot-pulse"></span>
+          <span>2</span>
+          <span class="hotspot-tooltip">02. 세탁기 포토부스존 상세보기</span>
+        </div>
+
+        <!-- Hotspot 3: 굿즈존 -->
+        <div class="map-hotspot-pin" style="top:19%; left:47%; pointer-events:auto;" onclick="event.stopPropagation(); openSixZoneModal(2); scrollToZoneCard(2);" title="03. 굿즈존">
+          <span class="hotspot-pulse"></span>
+          <span>3</span>
+          <span class="hotspot-tooltip">03. 굿즈존 상세보기</span>
+        </div>
+
+        <!-- Hotspot 4: DIY 존 -->
+        <div class="map-hotspot-pin" style="top:44%; left:81%; pointer-events:auto;" onclick="event.stopPropagation(); openSixZoneModal(3); scrollToZoneCard(3);" title="04. DIY 존">
+          <span class="hotspot-pulse"></span>
+          <span>4</span>
+          <span class="hotspot-tooltip">04. DIY 존 상세보기</span>
+        </div>
+
+        <!-- Hotspot 5: 커피 & 미니어존 -->
+        <div class="map-hotspot-pin" style="top:76%; left:47%; pointer-events:auto;" onclick="event.stopPropagation(); openSixZoneModal(4); scrollToZoneCard(4);" title="05. 커피 &amp; 미니어존">
+          <span class="hotspot-pulse"></span>
+          <span>5</span>
+          <span class="hotspot-tooltip">05. 커피 &amp; 미니어존 상세보기</span>
+        </div>
+
+        <!-- Hotspot 6: 방명록 존 -->
+        <div class="map-hotspot-pin" style="top:68%; left:74%; pointer-events:auto;" onclick="event.stopPropagation(); openSixZoneModal(5); scrollToZoneCard(5);" title="06. 방명록 존">
+          <span class="hotspot-pulse"></span>
+          <span>6</span>
+          <span class="hotspot-tooltip">06. 방명록 존 상세보기</span>
+        </div>
+      </div>
+
       <div class="main-3d-map-bar">
         <div>
           <span style="font-family:var(--ff-mono); font-size:11px; color:var(--orange); letter-spacing:0.2em; font-weight:700;">✨ 3D ISOMETRIC MAP SHOWCASE</span>
           <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:24px; color:var(--white); margin-top:2px;">팝업스토어 전체 공간 3D 조감도</h3>
         </div>
         <div style="display:flex; align-items:center; gap:12px;">
-          <span style="font-family:var(--ff-mono); font-size:11px; color:var(--white); background:rgba(242,92,5,0.25); border:1px solid var(--orange); padding:6px 14px; border-radius:20px; font-weight:700;">🔍 클릭시 원본 크게보기</span>
+          <span style="font-family:var(--ff-mono); font-size:11px; color:var(--white); background:rgba(242,92,5,0.25); border:1px solid var(--orange); padding:6px 14px; border-radius:20px; font-weight:700;">🔍 핀 클릭시 존 설명보기 / 빈공간 클릭시 확대</span>
         </div>
       </div>
     </div>
@@ -968,9 +1078,9 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
   <!-- 3. 6 Zone Cards Grid Below 3D Map -->
   <div class="six-zones-grid">
     <!-- Zone 01 (첫번째 사진 - WHAT'S YOUR TASTE) -->
-    <div class="six-zone-card" onclick="openSixZoneModal(0)">
+    <div class="six-zone-card" id="zoneCard0" onclick="openSixZoneModal(0)">
       <div class="six-zone-img-wrap">
-        <img src="images/zone_card_01.jpg?v=20260831_zones_exact_1788161315" alt="01. 취향 테스트존" onerror="this.src='zone_card_01.jpg?v=20260831_zones_exact_1788161315'; this.onerror=null;" />
+        <img src="images/zone_card_01.jpg?v=20260831_hotspot_1788163614" alt="01. 취향 테스트존" onerror="this.src='zone_card_01.jpg?v=20260831_hotspot_1788163614'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 01</span>
       </div>
       <div class="six-zone-body">
@@ -983,9 +1093,9 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     </div>
 
     <!-- Zone 02 (세탁기 포토부스존) -->
-    <div class="six-zone-card" onclick="openSixZoneModal(1)">
+    <div class="six-zone-card" id="zoneCard1" onclick="openSixZoneModal(1)">
       <div class="six-zone-img-wrap">
-        <img src="images/zone_001.png?v=20260831_zones_exact_1788161315" alt="02. 세탁기 포토부스존" onerror="this.src='zone_001.png?v=20260831_zones_exact_1788161315'; this.onerror=null;" />
+        <img src="images/zone_001.png?v=20260831_hotspot_1788163614" alt="02. 세탁기 포토부스존" onerror="this.src='zone_001.png?v=20260831_hotspot_1788163614'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 02</span>
       </div>
       <div class="six-zone-body">
@@ -998,9 +1108,9 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     </div>
 
     <!-- Zone 03 (두번째 사진 - 굿즈존) -->
-    <div class="six-zone-card" onclick="openSixZoneModal(2)">
+    <div class="six-zone-card" id="zoneCard2" onclick="openSixZoneModal(2)">
       <div class="six-zone-img-wrap">
-        <img src="images/zone_card_03.jpg?v=20260831_zones_exact_1788161315" alt="03. 굿즈존" onerror="this.src='zone_card_03.jpg?v=20260831_zones_exact_1788161315'; this.onerror=null;" />
+        <img src="images/zone_card_03.jpg?v=20260831_hotspot_1788163614" alt="03. 굿즈존" onerror="this.src='zone_card_03.jpg?v=20260831_hotspot_1788163614'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 03</span>
       </div>
       <div class="six-zone-body">
@@ -1013,9 +1123,9 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     </div>
 
     <!-- Zone 04 (세번째 사진 - DIY 존) -->
-    <div class="six-zone-card" onclick="openSixZoneModal(3)">
+    <div class="six-zone-card" id="zoneCard3" onclick="openSixZoneModal(3)">
       <div class="six-zone-img-wrap">
-        <img src="images/zone_card_04.jpg?v=20260831_zones_exact_1788161315" alt="04. DIY 존" onerror="this.src='zone_card_04.jpg?v=20260831_zones_exact_1788161315'; this.onerror=null;" />
+        <img src="images/zone_card_04.jpg?v=20260831_hotspot_1788163614" alt="04. DIY 존" onerror="this.src='zone_card_04.jpg?v=20260831_hotspot_1788163614'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 04</span>
       </div>
       <div class="six-zone-body">
@@ -1028,9 +1138,9 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     </div>
 
     <!-- Zone 05 (커피 & 미니어존) -->
-    <div class="six-zone-card" onclick="openSixZoneModal(4)">
+    <div class="six-zone-card" id="zoneCard4" onclick="openSixZoneModal(4)">
       <div class="six-zone-img-wrap">
-        <img src="images/hero_laundry_store.jpg?v=20260831_zones_exact_1788161315" alt="05. 커피 &amp; 미니어존" onerror="this.src='hero_laundry_store.jpg'; this.onerror=null;" />
+        <img src="images/hero_laundry_store.jpg?v=20260831_hotspot_1788163614" alt="05. 커피 &amp; 미니어존" onerror="this.src='hero_laundry_store.jpg'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 05</span>
       </div>
       <div class="six-zone-body">
@@ -1043,9 +1153,9 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     </div>
 
     <!-- Zone 06 (네번째 사진 - 방명록 존) -->
-    <div class="six-zone-card" onclick="openSixZoneModal(5)">
+    <div class="six-zone-card" id="zoneCard5" onclick="openSixZoneModal(5)">
       <div class="six-zone-img-wrap">
-        <img src="images/zone_card_06.jpg?v=20260831_zones_exact_1788161315" alt="06. 방명록 존" onerror="this.src='zone_card_06.jpg?v=20260831_zones_exact_1788161315'; this.onerror=null;" />
+        <img src="images/zone_card_06.jpg?v=20260831_hotspot_1788163614" alt="06. 방명록 존" onerror="this.src='zone_card_06.jpg?v=20260831_hotspot_1788163614'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 06</span>
       </div>
       <div class="six-zone-body">
@@ -1058,6 +1168,130 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     </div>
   </div>
 </section>
+
+<!-- FULL HD 3D MAP EXPANDED MODAL -->
+<div id="main3DMapModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(14px); padding:20px;" onclick="if(event.target===this) closeMain3DMapModal()">
+  <div style="background:var(--dark2); border:2.5px solid var(--orange); border-radius:16px; max-width:1250px; width:96%; max-height:92vh; padding:28px; text-align:center; position:relative; box-shadow:0 40px 100px rgba(0,0,0,0.95); display:flex; flex-direction:column; overflow:hidden;">
+    <button onclick="closeMain3DMapModal()" style="position:absolute; top:18px; right:24px; background:rgba(242,92,5,0.2); border:1px solid var(--orange); color:var(--white); font-size:28px; width:44px; height:44px; border-radius:50%; cursor:pointer; z-index:10; display:flex; align-items:center; justify-content:center;">×</button>
+    <div style="font-family:var(--ff-mono); font-size:12px; color:var(--orange); letter-spacing:0.2em; margin-bottom:6px; font-weight:700;">HIGH-RESOLUTION 3D FLOORPLAN</div>
+    <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:32px; color:var(--white); margin-bottom:16px;">크래커하우스 X 스너글 팝업스토어 3D 공간 조감도 원본</h3>
+    <div style="flex:1; overflow:auto; border-radius:10px; background:#100903; border:1px solid rgba(255,255,255,0.1); padding:10px; display:flex; align-items:center; justify-content:center;">
+      <img src="images/zone_main_3d_map.png?v=20260831_hotspot_1788163614" alt="3D 조감도 원본 크게보기" style="max-width:100%; max-height:78vh; object-fit:contain; display:block; border-radius:6px;" onerror="this.src='zone_main_3d_map.png?v=20260831_hotspot_1788163614'; this.onerror=null;" />
+    </div>
+  </div>
+</div>
+
+<!-- 6-ZONE DETAIL MODAL -->
+<div id="sixZoneModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(12px);" onclick="if(event.target===this) closeSixZoneModal()">
+  <div style="background:var(--dark2); border:2.5px solid var(--orange); border-radius:14px; max-width:850px; width:92%; padding:28px; text-align:center; position:relative; box-shadow:0 35px 90px rgba(0,0,0,0.85);">
+    <button onclick="closeSixZoneModal()" style="position:absolute; top:16px; right:20px; background:none; border:none; color:var(--white); font-size:32px; cursor:pointer;">×</button>
+    <div style="font-family:var(--ff-mono); font-size:12px; color:var(--orange); letter-spacing:0.2em; margin-bottom:8px;" id="szNum">ZONE 01</div>
+    <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:32px; color:var(--white); margin-bottom:18px;" id="szTitle">01. 취향 테스트존</h3>
+    <div style="aspect-ratio:16/9; overflow:hidden; border-radius:10px; margin-bottom:20px; border:1px solid rgba(255,255,255,0.1);">
+      <img id="szImg" src="" alt="Zone Full Preview" style="width:100%; height:100%; object-fit:cover; display:block;" />
+    </div>
+    <p style="font-size:15px; color:var(--muted); line-height:1.75;" id="szDesc"></p>
+  </div>
+</div>
+
+<script>
+  const sixZoneData = [
+    {
+      num: "ZONE 01 // WHAT'S YOUR TASTE? (8.0 sqm)",
+      title: "01. 취향 테스트존",
+      desc: "나만의 스너글 향기 취향을 테스트하고 맞춤 섬유유연제 시침지를 받아보는 취향 발견 전용 공간입니다.",
+      img: "images/zone_card_01.jpg?v=20260831_hotspot_1788163614",
+      fallback: "zone_card_01.jpg"
+    },
+    {
+      num: "ZONE 02 // LAUNDRY PHOTO (11.0 sqm)",
+      title: "02. 세탁기 포토부스존",
+      desc: "드럼 세탁기 인테리어 배경에서 특별한 순간을 폴라로이드 사진으로 남기는 레트로 포토부스 존입니다.",
+      img: "images/zone_001.png?v=20260831_hotspot_1788163614",
+      fallback: "zone_001.png"
+    },
+    {
+      num: "ZONE 03 // GOODS SHOWROOM (25.5 sqm)",
+      title: "03. 굿즈존",
+      desc: "크래커하우스 x 스너글 빈티지 코랄 레드 티셔츠, 옐로우 넥티, 캔버스 토트백 한정판 굿즈 쇼룸입니다.",
+      img: "images/zone_card_03.jpg?v=20260831_hotspot_1788163614",
+      fallback: "zone_card_03.jpg"
+    },
+    {
+      num: "ZONE 04 // MAKE YOUR CRACKER T (8.5 sqm)",
+      title: "04. DIY 존",
+      desc: "원하는 자수 와펜과 스트랩으로 나만의 커스텀 크래커 T &amp; 세탁 굿즈를 직접 인쇄하고 제작해보는 커스텀 존입니다.",
+      img: "images/zone_card_04.jpg?v=20260831_hotspot_1788163614",
+      fallback: "zone_card_04.jpg"
+    },
+    {
+      num: "ZONE 05 // CAFE &amp; MINIER (26.5 sqm)",
+      title: "05. 커피 &amp; 미니어존",
+      desc: "포근한 잔디밭 라운지에서 고소한 커피와 베이커리를 즐기며 편안하게 쉬어가는 힐링 휴식 공간입니다.",
+      img: "images/hero_laundry_store.jpg?v=20260831_hotspot_1788163614",
+      fallback: "hero_laundry_store.jpg"
+    },
+    {
+      num: "ZONE 06 // CRACKER GUESTBOOK (6.0 sqm)",
+      title: "06. 방명록 존 (방팩록)",
+      desc: "팝업스토어에서의 소중한 소감과 축하 메시지를 남기고 따뜻한 방명록을 함께 완성하는 참여 공간입니다.",
+      img: "images/zone_card_06.jpg?v=20260831_hotspot_1788163614",
+      fallback: "zone_card_06.jpg"
+    }
+  ];
+
+  function openSixZoneModal(idx) {
+    const item = sixZoneData[idx];
+    if (!item) return;
+    document.getElementById("szNum").textContent = item.num;
+    document.getElementById("szTitle").textContent = item.title;
+    document.getElementById("szDesc").textContent = item.desc;
+    const szImg = document.getElementById("szImg");
+    szImg.src = item.img;
+    szImg.onerror = function() { this.src = item.fallback; };
+
+    const modal = document.getElementById("sixZoneModal");
+    if (modal) modal.style.display = "flex";
+  }
+
+  function closeSixZoneModal() {
+    const modal = document.getElementById("sixZoneModal");
+    if (modal) modal.style.display = "none";
+  }
+
+  function scrollToZoneCard(idx) {
+    const card = document.getElementById("zoneCard" + idx);
+    if (card) {
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+
+  function tilt3dCard(e) {
+    const card = document.getElementById("main3dCard");
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - (rect.width / 2);
+    const y = e.clientY - rect.top - (rect.height / 2);
+    const rotX = (-y / rect.height) * 12;
+    const rotY = (x / rect.width) * 12;
+    card.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg) scale(1.02)`;
+    card.style.boxShadow = `0 35px 90px rgba(0,0,0,0.9), 0 0 60px rgba(242,92,5,0.5)`;
+  }
+  function reset3dCard() {
+    const card = document.getElementById("main3dCard");
+    if (!card) return;
+    card.style.transform = "rotateY(-6deg) rotateX(3deg) scale(1)";
+    card.style.boxShadow = "0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(242,92,5,0.35)";
+  }
+  function openMain3DMapModal() {
+    const modal = document.getElementById("main3DMapModal");
+    if (modal) modal.style.display = "flex";
+  }
+  function closeMain3DMapModal() {
+    const modal = document.getElementById("main3DMapModal");
+    if (modal) modal.style.display = "none";
+  }
+</script>
 
 <!-- FULL HD 3D MAP EXPANDED MODAL -->
 <div id="main3DMapModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(14px); padding:20px;" onclick="if(event.target===this) closeMain3DMapModal()">
