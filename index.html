@@ -24,45 +24,6 @@
       --blue:#517EA6; --beige:#EBE4D8; --dark:#1A1208; --dark2:#231609;
       --card:#2E1D0F; --white:#FFFFFF; --muted:#C4B9AE;
       --ff-serif: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif;
-      --ff-mono:  'Noto Sans KR', sans-serif;
-      --ff-sans:  'Noto Sans KR', sans-serif;
-      --tr:all 0.28s ease;
-    }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans KR',sans-serif !important;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'Noto Sans KR',sans-serif !important;background:var(--dark);color:var(--white);overflow-x:hidden;}
-    a{text-decoration:none;color:inherit;}
-    #top-nav{position:fixed;top:0;left:0;right:0;height:58px;background:var(--red);display:flex;align-items:center;justify-content:space-between;padding:0 36px;z-index:999;box-shadow:0 3px 24px rgba(0,0,0,0.35);}
-    .nav-logo{font-family:var(--ff-mono);font-size:13px;font-weight:500;letter-spacing:0.14em;background:var(--orange);padding:5px 14px;border-radius:3px;color:var(--white);}
-    .nav-links{display:flex;list-style:none;gap:30px;}
-    .nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,0.82);letter-spacing:0.03em;transition:var(--tr);}
-    .nav-links a:hover{color:var(--white);}
-    @media(max-width:768px){.nav-links{display:none;}#top-nav{padding:0 20px;}}
-    #main-page{position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden;background:#0d0906;}
-    .hero-grain{position:absolute;inset:0;opacity:0.035;}
-    .hero-text-layer{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:80px 48px 48px;pointer-events:none;z-index:10;}
-    .hw-row{display:flex;align-items:baseline;line-height:0.93;}
-    .hw-row+.hw-row{margin-top:-0.04em;}
-    .hw{font-family:var(--ff-sans);font-size:clamp(80px,14vw,200px);font-weight:900;letter-spacing:-0.04em;color:var(--white);opacity:0.92;animation:fadeUp 0.7s ease both;}
-    .hw--serif{font-family:'LeeOkSun','SheLeeOkSun',serif !important;color:var(--orange) !important;font-weight:700 !important;}
-    .hw--gap{flex:1;}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
-    .hero-bottom{position:absolute;bottom:0;left:0;right:0;padding:0 48px 32px;display:flex;justify-content:space-between;align-items:flex-end;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,transparent 100%);z-index:10;}
-    .hero-credit{font-family:var(--ff-mono);font-size:10px;color:rgba(255,255,255,0.35);writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:0.12em;}
-    .hero-scroll{font-family:var(--ff-mono);font-size:11px;color:rgba(255,255,255,0.35);letter-spacing:0.12em;display:flex;align-items:center;gap:8px;}
-    .hero-scroll::after{content:'';display:block;width:44px;height:1px;background:rgba(255,255,255,0.25);}
-    .hero-pill{background:var(--orange);color:var(--white);padding:10px 22px;font-size:13px;font-weight:700;border-radius:3px;transition:var(--tr);}
-    .hero-pill:hover{background:var(--red);transform:translateY(-2px);}
-    #popup-section{background:var(--dark);padding:0;}
-    .film-topbar{background:#111;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;}
-    .film-seg{display:flex;align-items:center;gap:8px;font-family:var(--ff-mono);font-size:10px;color:#555;}
-    .film-perfs{display:flex;gap:4px;}
-    .fperf{width:9px;height:13px;border-radius:2px;border:1px solid #333;background:#080808;}
-    .popup-content{padding:64px 48px 0;max-width:1100px;margin:0 auto;}
-    .popup-eyebrow{font-family:var(--ff-mono);font-size:11px;letter-spacing:0.2em;color:var(--clay);margin-bottom:14px;}
-    .popup-title{font-family: 'LeeOkSun', 'SheLeeOkSun', serif !important;font-style:italic;font-size:clamp(34px,4.5vw,60px);line-height:1.05;margin-bottom:48px;}
-    .popup-title strong{font-style:normal;color:var(--orange);}
-    .info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);border-radius:8px;overflow:hidden;margin-bottom:52px;}
     @media(max-width:900px){.info-grid{grid-template-columns:1fr 1fr;}}
     .info-cell{background:#1c1208;padding:28px 22px;display:flex;flex-direction:column;gap:8px;}
     .info-cell__ico{font-size:26px;}
@@ -476,14 +437,14 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     font-family: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif !important;
   }
 </style>
-
 </head>
 <body>
 
 <nav id="top-nav">
   <a href="index.html" class="nav-logo" style="background:none; padding:0; display:inline-flex; align-items:center; text-decoration:none;"><img src="kracker_logo_new.png?v=1788167545" alt="Kracker Laundry Pop-up Store" style="height:36px; max-width:200px; object-fit:contain; display:block;" onerror="this.src='images/kracker_logo_new.png'; this.onerror=null;" /></a>
-  <div style="display:flex; align-items:center; gap:20px;">
+  <div style="display:flex; align-items:center; gap:16px;">
     <ul class="nav-links">
+      <li><a href="mobile.html" style="color:var(--orange); font-weight:700;">📱 모바일 앱</a></li>
       <li><a href="#prereg-section">사전등록</a></li>
       <li><a href="#brand-section">브랜드소개</a></li>
       <li><a href="#product-section">상품</a></li>
@@ -491,8 +452,26 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
       <li><a href="#zones-section">공간 구조 존</a></li>
     </ul>
     <audio id="bgm-player" src="bgm.mp3" controls autoplay loop style="height:24px; width:100px; outline:none; border-radius:15px; background-color:var(--orange); opacity:0.5; transition:opacity 0.28s ease;"></audio>
+    <button class="mobile-menu-btn" id="mobile-toggle-btn" aria-label="메뉴 열기">☰</button>
   </div>
 </nav>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer" id="mobile-nav-drawer">
+  <a href="mobile.html" class="mobile-app-link">📱 모바일 전용 앱 버전 <span>GO →</span></a>
+  <a href="#prereg-section" onclick="toggleMobileDrawer()">🎟️ 사전등록 &amp; 체크인</a>
+  <a href="#brand-section" onclick="toggleMobileDrawer()">✨ 브랜드 스토리</a>
+  <a href="#product-section" onclick="toggleMobileDrawer()">👕 콜라보 굿즈</a>
+  <a href="#laundry-section" onclick="toggleMobileDrawer()">🧺 사진 빨랫줄</a>
+  <a href="#zones-section" onclick="toggleMobileDrawer()">🗺️ 공간 구조 존</a>
+</div>
+
+<!-- Floating Mobile App Button -->
+<a href="mobile.html" class="mobile-app-float">
+  <span>📱</span>
+  <span>모바일 앱 버전으로 보기</span>
+</a>
+
 
 <section id="popup-section" style="position:relative; width:100%; height:100vh; min-height:650px; overflow:hidden; background:#1A1208;">
   <div id="main-page" style="position:relative; width:100%; height:100%; overflow:hidden;">
@@ -1600,43 +1579,6 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
 
     // Play 3D flip animation
     if (box) {
-      box.style.transform = "rotateY(85deg) scale(0.9)";
-      box.style.opacity = "0.3";
-      setTimeout(() => {
-        if (imgEl) {
-          imgEl.src = item.img;
-          imgEl.onerror = function() { this.src = item.fallback; };
-        }
-        document.getElementById("z3dNum").textContent = item.num;
-        document.getElementById("z3dTitle").textContent = item.title;
-        document.getElementById("z3dDesc").textContent = item.desc + " (클릭시 3D 크게보기)";
-
-        box.style.transform = "rotateY(-7deg) rotateX(3deg) scale(1)";
-        box.style.opacity = "1";
-      }, 250);
-    }
-  }
-
-  function openZoneModal() {
-    const item = realZoneData[currentRealZoneIdx];
-    document.getElementById("mZoneNum").textContent = item.num;
-    document.getElementById("mZoneTitle").textContent = item.title;
-    document.getElementById("mZoneDesc").textContent = item.desc;
-    const mImg = document.getElementById("mZoneImg");
-    mImg.src = item.img;
-    mImg.onerror = function() { this.src = item.fallback; };
-
-    const modal = document.getElementById("zone3DModal");
-    if (modal) modal.style.display = "flex";
-  }
-
-  function closeZoneModal() {
-    const modal = document.getElementById("zone3DModal");
-    if (modal) modal.style.display = "none";
-  }
-</script>
-
-<!-- 3D ZONE EXPANDED MODAL -->
 <div id="zone3DModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(10px);" onclick="if(event.target===this) closeZoneModal()">
   <div style="background:var(--dark2); border:2px solid var(--orange); border-radius:12px; max-width:800px; width:90%; padding:24px; text-align:center; position:relative; box-shadow:0 30px 80px rgba(0,0,0,0.8);">
     <button onclick="closeZoneModal()" style="position:absolute; top:16px; right:20px; background:none; border:none; color:var(--white); font-size:28px; cursor:pointer;">×</button>
@@ -1741,6 +1683,44 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     const modal = document.getElementById("zone3DModal");
     if (modal) modal.style.display = "none";
   }
+      gallery.innerHTML = newHtml;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    loadLaundryPreview();
+    setInterval(loadLaundryPreview, 3000);
+
+    if (window.location.hash) {
+      setTimeout(function() {
+        var targetEl = document.querySelector(window.location.hash);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 300);
+    }
+
+    var tabBtns = document.querySelectorAll(".brand-tabs .tab-btn");
+    var productsGrid = document.getElementById("productsGrid");
+    if (tabBtns && productsGrid) {
+      tabBtns.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+          tabBtns.forEach(function(b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          var filter = btn.getAttribute("data-filter");
+          var cards = productsGrid.querySelectorAll(".product-card");
+          cards.forEach(function(card) {
+            var brand = card.getAttribute("data-brand") || "";
+            if (filter === "all") {
+              card.style.display = "flex";
+            } else if (filter.indexOf("KRACKER") !== -1 || filter.indexOf("CRACKER") !== -1) {
+              if (brand.indexOf("KRACKER") !== -1 || brand.indexOf("CRACKER") !== -1) {
+                card.style.display = "flex";
+              } else {
+                card.style.display = "none";
+              }
+            } else if (filter === "SNUGGLE") {
+              if (brand === "SNUGGLE") {
 </script>
 
 <footer>
@@ -1835,6 +1815,29 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
           });
         });
       });
+    }
+  });
+
+  // Mobile Menu Toggle JS
+  const mobileToggleBtn = document.getElementById('mobile-toggle-btn');
+  const mobileDrawer = document.getElementById('mobile-nav-drawer');
+
+  function toggleMobileDrawer() {
+    if (mobileDrawer) {
+      mobileDrawer.classList.toggle('active');
+    }
+  }
+
+  if (mobileToggleBtn) {
+    mobileToggleBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      toggleMobileDrawer();
+    });
+  }
+
+  document.addEventListener('click', function(e) {
+    if (mobileDrawer && mobileDrawer.classList.contains('active') && !mobileDrawer.contains(e.target) && e.target !== mobileToggleBtn) {
+      mobileDrawer.classList.remove('active');
     }
   });
 </script>
