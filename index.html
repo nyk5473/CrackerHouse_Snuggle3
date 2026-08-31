@@ -495,13 +495,21 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
 </nav>
 
 <section id="popup-section">
-  <div id="main-page" style="position:relative; width:100%; height:100vh; min-height:650px; overflow:hidden; background-image: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.6) 100%), url('images/hero_laundry_store.jpg?v=20260831_force_1788159653?v=20260831_force_1788159653?v=20260831_force_1788159653'); background-size:cover; background-position:center center; background-repeat:no-repeat;; background-size:cover; background-position:center center; background-repeat:no-repeat;">
-    <div class="hero-grain" style="pointer-events:none; opacity:0.1;"></div>
-    <div class="hero-text-layer" style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:80px 48px 48px; pointer-events:none; z-index:10; text-shadow:0 6px 30px rgba(0,0,0,0.9);">
+  <div id="main-page" style="position:relative; width:100%; height:100vh; min-height:650px; overflow:hidden; background:#1A1208;">
+    <!-- Direct Hero Background <img> with Multi-level Fallbacks -->
+    <img src="images/hero_laundry_store.jpg?v=20260831_ghpages_1788160284" alt="Kracker Laundry Store Front" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center center; display:block; z-index:1;" onerror="this.src='hero_laundry_store.jpg?v=20260831_ghpages_1788160284'; this.onerror=null;" />
+    
+    <!-- Light Overlay Gradient for Contrast -->
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.08) 50%, rgba(0,0,0,0.6) 100%); z-index:2; pointer-events:none;"></div>
+    <div class="hero-grain" style="pointer-events:none; opacity:0.08; z-index:3;"></div>
+
+    <!-- Hero Typography Text Layer -->
+    <div class="hero-text-layer" style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; padding:80px 48px 48px; pointer-events:none; z-index:10; text-shadow:0 6px 30px rgba(0,0,0,0.92);">
       <div class="hw-row" style="display:flex; align-items:baseline; line-height:0.93;"><span class="hw" style="font-family:var(--ff-sans); font-size:clamp(70px,13vw,190px); font-weight:900; letter-spacing:-0.04em; color:var(--white);">Un</span><span class="hw--gap" style="flex:1;"></span><span class="hw" style="font-family:var(--ff-sans); font-size:clamp(70px,13vw,190px); font-weight:900; letter-spacing:-0.04em; color:var(--white);">ba</span><span class="hw hw--serif" style="font-family:'LeeOkSun','SheLeeOkSun',serif !important; font-size:clamp(70px,13vw,190px); color:var(--orange) !important; font-weight:700 !important;">lan</span><span class="hw" style="font-family:var(--ff-sans); font-size:clamp(70px,13vw,190px); font-weight:900; letter-spacing:-0.04em; color:var(--white);">ce</span></div>
       <div class="hw-row" style="display:flex; align-items:baseline; line-height:0.93; margin-top:-0.04em;"><span class="hw hw--serif" style="font-family:'LeeOkSun','SheLeeOkSun',serif !important; font-size:clamp(70px,13vw,190px); color:var(--orange) !important; font-weight:700 !important;">wei</span><span class="hw" style="font-family:var(--ff-sans); font-size:clamp(70px,13vw,190px); font-weight:900; letter-spacing:-0.04em; color:var(--white);">ght</span><span class="hw--gap" style="flex:1;"></span><span class="hw" style="font-family:var(--ff-sans); font-size:clamp(70px,13vw,190px); font-weight:900; letter-spacing:-0.04em; color:var(--white);">less</span></div>
       <div class="hw-row" style="display:flex; align-items:baseline; line-height:0.93; margin-top:-0.04em;"><span class="hw--gap" style="flex:1;"></span><span class="hw hw--serif" style="font-family:'LeeOkSun','SheLeeOkSun',serif !important; font-size:clamp(70px,13vw,190px); color:var(--orange) !important; font-weight:700 !important;">ness</span></div>
     </div>
+    
     <div class="hero-bottom" style="position:absolute; bottom:0; left:0; right:0; padding:0 48px 32px; display:flex; justify-content:space-between; align-items:flex-end; z-index:10;">
       <span class="hero-credit" style="color:rgba(255,255,255,0.9); font-weight:700;">Kracker House &#215; Snuggle 2026</span>
       <span class="hero-scroll" style="color:rgba(255,255,255,0.9); font-weight:700;">scroll</span>
