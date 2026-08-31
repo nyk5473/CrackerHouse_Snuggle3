@@ -786,58 +786,299 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
   </div>
 </section>
 
-<section id="zones-section" style="padding: 90px 48px; background: var(--dark);">
-  <div style="max-width:1100px; margin:0 auto;">
-    <div style="font-family:var(--ff-mono);font-size:11px;letter-spacing:0.2em;color:var(--clay);margin-bottom:18px;">// EXPERIENCE ZONES</div>
-    <h2 style="font-family: 'LeeOkSun', 'SheLeeOkSun', serif !important;font-size:clamp(42px,5.5vw,72px);font-weight:900;line-height:1.0;color:var(--white);margin-bottom:12px;">EIGHT ROOMS,<br><em style="font-style:italic;color:var(--orange);">ONE DRUM</em></h2>
-    <p style="font-size:15px;color:rgba(255,255,255,0.88);line-height:1.9;margin-bottom:48px;">한 바퀴 돌면 취향이 남는다</p>
-    
-    <div class="zones-grid">
-        <div class="zone-card">
-            <div class="zone-img" style="background:none; overflow:hidden; padding:0; border:none;">
-                <img src="images/hero_laundry_store.jpg?v=20260831_final99" alt="KRACKER LAUNDRY" style="width:100%;height:100%;object-fit:cover;opacity:0.88;position:absolute;inset:0;" onerror="this.src='hero_laundry_store.jpg'; this.onerror=null;" />
-            </div>
-            <div class="zone-name">세탁기 존</div>
-            <div class="zone-en">WASHING</div>
+<section id="zones-section" style="padding: 90px 48px; background: var(--dark); overflow:hidden;">
+  <style>
+    /* 3D ZONE SHOWCASE STYLES */
+    .zones-header { max-width: 1200px; margin: 0 auto 36px; }
+    .zones-headline {
+      font-family: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif !important;
+      font-size: clamp(38px, 5.5vw, 68px);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .zones-headline em { font-style: italic; color: var(--orange); }
+
+    /* 3D Showcase & Controls Layout */
+    .zone-showcase-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .zone-showcase-container { grid-template-columns: 1fr; }
+    }
+
+    /* 3D Stage Box */
+    .zone-3d-stage {
+      perspective: 1200px;
+      width: 100%;
+      height: 440px;
+      position: relative;
+    }
+    .zone-3d-card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateY(-8deg) rotateX(4deg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.7), 0 0 35px rgba(242,92,5,0.25);
+      border: 2px solid rgba(242,92,5,0.4);
+      background: var(--dark2);
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+    .zone-3d-card:hover {
+      transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(242,92,5,0.45);
+      border-color: var(--orange);
+    }
+    .zone-3d-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.4s ease, transform 0.6s ease;
+    }
+    .zone-3d-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      z-index: 2;
+    }
+    .zone-3d-num {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      color: var(--orange);
+      letter-spacing: 0.2em;
+      margin-bottom: 6px;
+    }
+    .zone-3d-title {
+      font-family: 'LeeOkSun', 'SheLeeOkSun', serif !important;
+      font-size: 28px;
+      color: var(--white);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .zone-3d-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+
+    /* 5 Zone Cards Selector Grid */
+    .zone-selector-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .zone-select-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .zone-select-card:hover, .zone-select-card.active {
+      background: rgba(242,92,5,0.12);
+      border-color: var(--orange);
+      transform: translateX(8px);
+    }
+    .zone-select-card.active {
+      box-shadow: 0 4px 20px rgba(242,92,5,0.25);
+    }
+    .zone-select-num {
+      font-family: var(--ff-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--orange);
+      width: 36px;
+    }
+    .zone-select-name {
+      font-family: 'LeeOkSun', 'SheLeeOkSun', serif !important;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      flex: 1;
+    }
+    .zone-select-en {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+  </style>
+
+  <div class="zones-header">
+    <div style="font-family:var(--ff-mono);font-size:11px;letter-spacing:0.2em;color:var(--clay);margin-bottom:14px;">// EXPERIENCE ZONES</div>
+    <h2 class="zones-headline">FIVE ROOMS,<br/><em>ONE DRUM</em></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.88);line-height:1.9;">한 바퀴 돌면 취향이 남는다. 5개의 전용 존을 클릭하여 3D 공간 화보로 미리 체험해보세요.</p>
+  </div>
+
+  <div class="zone-showcase-container">
+    <!-- 1. Central 3D Interactive Photo Showcase Box -->
+    <div class="zone-3d-stage">
+      <div class="zone-3d-card" id="zone3dBox" onclick="openZoneModal()">
+        <img id="z3dImg" class="zone-3d-img" src="images/hero_laundry_store.jpg?v=20260831_3d" alt="Zone Preview" onerror="this.src='hero_laundry_store.jpg'; this.onerror=null;" />
+        <div class="zone-3d-overlay">
+          <div id="z3dNum" class="zone-3d-num">ZONE 01 // WASHING DRUM</div>
+          <div id="z3dTitle" class="zone-3d-title">드럼 세탁기 존</div>
+          <div id="z3dDesc" class="zone-3d-desc">크래커하우스의 빈티지 감성과 세탁기 드럼 내부를 시각화한 대형 시그니처 팝업 공간입니다. (클릭시 3D 크게보기)</div>
         </div>
-        <div class="zone-card highlight">
-            <div class="zone-img">02</div>
-            <div class="zone-name">세제 진열</div>
-            <div class="zone-en">DETERGENT</div>
-        </div>
-        <div class="zone-card">
-            <div class="zone-img">03</div>
-            <div class="zone-name">포토 스팟</div>
-            <div class="zone-en">PHOTO</div>
-        </div>
-        <div class="zone-card">
-            <div class="zone-img">04</div>
-            <div class="zone-name">아지트</div>
-            <div class="zone-en">HIDEOUT</div>
-        </div>
-        <div class="zone-card">
-            <div class="zone-img">05</div>
-            <div class="zone-name">독서 코너</div>
-            <div class="zone-en">READING</div>
-        </div>
-        <div class="zone-card">
-            <div class="zone-img">06</div>
-            <div class="zone-name">커피 바</div>
-            <div class="zone-en">COFFEE</div>
-        </div>
-        <div class="zone-card">
-            <div class="zone-img">07</div>
-            <div class="zone-name">단차 존</div>
-            <div class="zone-en">STEP ZONE</div>
-        </div>
-        <div class="zone-card">
-            <div class="zone-img">08</div>
-            <div class="zone-name">다락</div>
-            <div class="zone-en">ATTIC</div>
-        </div>
+      </div>
+    </div>
+
+    <!-- 2. 5 Zone Click Selectors -->
+    <div class="zone-selector-list">
+      <div class="zone-select-card active" onclick="switchZone(0)">
+        <span class="zone-select-num">01</span>
+        <span class="zone-select-name">드럼 세탁기 존</span>
+        <span class="zone-select-en">WASHING DRUM</span>
+      </div>
+      <div class="zone-select-card" onclick="switchZone(1)">
+        <span class="zone-select-num">02</span>
+        <span class="zone-select-name">포근한 테라스</span>
+        <span class="zone-select-en">SNUGGLE TERRACE</span>
+      </div>
+      <div class="zone-select-card" onclick="switchZone(2)">
+        <span class="zone-select-num">03</span>
+        <span class="zone-select-name">세탁 영수증 포토존</span>
+        <span class="zone-select-en">RECEIPT PHOTO</span>
+      </div>
+      <div class="zone-select-card" onclick="switchZone(3)">
+        <span class="zone-select-num">04</span>
+        <span class="zone-select-name">한정 굿즈 쇼룸</span>
+        <span class="zone-select-en">GOODS SHOWROOM</span>
+      </div>
+      <div class="zone-select-card" onclick="switchZone(4)">
+        <span class="zone-select-num">05</span>
+        <span class="zone-select-name">스너글 향기 케어 존</span>
+        <span class="zone-select-en">SCENT CARE ZONE</span>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- 3D ZONE EXPANDED MODAL -->
+<div id="zone3DModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(10px);" onclick="if(event.target===this) closeZoneModal()">
+  <div style="background:var(--dark2); border:2px solid var(--orange); border-radius:12px; max-width:800px; width:90%; padding:24px; text-align:center; position:relative; box-shadow:0 30px 80px rgba(0,0,0,0.8);">
+    <button onclick="closeZoneModal()" style="position:absolute; top:16px; right:20px; background:none; border:none; color:var(--white); font-size:28px; cursor:pointer;">×</button>
+    <div style="font-family:var(--ff-mono); font-size:11px; color:var(--orange); letter-spacing:0.2em; margin-bottom:8px;" id="mZoneNum">ZONE 01</div>
+    <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:32px; color:var(--white); margin-bottom:16px;" id="mZoneTitle">드럼 세탁기 존</h3>
+    <div style="aspect-ratio:16/9; overflow:hidden; border-radius:8px; margin-bottom:20px;">
+      <img id="mZoneImg" src="" alt="Full Zone 3D Preview" style="width:100%; height:100%; object-fit:cover; display:block;" />
+    </div>
+    <p style="font-size:14px; color:var(--muted); line-height:1.7;" id="mZoneDesc"></p>
+  </div>
+</div>
+
+<script>
+  const zoneData = [
+    {
+      num: "ZONE 01 // WASHING DRUM",
+      title: "드럼 세탁기 존",
+      desc: "크래커하우스의 빈티지 감성과 세탁기 드럼 내부를 시각화한 대형 시그니처 팝업 공간입니다.",
+      img: "images/hero_laundry_store.jpg?v=20260831_z1",
+      fallback: "hero_laundry_store.jpg"
+    },
+    {
+      num: "ZONE 02 // SNUGGLE TERRACE",
+      title: "포근한 테라스",
+      desc: "스너글 곰인형과 포근한 햇살 아래 섬유유연제의 따스한 감촉을 직접 느끼고 휴식하는 테라스 공간입니다.",
+      img: "images/brand_new.jpg?v=20260831_z2",
+      fallback: "brand_new.jpg"
+    },
+    {
+      num: "ZONE 03 // RECEIPT PHOTO",
+      title: "세탁 영수증 포토존",
+      desc: "방문자들의 특별한 순간을 폴라로이드 사진으로 남기고 맞춤 세탁 영수증을 직접 걸어볼 수 있습니다.",
+      img: "images/snuggle_photo_sample.jpg?v=20260831_z3",
+      fallback: "snuggle_photo_sample.jpg"
+    },
+    {
+      num: "ZONE 04 // GOODS SHOWROOM",
+      title: "한정 굿즈 쇼룸",
+      desc: "크래커하우스 x 스너글 빈티지 코랄 레드 티셔츠, 옐로우 넥티, 캔버스 토트백을 한자리에서 만나는 쇼룸입니다.",
+      img: "images/collab_collection.jpg?v=20260831_z4",
+      fallback: "collab_collection.jpg"
+    },
+    {
+      num: "ZONE 05 // SCENT CARE ZONE",
+      title: "스너글 향기 케어 존",
+      desc: "스너글 빈티지 바닐라 2L 섬유유연제의 포근한 잔향과 나만의 향기 취향 퀴즈를 직접 체험하는 공간입니다.",
+      img: "images/snuggle_vintage_vanilla.jpg?v=20260831_z5",
+      fallback: "snuggle_vintage_vanilla.jpg"
+    }
+  ];
+
+  let currentZoneIdx = 0;
+
+  function switchZone(idx) {
+    if (idx < 0 || idx >= zoneData.length) return;
+    currentZoneIdx = idx;
+
+    // Update active state in selector cards
+    const cards = document.querySelectorAll(".zone-select-card");
+    cards.forEach((c, i) => {
+      if (i === idx) c.classList.add("active");
+      else c.classList.remove("active");
+    });
+
+    const item = zoneData[idx];
+    const box = document.getElementById("zone3dBox");
+    const imgEl = document.getElementById("z3dImg");
+
+    // Play 3D flip animation
+    if (box) {
+      box.style.transform = "rotateY(85deg) scale(0.9)";
+      box.style.opacity = "0.3";
+      setTimeout(() => {
+        if (imgEl) {
+          imgEl.src = item.img;
+          imgEl.onerror = function() { this.src = item.fallback; };
+        }
+        document.getElementById("z3dNum").textContent = item.num;
+        document.getElementById("z3dTitle").textContent = item.title;
+        document.getElementById("z3dDesc").textContent = item.desc + " (클릭시 3D 크게보기)";
+
+        box.style.transform = "rotateY(-8deg) rotateX(4deg) scale(1)";
+        box.style.opacity = "1";
+      }, 300);
+    }
+  }
+
+  function openZoneModal() {
+    const item = zoneData[currentZoneIdx];
+    document.getElementById("mZoneNum").textContent = item.num;
+    document.getElementById("mZoneTitle").textContent = item.title;
+    document.getElementById("mZoneDesc").textContent = item.desc;
+    const mImg = document.getElementById("mZoneImg");
+    mImg.src = item.img;
+    mImg.onerror = function() { this.src = item.fallback; };
+
+    const modal = document.getElementById("zone3DModal");
+    if (modal) modal.style.display = "flex";
+  }
+
+  function closeZoneModal() {
+    const modal = document.getElementById("zone3DModal");
+    if (modal) modal.style.display = "none";
+  }
+</script>
 
 <footer>
   <div class="footer-logo">KRACKER HOUSE &#215; SNUGGLE POP-UP STORE</div>
