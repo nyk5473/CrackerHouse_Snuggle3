@@ -583,12 +583,12 @@
 
     // Default sample pins if empty
     const defaults = [
-      { id: 1, nickname: "스너글베어 🧸", message: "크래커하우스 x 스너글 팝업스토어 오픈 축하해요!", image_url: "images/brand_new.jpg", pin_type: "PHOTO", created_at: new Date().toISOString() },
-      { id: 2, nickname: "포근한일상 🧺", message: "세탁기 안에서 만난 스너글 향기! 너무 좋아요", image_url: "images/hero_laundry_store.jpg", pin_type: "PHOTO", created_at: new Date().toISOString() },
-      { id: 3, nickname: "스마트집게 📍", message: "빈티지 피그먼트 티셔츠 입고 스너글 쿠키 세트 받았어요", image_url: "images/snuggle_photo_sample.jpg", pin_type: "PHOTO", created_at: new Date().toISOString() },
-      { id: 4, nickname: "KAFFEINE ☕", message: "포근한 빨랫줄에 우리들의 이야기를 남겨요~", image_url: "images/collab_collection.jpg", pin_type: "KEYRING", created_at: new Date().toISOString() },
-      { id: 5, nickname: "옐로우링거 👕", message: "피그먼트 워싱 티셔츠 핏 최고입니다!", image_url: "images/kracker_basic_t_shirts_red.jpg", pin_type: "PHOTO", created_at: new Date().toISOString() },
-      { id: 6, nickname: "캔버스토트 👜", message: "새 자수 토트백 너무 예뻐요 강추합니다", image_url: "images/kracker_tote_bag.jpg", pin_type: "RECEIPT", created_at: new Date().toISOString() }
+      { id: 1, nickname: "스너글베어 🧸", message: "크래커하우스 x 스너글 팝업스토어 오픈 축하해요!", image_url: "images/brand_new.jpg", fallback_url: "brand_new.jpg", pin_type: "PHOTO", created_at: new Date().toISOString() },
+      { id: 2, nickname: "포근한일상 🧺", message: "세탁기 안에서 만난 스너글 향기! 너무 좋아요", image_url: "images/hero_laundry_store.jpg", fallback_url: "hero_laundry_store.jpg", pin_type: "PHOTO", created_at: new Date().toISOString() },
+      { id: 3, nickname: "스마트집게 📍", message: "빈티지 피그먼트 티셔츠 입고 스너글 쿠키 세트 받았어요", image_url: "images/snuggle_photo_sample.jpg", fallback_url: "snuggle_photo_sample.jpg", pin_type: "PHOTO", created_at: new Date().toISOString() },
+      { id: 4, nickname: "KAFFEINE ☕", message: "포근한 빨랫줄에 우리들의 이야기를 남겨요~", image_url: "images/collab_collection.jpg", fallback_url: "collab_collection.jpg", pin_type: "KEYRING", created_at: new Date().toISOString() },
+      { id: 5, nickname: "옐로우링거 👕", message: "피그먼트 워싱 티셔츠 핏 최고입니다!", image_url: "images/kracker_basic_t_shirts_red.jpg", fallback_url: "kracker_basic_t_shirts_red.jpg", pin_type: "PHOTO", created_at: new Date().toISOString() },
+      { id: 6, nickname: "캔버스토트 👜", message: "새 자수 토트백 너무 예뻐요 강추합니다", image_url: "images/kracker_tote_bag.jpg", fallback_url: "kracker_tote_bag.jpg", pin_type: "RECEIPT", created_at: new Date().toISOString() }
     ];
     try {
       localStorage.setItem("kracker_laundry_pins", JSON.stringify(defaults));
@@ -606,8 +606,8 @@
       if (!container) return;
 
       container.innerHTML = items.map((pin, idx) => {
-        let imgUrl = pin.image_url || 'images/snuggle_photo_sample.jpg';
-        if (imgUrl.startsWith('/images')) imgUrl = '.' + imgUrl;
+        let rawImg = pin.image_url || 'images/snuggle_photo_sample.jpg';
+        let fallbackImg = pin.fallback_url || rawImg.split('/').pop();
         const nick = pin.nickname || '익명';
         const msg = pin.message || '';
         const pType = pin.pin_type || 'PHOTO';
@@ -618,7 +618,7 @@
           <div class="hanging-card" onclick="openPinModal(${pin.id})" style="position:relative; background:#2A1D13; border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:12px 12px 16px; box-shadow:0 12px 28px rgba(0,0,0,0.5); cursor:pointer; transform:rotate(${rot}deg); transition:all 0.3s ease;">
             ${pinSvg}
             <div style="aspect-ratio:3/4; overflow:hidden; border-radius:6px; position:relative; margin-bottom:10px; background:#1A1208;">
-              <img src="${imgUrl}" alt="${nick}" style="width:100%; height:100%; object-fit:cover; display:block;" onerror="this.src='images/snuggle_photo_sample.jpg'; this.onerror=null;" />
+              <img src="${rawImg}" alt="${nick}" style="width:100%; height:100%; object-fit:cover; display:block;" onerror="this.src='${fallbackImg}'; this.onerror=function(){this.src='snuggle_photo_sample.jpg';};" />
             </div>
             <div style="font-family:var(--ff-mono); font-size:10px; color:var(--orange); font-weight:700; margin-bottom:4px;">${tagText}</div>
             <div style="font-size:14px; font-weight:700; color:var(--white);">${nick}</div>
@@ -640,7 +640,7 @@
     const mMsg = document.getElementById("modalMessage");
     const mDel = document.getElementById("modalDeleteBtn");
 
-    if (mImg) mImg.src = item.image_url || 'images/snuggle_photo_sample.jpg';
+    if (mImg) mImg.src = item.image_url || item.fallback_url || 'snuggle_photo_sample.jpg';
     if (mNick) mNick.textContent = item.nickname || '익명';
     if (mMsg) mMsg.textContent = item.message || '포근한 하루 되세요! 🧸';
     if (mDel) {
