@@ -41,7 +41,7 @@
     .hw-row{display:flex;align-items:baseline;line-height:0.93;}
     .hw-row+.hw-row{margin-top:-0.04em;}
     .hw{font-family:var(--ff-sans);font-size:clamp(80px,14vw,200px);font-weight:900;letter-spacing:-0.04em;color:var(--white);opacity:0.92;animation:fadeUp 0.7s ease both;}
-    .hw--serif{font-family:var(--ff-serif);font-style:italic;font-weight:700;color:var(--orange);}
+    .hw--serif{font-family:'LeeOkSun','SheLeeOkSun',serif !important;color:var(--orange) !important;font-weight:700 !important;}
     .hw--gap{flex:1;}
     @keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
     .hero-bottom{position:absolute;bottom:0;left:0;right:0;padding:0 48px 32px;display:flex;justify-content:space-between;align-items:flex-end;background:linear-gradient(to top,rgba(0,0,0,0.85) 0%,transparent 100%);z-index:10;}
@@ -423,6 +423,29 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
   font-family: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif !important;
 }
 </style>
+
+<style>
+  /* 그녀-이옥순 (LeeOkSun) 폰트 - 히어로 영문 포인트 (lan, wei, ness) 및 주황색 글씨 전면 적용 */
+  .hw--serif, 
+  em, 
+  .orange-text,
+  [style*="color: var(--orange)"],
+  [style*="color:var(--orange)"],
+  [style*="color: #F25C05"],
+  [style*="color:#F25C05"],
+  .pa-price,
+  .product-card__price,
+  .pa-info-link,
+  .brand-headline span,
+  .products-big-title em,
+  .kiosk-title em,
+  .page-title em {
+    font-family: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif !important;
+  }
+
+  .hw--serif{font-family:'LeeOkSun','SheLeeOkSun',serif !important;color:var(--orange) !important;font-weight:700 !important;}
+</style>
+
 </head>
 <body>
 
