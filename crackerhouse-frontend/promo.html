@@ -804,7 +804,6 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
 
 <section id="zones-section" style="padding: 90px 48px; background: var(--dark); overflow:hidden;">
   <style>
-    /* 6-ZONE LAYOUT & 3D MAIN MAP STYLES */
     .zones-header { max-width: 1200px; margin: 0 auto 36px; text-align: center; }
     .zones-headline {
       font-family: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif !important;
@@ -816,26 +815,34 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     }
     .zones-headline em { font-style: italic; color: var(--orange); }
 
-    /* Top Main 3D Floorplan Box */
-    .main-3d-map-box {
-      max-width: 1200px;
-      margin: 0 auto 52px;
+    /* 3D EFFECT BOX STYLES */
+    .main-3d-map-stage { perspective: 1500px; max-width: 1200px; margin: 0 auto 56px; width: 100%; }
+    .main-3d-map-card {
+      position: relative;
       background: var(--dark2);
-      border: 2px solid var(--orange);
+      border: 2.5px solid var(--orange);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.85), 0 0 45px rgba(242,92,5,0.3);
-      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateY(-6deg) rotateX(3deg);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(242,92,5,0.35);
+      transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+      cursor: pointer;
+      aspect-ratio: 16 / 9;
+      width: 100%;
+    }
+    .main-3d-map-card:hover {
+      transform: rotateY(0deg) rotateX(0deg) scale(1.02);
+      box-shadow: 0 35px 90px rgba(0,0,0,0.92), 0 0 65px rgba(242,92,5,0.5);
     }
     .main-3d-map-img {
       width: 100%;
-      height: auto;
-      max-height: 620px;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
     .main-3d-map-bar {
-      background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0) 100%);
       padding: 20px 28px;
       display: flex;
       justify-content: space-between;
@@ -844,9 +851,10 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
       bottom: 0;
       left: 0;
       right: 0;
+      z-index: 5;
     }
 
-    /* 6 Zone Grid Cards */
+    /* 6 Zone Cards Grid */
     .six-zones-grid {
       max-width: 1200px;
       margin: 0 auto;
@@ -854,12 +862,8 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
     }
-    @media (max-width: 992px) {
-      .six-zones-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .six-zones-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 992px) { .six-zones-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .six-zones-grid { grid-template-columns: 1fr; } }
 
     .six-zone-card {
       background: var(--dark2);
@@ -890,9 +894,7 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
       display: block;
       transition: transform 0.5s ease;
     }
-    .six-zone-card:hover .six-zone-img-wrap img {
-      transform: scale(1.06);
-    }
+    .six-zone-card:hover .six-zone-img-wrap img { transform: scale(1.06); }
     .six-zone-badge {
       position: absolute;
       top: 12px;
@@ -934,18 +936,20 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     }
   </style>
 
+  <!-- 1. Header Description Section -->
   <div class="zones-header">
     <div style="font-family:var(--ff-mono);font-size:11px;letter-spacing:0.2em;color:var(--clay);margin-bottom:14px;">// 3D SPATIAL MAP &amp; 6 EXPERIENCE ZONES</div>
     <h2 class="zones-headline">SIX ZONES,<br/><em>ONE DRUM</em></h2>
     <p style="font-size:15px;color:rgba(255,255,255,0.88);line-height:1.9;">크래커하우스 x 스너글 팝업스토어 3D 전체 공간 조감도와 6개 전용 체험 존을 만나보세요.</p>
   </div>
 
-    <!-- 1. Top Enlarged 3D Main Floorplan Map with Perspective Tilt Effects -->
-    <!-- 1. Top Exact Ratio 16:9 3D Main Floorplan Map Box with 3D Tilt Effect -->
-  <div class="main-3d-map-stage" style="perspective: 1500px; max-width: 1200px; margin: 0 auto 56px; width: 100%;">
-    <div class="main-3d-map-card" id="main3dCard" onclick="openMain3DMapModal()" style="position:relative; background:var(--dark2); border:2.5px solid var(--orange); border-radius:16px; overflow:hidden; transform-style:preserve-3d; transform:rotateY(-6deg) rotateX(3deg); box-shadow:0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(242,92,5,0.35); transition:transform 0.5s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.4s ease; cursor:pointer; aspect-ratio:16/9; width:100%;" onmousemove="tilt3dCard(event)" onmouseleave="reset3dCard()">
-      <img src="images/zone_main_3d_map.png?v=20260831_map3d_exact169" alt="팝업스토어 전체 공간 3D 조감도" style="width:100%; height:100%; object-fit:cover; display:block;" onerror="this.src='zone_main_3d_map.png'; this.onerror=null;" />
-      <div class="main-3d-map-bar" style="background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0) 100%); padding:20px 28px; display:flex; justify-content:space-between; align-items:center; position:absolute; bottom:0; left:0; right:0; z-index:5;">
+  <!-- 2. 3D EFFECT BOX CONTAINER RIGHT BELOW DESCRIPTION -->
+  <div class="main-3d-map-stage">
+    <div class="main-3d-map-card" id="main3dCard" onclick="openMain3DMapModal()" onmousemove="tilt3dCard(event)" onmouseleave="reset3dCard()">
+      <!-- Requested 3D Isometric Map Photo with Fallback -->
+      <img src="images/zone_main_3d_map.png?v=20260831_3dmap_force_1788160754" alt="팝업스토어 전체 공간 3D 조감도" class="main-3d-map-img" onerror="this.src='zone_main_3d_map.png?v=20260831_3dmap_force_1788160754'; this.onerror=null;" />
+      
+      <div class="main-3d-map-bar">
         <div>
           <span style="font-family:var(--ff-mono); font-size:11px; color:var(--orange); letter-spacing:0.2em; font-weight:700;">✨ 3D ISOMETRIC MAP SHOWCASE</span>
           <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:24px; color:var(--white); margin-top:2px;">팝업스토어 전체 공간 3D 조감도</h3>
@@ -957,52 +961,12 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     </div>
   </div>
 
-  <!-- FULL HD 3D MAP EXPANDED MODAL -->
-  <div id="main3DMapModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(14px); padding:20px;" onclick="if(event.target===this) closeMain3DMapModal()">
-    <div style="background:var(--dark2); border:2.5px solid var(--orange); border-radius:16px; max-width:1250px; width:96%; max-height:92vh; padding:28px; text-align:center; position:relative; box-shadow:0 40px 100px rgba(0,0,0,0.95); display:flex; flex-direction:column; overflow:hidden;">
-      <button onclick="closeMain3DMapModal()" style="position:absolute; top:18px; right:24px; background:rgba(242,92,5,0.2); border:1px solid var(--orange); color:var(--white); font-size:28px; width:44px; height:44px; border-radius:50%; cursor:pointer; z-index:10; display:flex; align-items:center; justify-content:center;">×</button>
-      <div style="font-family:var(--ff-mono); font-size:12px; color:var(--orange); letter-spacing:0.2em; margin-bottom:6px; font-weight:700;">HIGH-RESOLUTION 3D FLOORPLAN</div>
-      <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:32px; color:var(--white); margin-bottom:16px;">크래커하우스 X 스너글 팝업스토어 3D 공간 조감도 원본</h3>
-      <div style="flex:1; overflow:auto; border-radius:10px; background:#100903; border:1px solid rgba(255,255,255,0.1); padding:10px; display:flex; align-items:center; justify-content:center;">
-        <img src="images/zone_main_3d_map.png?v=20260831_map3d_full" alt="3D 조감도 원본 크게보기" style="max-width:100%; max-height:78vh; object-fit:contain; display:block; border-radius:6px;" onerror="this.src='zone_main_3d_map.png'; this.onerror=null;" />
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function tilt3dCard(e) {
-      const card = document.getElementById("main3dCard");
-      if (!card) return;
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left - (rect.width / 2);
-      const y = e.clientY - rect.top - (rect.height / 2);
-      const rotX = (-y / rect.height) * 12;
-      const rotY = (x / rect.width) * 12;
-      card.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg) scale(1.02)`;
-      card.style.boxShadow = `0 35px 90px rgba(0,0,0,0.9), 0 0 60px rgba(242,92,5,0.5)`;
-    }
-    function reset3dCard() {
-      const card = document.getElementById("main3dCard");
-      if (!card) return;
-      card.style.transform = "rotateY(-6deg) rotateX(3deg) scale(1)";
-      card.style.boxShadow = "0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(242,92,5,0.35)";
-    }
-    function openMain3DMapModal() {
-      const modal = document.getElementById("main3DMapModal");
-      if (modal) modal.style.display = "flex";
-    }
-    function closeMain3DMapModal() {
-      const modal = document.getElementById("main3DMapModal");
-      if (modal) modal.style.display = "none";
-    }
-  </script>
-
-  <!-- 2. 6 Zone Grid Below Main Map -->
+  <!-- 3. 6 Zone Cards Grid Below 3D Map -->
   <div class="six-zones-grid">
     <!-- Zone 01 -->
     <div class="six-zone-card" onclick="openSixZoneModal(0)">
       <div class="six-zone-img-wrap">
-        <img src="images/zone_003.png?v=20260831_z3" alt="01. 취향 테스트존" onerror="this.src='zone_003.png'; this.onerror=null;" />
+        <img src="images/zone_003.png?v=20260831_3dmap_force_1788160754" alt="01. 취향 테스트존" onerror="this.src='zone_003.png'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 01</span>
       </div>
       <div class="six-zone-body">
@@ -1017,7 +981,7 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     <!-- Zone 02 -->
     <div class="six-zone-card" onclick="openSixZoneModal(1)">
       <div class="six-zone-img-wrap">
-        <img src="images/zone_001.png?v=20260831_z1" alt="02. 세탁기 포토부스존" onerror="this.src='zone_001.png'; this.onerror=null;" />
+        <img src="images/zone_001.png?v=20260831_3dmap_force_1788160754" alt="02. 세탁기 포토부스존" onerror="this.src='zone_001.png'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 02</span>
       </div>
       <div class="six-zone-body">
@@ -1032,7 +996,7 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     <!-- Zone 03 -->
     <div class="six-zone-card" onclick="openSixZoneModal(2)">
       <div class="six-zone-img-wrap">
-        <img src="images/zone_004.png?v=20260831_z4" alt="03. 굿즈존" onerror="this.src='zone_004.png'; this.onerror=null;" />
+        <img src="images/zone_004.png?v=20260831_3dmap_force_1788160754" alt="03. 굿즈존" onerror="this.src='zone_004.png'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 03</span>
       </div>
       <div class="six-zone-body">
@@ -1047,7 +1011,7 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     <!-- Zone 04 -->
     <div class="six-zone-card" onclick="openSixZoneModal(3)">
       <div class="six-zone-img-wrap">
-        <img src="images/zone_002.png?v=20260831_z2" alt="04. DIY 존" onerror="this.src='zone_002.png'; this.onerror=null;" />
+        <img src="images/zone_002.png?v=20260831_3dmap_force_1788160754" alt="04. DIY 존" onerror="this.src='zone_002.png'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 04</span>
       </div>
       <div class="six-zone-body">
@@ -1062,7 +1026,7 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     <!-- Zone 05 -->
     <div class="six-zone-card" onclick="openSixZoneModal(4)">
       <div class="six-zone-img-wrap">
-        <img src="images/hero_laundry_store.jpg?v=20260831_force_1788159653?v=20260831_force_1788159653?v=20260831_main_1788159312" alt="05. 커피 &amp; 미니어존" onerror="this.src='images/hero_laundry_store.jpg?v=20260831_force_1788159653?v=20260831_force_1788159653?v=20260831_main_1788159312'; this.onerror=null;" />
+        <img src="images/hero_laundry_store.jpg?v=20260831_3dmap_force_1788160754" alt="05. 커피 &amp; 미니어존" onerror="this.src='hero_laundry_store.jpg'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 05</span>
       </div>
       <div class="six-zone-body">
@@ -1077,7 +1041,7 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     <!-- Zone 06 -->
     <div class="six-zone-card" onclick="openSixZoneModal(5)">
       <div class="six-zone-img-wrap">
-        <img src="images/zone_005.png?v=20260831_z6" alt="06. 방명록 존" onerror="this.src='zone_005.png'; this.onerror=null;" />
+        <img src="images/zone_005.png?v=20260831_3dmap_force_1788160754" alt="06. 방명록 존" onerror="this.src='zone_005.png'; this.onerror=null;" />
         <span class="six-zone-badge">ZONE 06</span>
       </div>
       <div class="six-zone-body">
@@ -1090,6 +1054,46 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     </div>
   </div>
 </section>
+
+<!-- FULL HD 3D MAP EXPANDED MODAL -->
+<div id="main3DMapModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(14px); padding:20px;" onclick="if(event.target===this) closeMain3DMapModal()">
+  <div style="background:var(--dark2); border:2.5px solid var(--orange); border-radius:16px; max-width:1250px; width:96%; max-height:92vh; padding:28px; text-align:center; position:relative; box-shadow:0 40px 100px rgba(0,0,0,0.95); display:flex; flex-direction:column; overflow:hidden;">
+    <button onclick="closeMain3DMapModal()" style="position:absolute; top:18px; right:24px; background:rgba(242,92,5,0.2); border:1px solid var(--orange); color:var(--white); font-size:28px; width:44px; height:44px; border-radius:50%; cursor:pointer; z-index:10; display:flex; align-items:center; justify-content:center;">×</button>
+    <div style="font-family:var(--ff-mono); font-size:12px; color:var(--orange); letter-spacing:0.2em; margin-bottom:6px; font-weight:700;">HIGH-RESOLUTION 3D FLOORPLAN</div>
+    <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:32px; color:var(--white); margin-bottom:16px;">크래커하우스 X 스너글 팝업스토어 3D 공간 조감도 원본</h3>
+    <div style="flex:1; overflow:auto; border-radius:10px; background:#100903; border:1px solid rgba(255,255,255,0.1); padding:10px; display:flex; align-items:center; justify-content:center;">
+      <img src="images/zone_main_3d_map.png?v=20260831_3dmap_force_1788160754" alt="3D 조감도 원본 크게보기" style="max-width:100%; max-height:78vh; object-fit:contain; display:block; border-radius:6px;" onerror="this.src='zone_main_3d_map.png?v=20260831_3dmap_force_1788160754'; this.onerror=null;" />
+    </div>
+  </div>
+</div>
+
+<script>
+  function tilt3dCard(e) {
+    const card = document.getElementById("main3dCard");
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - (rect.width / 2);
+    const y = e.clientY - rect.top - (rect.height / 2);
+    const rotX = (-y / rect.height) * 12;
+    const rotY = (x / rect.width) * 12;
+    card.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg) scale(1.02)`;
+    card.style.boxShadow = `0 35px 90px rgba(0,0,0,0.9), 0 0 60px rgba(242,92,5,0.5)`;
+  }
+  function reset3dCard() {
+    const card = document.getElementById("main3dCard");
+    if (!card) return;
+    card.style.transform = "rotateY(-6deg) rotateX(3deg) scale(1)";
+    card.style.boxShadow = "0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(242,92,5,0.35)";
+  }
+  function openMain3DMapModal() {
+    const modal = document.getElementById("main3DMapModal");
+    if (modal) modal.style.display = "flex";
+  }
+  function closeMain3DMapModal() {
+    const modal = document.getElementById("main3DMapModal");
+    if (modal) modal.style.display = "none";
+  }
+</script>
 
 <!-- 6-ZONE DETAIL MODAL -->
 <div id="sixZoneModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(12px);" onclick="if(event.target===this) closeSixZoneModal()">
