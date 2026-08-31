@@ -20,14 +20,14 @@
       --red:#BC453C; --clay:#BF6E50; --orange:#F25C05; --espresso:#594335;
       --blue:#517EA6; --beige:#EBE4D8; --dark:#1A1208; --dark2:#231609;
       --card:#2E1D0F; --white:#FFFFFF; --muted:#C4B9AE;
-      --ff-serif: 'SheLeeOkSun', 'Playfair Display', serif;
-      --ff-mono:'DM Mono',monospace;
-      --ff-sans:'Noto Sans KR',sans-serif;
+      --ff-serif: 'Noto Sans KR', sans-serif;
+      --ff-mono:  'Noto Sans KR', sans-serif;
+      --ff-sans:  'Noto Sans KR', sans-serif;
       --tr:all 0.28s ease;
     }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;font-family:'Noto Sans KR',sans-serif !important;}
     html{scroll-behavior:smooth;}
-    body{font-family:var(--ff-sans);background:var(--dark);color:var(--white);overflow-x:hidden;}
+    body{font-family:'Noto Sans KR',sans-serif !important;background:var(--dark);color:var(--white);overflow-x:hidden;}
     a{text-decoration:none;color:inherit;}
     #top-nav{position:fixed;top:0;left:0;right:0;height:58px;background:var(--red);display:flex;align-items:center;justify-content:space-between;padding:0 36px;z-index:999;box-shadow:0 3px 24px rgba(0,0,0,0.35);}
     .nav-logo{font-family:var(--ff-mono);font-size:13px;font-weight:500;letter-spacing:0.14em;background:var(--orange);padding:5px 14px;border-radius:3px;color:var(--white);}
@@ -401,14 +401,11 @@
     pointer-events: none;
   }
 </style>
-
 </head>
 <body>
 
 <nav id="top-nav">
-  <a href="index.html" style="display:flex; align-items:center; text-decoration:none;">
-    <img src="images/kracker_laundry_logo_v2.png" alt="Kracker Laundry pop-up store" style="height: 44px; object-fit: contain;">
-  </a>
+  <a href="index.html" class="nav-logo">🧺 KRACKER LAUNDRY 팝업스토어</a>
   <div style="display:flex; align-items:center; gap:20px;">
     <ul class="nav-links">
       <li><a href="#check-in-container">팝업정보</a></li>
@@ -424,6 +421,161 @@
 
 <section id="popup-section">
   <div id="main-page">
+    <img src="images/hero_laundry_store.jpg?v=20260827" alt="Hero" style="width:100%;height:100%;object-fit:cover;opacity:0.88;position:absolute;inset:0;" />
+    <div class="hero-grain"></div>
+    <div class="hero-text-layer">
+      <div class="hw-row"><span class="hw">Un</span><span class="hw--gap"></span><span class="hw">ba</span><span class="hw hw--serif">lan</span><span class="hw">ce</span></div>
+      <div class="hw-row"><span class="hw hw--serif">wei</span><span class="hw">ght</span><span class="hw--gap"></span><span class="hw">less</span></div>
+      <div class="hw-row"><span class="hw--gap"></span><span class="hw hw--serif">ness</span></div>
+    </div>
+    <div class="hero-bottom">
+      <span class="hero-credit">Kracker House &#215; Snuggle 2026</span>
+      <span class="hero-scroll">scroll</span>
+      <a href="#prereg-section" class="hero-pill">9.11 &#8212; 9.23 &nbsp; 사전등록 &#8594;</a>
+    </div>
+  </div>
+
+  <div class="film-topbar">
+    <div class="film-seg"><div class="film-perfs"><div class="fperf"></div><div class="fperf"></div><div class="fperf"></div></div><span>8305</span></div>
+    <div class="film-seg"><span>8A &#9658; SSF STARFIELD VILLAGE</span></div>
+    <div class="film-seg"><span>9</span><div class="film-perfs"><div class="fperf"></div><div class="fperf"></div></div></div>
+    <div class="film-seg"><span>&#9658;&#9658; KRACKER &#215; SNUGGLE POP-UP</span></div>
+    <div class="film-seg"><div class="film-perfs"><div class="fperf"></div><div class="fperf"></div><div class="fperf"></div></div><span>8305</span></div>
+  </div>
+
+    <div id="check-in-container" style="text-align:center; padding: 120px 20px;">
+    <a id="btn-check-in" href="info.html" target="_blank" style="display: inline-block; padding: 18px 50px; font-size: 24px; font-weight: 900; background: var(--orange); color: var(--white); text-decoration: none; border-radius: 4px; cursor: pointer; font-family: var(--ff-serif); font-style: italic; letter-spacing: 0.08em; transition: var(--tr); box-shadow: 0 4px 20px rgba(242, 92, 5, 0.3);" onmouseover="this.style.background='var(--red)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='var(--orange)'; this.style.transform=''">CHECK IN</a>
+  </div>
+
+  <div id="popup-hidden-content" style="display: none;">
+    <div class="popup-content" id="popup-info">
+    <div class="popup-eyebrow">// POPUP INFORMATION</div>
+    <h2 class="popup-title"><em>Home</em> <strong>alone.</strong></h2>
+    <div class="info-grid">
+      <div class="info-cell"><span class="info-cell__ico">&#128205;</span><div class="info-cell__key">장소</div><div class="info-cell__val">스타필드</div></div>
+      <div class="info-cell"><span class="info-cell__ico">&#128197;</span><div class="info-cell__key">기간</div><div class="info-cell__val">9.11 ~ 9.23</div></div>
+      <div class="info-cell"><span class="info-cell__ico">&#128336;</span><div class="info-cell__key">시간</div><div class="info-cell__val">10:00 ~ 22:00</div></div>
+      <div class="info-cell"><span class="info-cell__ico">&#128214;</span><div class="info-cell__key">스토리</div><div class="info-cell__val" style="font-size:12px; font-weight:400; line-height:1.6;">크래커하우스의 빈티지 감성과 스너글의 포근함이 만난 특별한 공간. 낯선 도심 속 나만의 아늑한 세탁소에서 잠시 쉬어가는 하루를 경험하세요.</div></div>
+      <div class="info-cell"><span class="info-cell__ico">&#128506;&#65039;</span><div class="info-cell__key">약도(지도)</div><div class="info-cell__val"><div style="width:100%; height:80px; background:#231609; border-radius:4px; border:1px solid #333; display:flex; align-items:center; justify-content:center; color:#888; font-size:11px;">지도 이미지 (스타필드 빌리지)</div></div></div>
+    </div>
+  </div>
+
+  <div class="film-strip-outer">
+    <div class="film-holes film-holes--top" id="fhTop"></div>
+    <div class="film-kodak-bar"><span>4A &#9658; Kodak</span><span>EXPERIENCE ZONES</span><span>5 &#9658;&#9658;</span></div>
+    <div class="film-strip-grid" id="experienceZonesGrid">
+
+      <div class="film-frame">
+        <img class="film-frame__img" src="images/yellow_chairs.jpg" alt="Zone A" />
+        <div class="film-frame__overlay"></div>
+        <div class="film-frame__meta">
+          <div class="film-frame__num">10 &#183; K400</div>
+          <div class="film-frame__zone-badge">ZONE A</div>
+          <div class="film-frame__title">가챠 + 스너글 캡슐 세제 증정</div>
+          <div class="film-frame__desc">가챠머신에서 랜덤 굿즈를 뽑고 스너글 캡슐 세제를 받아가세요</div>
+        </div>
+      </div>
+
+      <div class="film-frame">
+        <img class="film-frame__img" src="images/legs_washer.jpg" alt="Zone B" />
+        <div class="film-frame__overlay"></div>
+        <div class="film-frame__meta">
+          <div class="film-frame__num">11 &#183; K400</div>
+          <div class="film-frame__zone-badge">ZONE B</div>
+          <div class="film-frame__title">체험존</div>
+          <div class="film-frame__desc">크래커하우스 &#215; 스너글 세탁 케어 직접 체험하기</div>
+        </div>
+      </div>
+
+      <div class="film-frame">
+        <img class="film-frame__img" src="images/jewel_washer.jpg" alt="Zone C" />
+        <div class="film-frame__overlay"></div>
+        <div class="film-frame__meta">
+          <div class="film-frame__num">12 &#183; K400</div>
+          <div class="film-frame__zone-badge">ZONE C</div>
+          <div class="film-frame__title">세탁기 포토존</div>
+          <div class="film-frame__desc">세탁기 문 안에서 찍는 시그니처 폴라로이드 사진</div>
+        </div>
+      </div>
+
+      <div class="film-frame">
+        <img class="film-frame__img" src="images/newspaper_washer.jpg" alt="Zone D" />
+        <div class="film-frame__overlay"></div>
+        <div class="film-frame__meta">
+          <div class="film-frame__num">13 &#183; K400</div>
+          <div class="film-frame__zone-badge">ZONE D</div>
+          <div class="film-frame__title">굿즈존</div>
+          <div class="film-frame__desc">크래커하우스 &#215; 스너글 한정 콜라보 굿즈 구매</div>
+        </div>
+      </div>
+
+      <div class="film-frame">
+        <img class="film-frame__img" src="images/hero_laundry_store.jpg?v=20260827" alt="Zone E" />
+        <div class="film-frame__overlay"></div>
+        <div class="film-frame__meta">
+          <div class="film-frame__num">14 &#183; K400</div>
+          <div class="film-frame__zone-badge">ZONE E</div>
+          <div class="film-frame__title">조형물존</div>
+          <div class="film-frame__desc">팝업 전용 아트 조형물과 함께하는 포토존</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="film-kodak-bar"><span>10A &#183; Kodak</span><span>&#9658; 11</span><span>11A &#183; Kodak</span><span>&#9658; 12</span><span>12A &#183; Kodak</span><span>&#9658; 13</span><span>13A &#183; Kodak</span><span>&#9658; 14</span><span>14A &#183; Kodak</span></div>
+    <div class="film-holes film-holes--bot" id="fhBot"></div>
+  </div>
+
+  <div class="popup-zone-quote">포근한 질감의 플리스부터 이불처럼<br/>따뜻한 세탁 체험까지, 가을 한 나절을<br/>크래커하우스 &#215; 스너글과 함께 보낸 어떤 하루.</div>
+  </div>
+</section>
+
+<section id="prereg-section">
+  <div class="prereg-inner">
+    <div>
+      <div class="prereg-label">// PRE REGISTRATION</div>
+      <h2 class="prereg-headline">have<br/><em>a good</em> time.</h2>
+    </div>
+    <div>
+      <p class="prereg-desc">스타필드 빌리지에서 크래커하우스 &#215; 스너글 콜라보의 특별한 순간을 경험하세요. 사전 예약 시 선착순 굿즈 증정 및 체험존 우선 입장 혜택이 있습니다.</p>
+      <div class="prereg-btns">
+        <a href="reservation.html" class="reg-btn reg-btn--web" id="btn-web-reservation"><span>🌐 &nbsp;웹 사전예약 신청하기</span><span>&#8594;</span></a>
+        <a href="kiosk.html" class="reg-btn reg-btn--kiosk" id="btn-kiosk"><span>📱 &nbsp;현장 대기 등록 (키오스크)</span><span>&#8599;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="brand-section">
+  <div class="brand-editorial-row">
+    <div class="brand-photo-side">
+      <span class="brand-part-badge">Part 1.</span>
+      <img src="images/brand_new.jpg" alt="Brand" style="width:100%;height:100%;object-fit:cover;display:block;" />
+    </div>
+    <div class="brand-copy-side">
+      <div class="brand-eyebrow">// KRACKER HOUSE &#215; SNUGGLE COLLAB</div>
+      <h2 class="brand-headline">The <em>season full of</em><br/><span>KRACKER</span>HOUSE</h2>
+      <p class="brand-body">
+        <strong>크래커하우스(Kracker House)</strong>는 1980&#8211;90년대 미국 빈티지 워크웨어에서 영감을 받은 패션 브랜드입니다. 투박하지만 진심 어린 일상복의 무게감을 현대적으로 재해석합니다.<br/><br/>
+        <strong>스너글(Snuggle)</strong>은 의류 섬유에 포근함을 더하는 프리미엄 세탁 세제 브랜드입니다. 감촉에서 오는 진짜 휴식을 추구합니다.<br/><br/>
+        두 브랜드가 만나 만든 이번 팝업은 &#8220;옷과 세탁의 경험을 하나의 라이프스타일로&#8221; 라는 메시지를 전달합니다.
+      </p>
+    </div>
+  </div>
+  <div class="brand-divider">
+    <div class="brand-badge-circle">KRACKER<br/>&#215;<br/>SNUGGLE</div>
+    <p class="brand-quote">&#8220;The new season approaches us like the feeling of a journey alone. Excitement before the departure, the warmth of clean fabric on skin &#8212; we are fortunate to discover precious moments like this with every wash.&#8221;</p>
+  </div>
+</section>
+
+<section id="product-section">
+  <div class="products-headline-block">
+    <div class="products-eyebrow">// COLLABORATION COLLECTION</div>
+    <h2 class="products-big-title">have<br/><em>a good</em> time.</h2>
+  </div>
+  <div class="products-asym">
+    <div class="pa-big"><img src="images/mock_product_2.png" alt="Product" style="width:100%;height:100%;object-fit:cover;display:block;" /><div class="pa-overlay"><div class="pa-tag">KRACKER HOUSE</div><div class="pa-name">빈티지 피그먼트 티셔츠</div><div class="pa-price">&#8361;45,000</div></div></div>
+    <div class="pa-info" style="position:relative; overflow:hidden; padding:0; background:none;">
+      <img src="images/collab_collection.jpg" alt="Collection Info" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;" />
     <img src="images/hero_laundry_store.jpg?v=20260827" alt="Hero" style="width:100%;height:100%;object-fit:cover;opacity:0.88;position:absolute;inset:0;" />
     <div class="hero-grain"></div>
     <div class="hero-text-layer">
@@ -633,57 +785,6 @@
       </div>
     </div>
 
-    <div class="product-card" data-brand="KRACKER_HOUSE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
-      <div class="product-card__img" style="aspect-ratio: 4/3; overflow: hidden; position: relative;">
-        <img src="images/kracker_basic_t_shirts_red.jpg" alt="크래커하우스 헤비웨이트 피그먼트 후디" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">크래커</span>
-      </div>
-      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
-        <div>
-          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Apparel</span>
-          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">크래커하우스 헤비웨이트 피그먼트 후디</h3>
-          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">도톰한 탄력감과 투박한 워크웨어 라인의 후드 집업</p>
-        </div>
-        <div>
-          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">89,000원</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" data-brand="KRACKER_HOUSE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
-      <div class="product-card__img" style="aspect-ratio: 4/3; overflow: hidden; position: relative;">
-        <img src="images/kracker_basic_t_shirts_yellow.jpg" alt="크래커하우스 워크웨어 데님 카펜터 팬츠" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">크래커</span>
-      </div>
-      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
-        <div>
-          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Apparel</span>
-          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">크래커하우스 워크웨어 데님 카펜터 팬츠</h3>
-          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">견고한 스티치 디테일의 비티지 스트레이트 데님</p>
-        </div>
-        <div>
-          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">98,000원</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card" data-brand="KRACKER_HOUSE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
-      <div class="product-card__img" style="aspect-ratio: 4/3; overflow: hidden; position: relative;">
-        <img src="images/collab_collection.jpg" alt="크래커하우스 x 스너글 에코백" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">콜라보</span>
-      </div>
-      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
-        <div>
-          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Accessories</span>
-          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">크래커하우스 x 스너글 콜라보 에코백</h3>
-          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">두 브랜드 감성이 담긴 리미티드 캔버스 백</p>
-        </div>
-        <div>
-          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">29,000원</p>
-        </div>
-      </div>
-    </div>
-
     <div class="product-card" data-brand="SNUGGLE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
       <div class="product-card__img" style="aspect-ratio: 4/3; overflow: hidden; position: relative;">
         <img src="images/vintage_vanilla.jpg" alt="스너글 빈티지 바닐라 섬유유연제" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
@@ -700,110 +801,101 @@
         </div>
       </div>
     </div>
-
-    <div class="product-card" data-brand="SNUGGLE" style="flex: 0 0 260px; width: 260px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: var(--tr);">
-      <div class="product-card__img" style="aspect-ratio: 4/3; overflow: hidden; position: relative;">
-        <img src="images/collab_collection.jpg" alt="스너글 베어 한정판 인형" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
-        <span class="product-card__brand" style="position: absolute; top: 12px; left: 12px; font-family: var(--ff-mono); font-size: 9px; font-weight: 700; background: rgba(0,0,0,0.6); padding: 3px 7px; border-radius: 2px; color: var(--orange);">스너글</span>
-      </div>
-      <div class="product-card__info" style="padding: 20px; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
-        <div>
-          <span class="product-card__category" style="font-family: var(--ff-mono); font-size: 10px; color: var(--clay); text-transform: uppercase;">Goods</span>
-          <h3 style="font-size: 16px; font-weight: 700; color: var(--white); margin: 6px 0;">스너글 베어 한정판 인형</h3>
-          <p style="font-size: 12px; color: var(--muted); margin-bottom: 12px;">콜라보레이션 한정 스너글 베어 굿즈</p>
-        </div>
-        <div>
-          <p class="product-card__price" style="font-size: 16px; font-weight: 700; color: var(--orange);">22,000원</p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
 <section id="laundry-section" style="background:var(--dark2);">
   <style>
-    #laundry-section .ls-header{
-      max-width:1100px;margin:0 auto;padding:64px 48px 0;
-      display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;
+    #laundry-section .ls-header {
+      max-width:1100px; margin:0 auto; padding:56px 48px 0;
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
     }
-    #laundry-section .ls-rope-wrap{
-      position:relative;max-width:1100px;margin:0 auto;padding:0 48px 0;
+    #laundry-section .ls-title {
+      font-family:'Noto Sans KR', sans-serif; font-size:clamp(22px,3vw,32px); font-weight:900; color:var(--white);
     }
-    #laundry-section .ls-rope{
-      height:3px;margin:36px 0 0;
+    #laundry-section .ls-title span { color:var(--orange); }
+    #laundry-section .ls-btn-upload {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:13px 24px; background:var(--orange); color:var(--white);
+      border-radius:4px; font-size:13px; font-weight:700;
+      text-decoration:none; transition:background .2s;
+    }
+    #laundry-section .ls-btn-upload:hover { background:var(--red); }
+    #laundry-section .ls-rope-wrap {
+      position:relative; max-width:1100px; margin:0 auto;
+      padding:0 48px 16px;
+    }
+    #laundry-section .ls-rope {
+      height:3px;
       background:linear-gradient(to right,transparent,rgba(255,255,255,0.18) 5%,rgba(255,255,255,0.18) 95%,transparent);
+      border-radius:2px; margin:32px 0 0;
     }
-    #laundry-section .ls-grid{
-      max-width:1100px;margin:0 auto;
-      display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-      gap:32px 20px;padding:20px 48px 64px;
+    #laundry-section .ls-grid {
+      max-width:1100px; margin:0 auto;
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+      gap:32px 20px; padding:20px 48px 64px;
     }
-    #laundry-section .ls-pin{
-      position:relative;text-align:center;padding-top:28px;
+    #laundry-section .ls-pin {
+      position:relative; text-align:center; padding-top:28px;
       transition:transform .25s ease;
     }
-    #laundry-section .ls-pin:hover{transform:translateY(-6px) rotate(-1deg);}
-    #laundry-section .ls-clothespin{
-      position:absolute;top:0;left:50%;transform:translateX(-50%);
-      width:20px;height:30px;
+    #laundry-section .ls-pin:hover { transform:translateY(-6px) rotate(-1deg); }
+    #laundry-section .ls-clothespin {
+      position:absolute; top:0; left:50%; transform:translateX(-50%);
+      width:20px; height:30px;
       background:linear-gradient(135deg,#D7CCC8 60%,#A1887F 100%);
-      border:2.5px solid #5D4037;border-radius:4px;
-      box-shadow:0 3px 6px rgba(0,0,0,0.4);z-index:10;
+      border:2.5px solid #5D4037; border-radius:4px;
+      box-shadow:0 3px 6px rgba(0,0,0,0.3); z-index:10;
     }
-    #laundry-section .ls-clothespin::after{
-      content:'';position:absolute;top:50%;left:0;right:0;height:2px;background:#5D4037;
+    #laundry-section .ls-clothespin::after {
+      content:''; position:absolute; top:50%; left:0; right:0;
+      height:2px; background:#5D4037;
     }
-    #laundry-section .ls-card{
-      background:#FFFFFF;border-radius:8px;
+    #laundry-section .ls-card {
+      background:#FFFFFF; border-radius:8px;
       border:2px solid #231609;
-      box-shadow:0 8px 24px rgba(0,0,0,0.4);
+      box-shadow:0 8px 20px rgba(0,0,0,0.18);
       padding:12px 12px 16px;
     }
-    #laundry-section .ls-photo{
-      width:100%;height:165px;object-fit:cover;
-      border-radius:5px;border:1px solid #EEE;
-      display:block;background:#F5F5F5;
+    #laundry-section .ls-photo {
+      width:100%; height:165px; object-fit:cover;
+      border-radius:5px; border:1px solid #EEE;
+      display:block; background:#F5F5F5;
     }
-    #laundry-section .ls-nick{
-      font-family:'Noto Sans KR',sans-serif;
-      font-weight:900;font-size:0.95rem;
-      color:#231609;margin-top:10px;
+    #laundry-section .ls-nick {
+      font-family:'Noto Sans KR', sans-serif;
+      font-weight:900; font-size:0.95rem;
+      color:#231609; margin-top:10px;
     }
-    #laundry-section .ls-msg{
-      font-family:'Noto Sans KR',sans-serif;
-      font-size:0.82rem;color:#444;margin-top:6px;
-      line-height:1.4;background:#FFFDE7;
-      padding:6px 8px;border-radius:6px;
+    #laundry-section .ls-msg {
+      font-family:'Noto Sans KR', sans-serif;
+      font-size:0.82rem; color:#444; margin-top:6px;
+      line-height:1.4; background:#FFFDE7;
+      padding:6px 8px; border-radius:6px;
       border:1px dashed #FFE082;
     }
-    #laundry-section .ls-empty{
-      font-family:'Noto Sans KR',sans-serif;
-      font-size:13px;color:var(--muted);
-      padding:60px 0;text-align:center;grid-column:1/-1;
+    #laundry-section .ls-empty {
+      font-family:'Noto Sans KR', sans-serif;
+      font-size:13px; color:var(--muted);
+      padding:60px 0; text-align:center; grid-column:1/-1;
     }
-    #laundry-section .ls-footer{
-      text-align:center;padding:0 48px 72px;
+    #laundry-section .ls-footer {
+      text-align:center; padding:0 48px 72px;
     }
-    #laundry-section .ls-footer a{
-      font-family:var(--ff-mono);font-size:12px;color:var(--clay);
-      letter-spacing:.12em;text-decoration:underline;
+    #laundry-section .ls-footer a {
+      font-family:var(--ff-mono);
+      font-size:12px; color:var(--clay);
+      letter-spacing:.12em; text-decoration:underline;
     }
-    #laundry-section .ls-footer a:hover{color:var(--orange);}
-    #laundry-section .ls-upload-btn{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:13px 24px;background:var(--orange);color:var(--white);
-      border-radius:4px;font-size:13px;font-weight:700;
-      text-decoration:none;transition:background .2s;
-    }
-    #laundry-section .ls-upload-btn:hover{background:var(--red);}
+    #laundry-section .ls-footer a:hover { color:var(--orange); }
   </style>
 
   <div class="ls-header">
     <div>
       <div style="font-family:var(--ff-mono);font-size:11px;letter-spacing:0.2em;color:var(--clay);margin-bottom:10px;">// LAUNDRY LINE GALLERY</div>
-      <h2 style="font-family:var(--ff-serif);font-size:clamp(34px,4.5vw,58px);font-style:italic;line-height:1.05;">사진 <strong style="font-style:normal;color:var(--orange);">빨랫줄</strong></h2>
+      <h2 style="font-family:var(--ff-serif);font-size:clamp(34px,4.5vw,58px);font-style:italic;line-height:1.05;color:var(--white);">사진 <strong style="font-style:normal;color:var(--orange);">빨랫줄</strong></h2>
     </div>
-    <a href="upload.html" class="ls-upload-btn">&#128204; 내 사진 달기 &#8594;</a>
+    <a href="sns_event.html?mode=customer" class="ls-btn-upload">&#128204; 내 사진 달기 &#8594;</a>
   </div>
 
   <div class="ls-rope-wrap">
@@ -811,11 +903,11 @@
   </div>
 
   <div class="ls-grid" id="laundryGallery">
-    <div class="ls-empty">&#129082; 빨랭줄 사진을 불러오는 중...</div>
+    <div class="ls-empty">🧺 빨랫줄 사진을 불러오는 중...</div>
   </div>
 
   <div class="ls-footer">
-    <a href="laundry.html">전체 갤러리 보기 &#8594;</a>
+    <a href="laundry.html">전체 갤러리 보기 →</a>
   </div>
 </section>
 
@@ -878,29 +970,17 @@
   <div class="footer-copy">&#169; 2026 Kracker House &#215; Snuggle. All rights reserved.</div>
 </footer>
 
-<script>
-  ['fhTop','fhBot'].forEach(function(id){var el=document.getElementById(id);if(!el)return;for(var i=0;i<36;i++){var d=document.createElement('div');d.className='fhole';el.appendChild(d);}});
-</script>
 <script src="js/api.js"></script>
 <script src="js/main.js"></script>
+
 <script>
-  function fmt(d){var dt=new Date(d);return dt.getFullYear()+'.'+String(dt.getMonth()+1).padStart(2,'0')+'.'+String(dt.getDate()).padStart(2,'0');}
-  async function loadPopupInfo(){
-    var info=await ApiService.getPopupInfo();if(!info)return;
-    var el=function(id){return document.getElementById(id);};
-    if(el('infoLocation'))el('infoLocation').textContent=info.location;
-    if(el('infoDate'))el('infoDate').textContent=fmt(info.start_date)+' - '+fmt(info.end_date);
-    if(el('infoHours'))el('infoHours').textContent=info.operating_hours;
-    if(el('infoInsta')&&info.instagram_url){var h=info.instagram_url.split('/').filter(Boolean).pop();el('infoInsta').textContent='@'+h;el('infoInsta').href=info.instagram_url;}
-  }
-  async function loadZones(){ /* 정적 HTML 존 사용 */ }
-  async function loadLaundryPreview(){
+  async function loadLaundryPreview() {
     var data = await ApiService.getLaundryPins();
     var gallery = document.getElementById('laundryGallery');
     if (!gallery) return;
 
     if (!data || !data.total || !data.items || !data.items.length) {
-      var emptyMsg = '<div class="ls-empty">&#129082; 아직 달린 사진이 없습니다. 첫 번째로 사진을 달아보세요!</div>';
+      var emptyMsg = '<div class="ls-empty">📌 아직 달린 사진이 없습니다. 첫 번째로 사진을 달아보세요!</div>';
       if (gallery.dataset.htmlCache !== emptyMsg) {
         gallery.dataset.htmlCache = emptyMsg;
         gallery.innerHTML = emptyMsg;
@@ -909,9 +989,9 @@
     }
 
     var newHtml = data.items.map(function(pin) {
-      var imgSrc = pin.image_url || '/images/mock_laundry_1.jpg';
+      var imgSrc = pin.image_url || 'images/snuggle_photo_sample.jpg';
       if (!imgSrc.startsWith('data:') && !imgSrc.startsWith('http')) {
-        imgSrc = imgSrc.startsWith('/images') ? imgSrc : 'http://localhost:8000' + imgSrc;
+        imgSrc = imgSrc.startsWith('/images') ? '.' + imgSrc : (imgSrc.startsWith('images/') ? imgSrc : 'http://localhost:8000' + imgSrc);
       }
       var msgHtml = pin.message
         ? '<div class="ls-msg">' + pin.message + '</div>'
@@ -920,7 +1000,7 @@
         '<div class="ls-pin">',
           '<div class="ls-clothespin"></div>',
           '<div class="ls-card">',
-            '<img class="ls-photo" src="' + imgSrc + '" alt="' + pin.nickname + '" onerror="this.onerror=null;this.src=\'/images/mock_laundry_1.jpg\';">',
+            '<img class="ls-photo" src="' + imgSrc + '" alt="' + pin.nickname + '" onerror="this.onerror=null;this.src=\'images/snuggle_photo_sample.jpg\';">',
             '<div class="ls-nick">' + pin.nickname + '</div>',
             msgHtml,
           '</div>',
@@ -933,52 +1013,20 @@
       gallery.innerHTML = newHtml;
     }
   }
-  setInterval(loadLaundryPreview, 3000);
-  async function loadGuestbook(){
-    var data=await ApiService.getGuestbooks();
-    var list=document.getElementById('guestbookList');
-    if(!data||!data.items||!data.items.length){list.innerHTML='<div style="color:var(--muted);font-family:var(--ff-mono);font-size:12px;">아직 방명록이 없습니다. 첫 번째로 남겨주세요! &#10024;</div>';return;}
-    list.innerHTML=data.items.slice(0,12).map(function(g){return '<div class="guest-card"><div class="guest-card__nick">'+g.nickname+'</div><div class="guest-card__msg">'+g.message+'</div><div class="guest-card__date">'+fmt(g.created_at)+'</div></div>';}).join('');
-  }
-  document.getElementById('guestbookForm').addEventListener('submit',async function(e){
-    e.preventDefault();
-    var nick=document.getElementById('gbNickname').value.trim();
-    var msg=document.getElementById('gbMessage').value.trim();
-    if(!nick||!msg)return;
-    var btn=document.getElementById('gbSubmit');
-    btn.disabled=true;btn.textContent='전송 중...';
-    var res=await ApiService.createGuestbook(nick,msg);
-    if(res.success){document.getElementById('gbNickname').value='';document.getElementById('gbMessage').value='';await loadGuestbook();btn.textContent='&#10003; 등록 완료!';setTimeout(function(){btn.disabled=false;btn.textContent='방명록 남기기 ✍️';},2000);}
-    else{alert(res.message);btn.disabled=false;btn.textContent='방명록 남기기 ✍️';}
-  });
 
-
-  Promise.all([loadPopupInfo(),loadZones(),loadLaundryPreview(),loadGuestbook()]);
-</script>
-
-  <!-- SCROLL TO TOP BUTTON -->
-  <button class="top-btn" id="scrollTopBtn" title="Go to top">&#8593;</button>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var topBtn = document.getElementById("scrollTopBtn");
-      if (topBtn) {
-        window.addEventListener("scroll", function() {
-          var scrollPos = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
-          if (scrollPos > 300) {
-            topBtn.classList.add("visible");
-          } else {
-            topBtn.classList.remove("visible");
-          }
-        });
-        topBtn.addEventListener("click", function() {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-      }
-    });
-  </script>
-<script>
   document.addEventListener("DOMContentLoaded", function() {
+    loadLaundryPreview();
+    setInterval(loadLaundryPreview, 3000);
+
+    if (window.location.hash) {
+      setTimeout(function() {
+        var targetEl = document.querySelector(window.location.hash);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 300);
+    }
+
     var tabBtns = document.querySelectorAll(".brand-tabs .tab-btn");
     var productsGrid = document.getElementById("productsGrid");
     if (tabBtns && productsGrid) {
