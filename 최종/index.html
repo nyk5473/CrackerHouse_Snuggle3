@@ -924,17 +924,61 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
     <p style="font-size:15px;color:rgba(255,255,255,0.88);line-height:1.9;">크래커하우스 x 스너글 팝업스토어 3D 전체 공간 조감도와 6개 전용 체험 존을 만나보세요.</p>
   </div>
 
-  <!-- 1. Top Big Main 3D Floorplan Map Image -->
-  <div class="main-3d-map-box">
-    <img src="images/zone_main_3d_map.png?v=20260831_map1" alt="크래커하우스 x 스너글 팝업스토어 3D 공간 전체 아이소메트릭 조감도" class="main-3d-map-img" onerror="this.src='zone_main_3d_map.png'; this.onerror=null;" />
-    <div class="main-3d-map-bar">
-      <div>
-        <span style="font-family:var(--ff-mono); font-size:11px; color:var(--orange); letter-spacing:0.15em; font-weight:700;">ISOMETRIC 3D MAP</span>
-        <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:22px; color:var(--white); margin-top:2px;">팝업스토어 전체 공간 3D 조감도</h3>
+    <!-- 1. Top Enlarged 3D Main Floorplan Map with Perspective Tilt Effects -->
+  <div class="main-3d-map-stage" style="perspective: 1500px; max-width: 1300px; margin: 0 auto 56px;">
+    <div class="main-3d-map-card" id="main3dCard" onclick="openMain3DMapModal()" style="position:relative; background:var(--dark2); border:2.5px solid var(--orange); border-radius:16px; overflow:hidden; transform-style:preserve-3d; transform:rotateY(-6deg) rotateX(3deg); box-shadow:0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(242,92,5,0.35); transition:transform 0.5s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.4s ease; cursor:pointer;" onmousemove="tilt3dCard(event)" onmouseleave="reset3dCard()">
+      <img src="images/zone_main_3d_map.png?v=20260831_map3d_v10" alt="크래커하우스 x 스너글 팝업스토어 전체 공간 3D 아이소메트릭 조감도" class="main-3d-map-img" style="width:100%; height:auto; max-height:750px; object-fit:contain; background:#140C04; display:block; transition:transform 0.5s ease;" onerror="this.src='zone_main_3d_map.png'; this.onerror=null;" />
+      <div class="main-3d-map-bar" style="background:linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 100%); padding:24px 32px; display:flex; justify-content:space-between; align-items:center; position:absolute; bottom:0; left:0; right:0; z-index:5;">
+        <div>
+          <span style="font-family:var(--ff-mono); font-size:12px; color:var(--orange); letter-spacing:0.2em; font-weight:700;">✨ 3D ISOMETRIC FLOORPLAN SHOWCASE</span>
+          <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:26px; color:var(--white); margin-top:4px;">팝업스토어 전체 공간 3D 입체 조감도</h3>
+        </div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span style="font-family:var(--ff-mono); font-size:12px; color:rgba(255,255,255,0.85); background:rgba(242,92,5,0.2); border:1px solid rgba(242,92,5,0.5); padding:8px 16px; border-radius:20px; font-weight:700;">🔍 클릭시 3D 원본 크게보기</span>
+        </div>
       </div>
-      <span style="font-family:var(--ff-mono); font-size:12px; color:rgba(255,255,255,0.7); background:rgba(255,255,255,0.1); padding:6px 14px; border-radius:20px;">총 6개 주요 체험 존 배치</span>
     </div>
   </div>
+
+  <!-- FULL HD 3D MAP EXPANDED MODAL -->
+  <div id="main3DMapModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:99999; justify-content:center; align-items:center; backdrop-filter:blur(14px); padding:20px;" onclick="if(event.target===this) closeMain3DMapModal()">
+    <div style="background:var(--dark2); border:2.5px solid var(--orange); border-radius:16px; max-width:1250px; width:96%; max-height:92vh; padding:28px; text-align:center; position:relative; box-shadow:0 40px 100px rgba(0,0,0,0.95); display:flex; flex-direction:column; overflow:hidden;">
+      <button onclick="closeMain3DMapModal()" style="position:absolute; top:18px; right:24px; background:rgba(242,92,5,0.2); border:1px solid var(--orange); color:var(--white); font-size:28px; width:44px; height:44px; border-radius:50%; cursor:pointer; z-index:10; display:flex; align-items:center; justify-content:center;">×</button>
+      <div style="font-family:var(--ff-mono); font-size:12px; color:var(--orange); letter-spacing:0.2em; margin-bottom:6px; font-weight:700;">HIGH-RESOLUTION 3D FLOORPLAN</div>
+      <h3 style="font-family:'LeeOkSun', 'SheLeeOkSun', serif !important; font-size:32px; color:var(--white); margin-bottom:16px;">크래커하우스 X 스너글 팝업스토어 3D 공간 조감도 원본</h3>
+      <div style="flex:1; overflow:auto; border-radius:10px; background:#100903; border:1px solid rgba(255,255,255,0.1); padding:10px; display:flex; align-items:center; justify-content:center;">
+        <img src="images/zone_main_3d_map.png?v=20260831_map3d_full" alt="3D 조감도 원본 크게보기" style="max-width:100%; max-height:78vh; object-fit:contain; display:block; border-radius:6px;" onerror="this.src='zone_main_3d_map.png'; this.onerror=null;" />
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function tilt3dCard(e) {
+      const card = document.getElementById("main3dCard");
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left - (rect.width / 2);
+      const y = e.clientY - rect.top - (rect.height / 2);
+      const rotX = (-y / rect.height) * 14;
+      const rotY = (x / rect.width) * 14;
+      card.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg) scale(1.025)`;
+      card.style.boxShadow = `0 35px 90px rgba(0,0,0,0.9), 0 0 65px rgba(242,92,5,0.5)`;
+    }
+    function reset3dCard() {
+      const card = document.getElementById("main3dCard");
+      if (!card) return;
+      card.style.transform = "rotateY(-6deg) rotateX(3deg) scale(1)";
+      card.style.boxShadow = "0 30px 80px rgba(0,0,0,0.85), 0 0 50px rgba(242,92,5,0.35)";
+    }
+    function openMain3DMapModal() {
+      const modal = document.getElementById("main3DMapModal");
+      if (modal) modal.style.display = "flex";
+    }
+    function closeMain3DMapModal() {
+      const modal = document.getElementById("main3DMapModal");
+      if (modal) modal.style.display = "none";
+    }
+  </script>
 
   <!-- 2. 6 Zone Grid Below Main Map -->
   <div class="six-zones-grid">
