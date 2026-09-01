@@ -2,16 +2,18 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <meta name="theme-color" content="#1A1208" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <meta name="theme-color" content="#F25C05" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta property="og:title" content="크래커하우스 X 스너글 모바일 앱 — 스타필드 빌리지" />
-  <meta property="og:description" content="크래커하우스 X 스너글 콜라보 팝업스토어 공식 모바일 앱" />
+  
+  <meta property="og:title" content="크래커하우스 X 스너글 공식 모바일 앱 — 스타필드 빌리지" />
+  <meta property="og:description" content="크래커하우스 X 스너글 콜라보 팝업스토어 공식 모바일 앱. 사전등록, 굿즈샵, 8개 공간존, 향테스트, 모바일티켓" />
   <meta property="og:image" content="https://nyk5473.github.io/CrackerHouse_Snuggle3/images/hero_laundry_store.jpg" />
   <meta property="og:url" content="https://nyk5473.github.io/CrackerHouse_Snuggle3/mobile" />
   <link rel="canonical" href="https://nyk5473.github.io/CrackerHouse_Snuggle3/mobile" />
-  <title>크래커하우스 X 스너글 모바일 앱 — 스타필드 빌리지</title>
+  
+  <title>크래커하우스 X 스너글 모바일 앱 — 스타필드 빌리지 팝업스토어</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,9 +42,9 @@
       --espresso: #594335;
       --blue: #517EA6;
       --beige: #EBE4D8;
-      --dark: #1A1208;
-      --dark2: #231609;
-      --card: #2E1D0F;
+      --dark: #0D0804;
+      --dark2: #1D1208;
+      --card: #28180B;
       --white: #FFFFFF;
       --muted: #C4B9AE;
       --ff-serif: 'LeeOkSun', 'SheLeeOkSun', 'Playfair Display', serif;
@@ -52,50 +54,53 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--ff-sans) !important; -webkit-tap-highlight-color: transparent; }
+    
+    /* Global Body Scroll Fix - Pure Native Web Scrollable */
     html, body {
       width: 100%;
-      height: 100%;
-      background: #0D0804;
+      min-height: 100vh;
+      background: #070402;
       color: var(--white);
-      overflow: hidden;
-      touch-action: pan-y;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      touch-action: manipulation;
     }
 
-    /* App Frame Container */
+    /* Mobile Container Frame */
     #app-container {
       max-width: 480px;
       width: 100%;
-      height: 100vh;
-      height: calc(var(--vh, 1vh) * 100);
+      min-height: 100vh;
       margin: 0 auto;
-      background: linear-gradient(180deg, #1A1007 0%, #120A04 100%);
+      background: linear-gradient(180deg, #180F07 0%, #0F0904 100%);
       position: relative;
-      box-shadow: 0 0 60px rgba(242, 92, 5, 0.25);
-      overflow: hidden;
+      box-shadow: 0 0 50px rgba(242, 92, 5, 0.2);
+      padding-bottom: 90px;
     }
 
-    /* App Header */
+    /* Sticky App Header */
     .app-header {
       height: 56px;
       padding: 0 16px;
-      background: rgba(26, 16, 7, 0.96);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1.5px solid var(--orange);
+      background: rgba(24, 15, 7, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 2px solid var(--orange);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: absolute;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
+      z-index: 900;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
 
     .app-logo-wrap {
       display: flex;
       align-items: center;
       gap: 8px;
+      cursor: pointer;
     }
 
     .app-logo {
@@ -110,8 +115,8 @@
     }
 
     .header-icon-btn {
-      background: rgba(242, 92, 5, 0.15);
-      border: 1px solid rgba(242, 92, 5, 0.35);
+      background: rgba(242, 92, 5, 0.16);
+      border: 1px solid rgba(242, 92, 5, 0.4);
       color: var(--white);
       width: 36px;
       height: 36px;
@@ -137,17 +142,11 @@
       align-items: center;
       gap: 4px;
       text-decoration: none;
-      box-shadow: 0 2px 10px rgba(242, 92, 5, 0.5);
-      transition: var(--tr);
-    }
-    .header-web-btn:active {
-      transform: scale(0.95);
-      background: var(--red);
+      box-shadow: 0 2px 12px rgba(242, 92, 5, 0.5);
     }
 
     .header-icon-btn.playing {
       background: var(--orange);
-      border-color: var(--orange);
       box-shadow: 0 0 14px rgba(242, 92, 5, 0.8);
       animation: rotateDisc 4s linear infinite;
     }
@@ -157,56 +156,25 @@
       to { transform: rotate(360deg); }
     }
 
-    .header-icon-btn:active {
-      transform: scale(0.92);
-    }
-
-    /* Main Scrollable Viewport - Fixed Absolute Positioning for 100% Smooth Touch Scroll */
-    .app-body {
-      position: absolute;
-      top: 56px;
-      bottom: 66px;
-      left: 0;
-      right: 0;
-      overflow-y: auto;
-      overflow-x: hidden;
-      -webkit-overflow-scrolling: touch;
-      touch-action: pan-y;
-      padding: 16px 16px 30px;
-    }
-
-    /* Tab Section Panels */
-    .tab-panel {
-      display: none;
-      animation: slideUp 0.28s ease;
-    }
-
-    .tab-panel.active {
-      display: block;
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Bottom Navigation Bar */
+    /* Fixed Bottom Navigation Floating Bar */
     .bottom-nav {
       height: 66px;
-      background: rgba(22, 13, 5, 0.98);
+      background: rgba(20, 12, 5, 0.98);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-top: 2px solid var(--orange);
       display: flex;
       align-items: center;
       justify-content: space-around;
-      position: absolute;
+      position: fixed;
       bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      z-index: 1000;
       padding-bottom: env(safe-area-inset-bottom);
-      box-shadow: 0 -4px 20px rgba(242, 92, 5, 0.2);
+      box-shadow: 0 -6px 24px rgba(242, 92, 5, 0.25);
     }
 
     .nav-tab-item {
@@ -215,7 +183,7 @@
       align-items: center;
       justify-content: center;
       gap: 3px;
-      color: rgba(255, 255, 255, 0.45);
+      color: rgba(255, 255, 255, 0.5);
       text-decoration: none;
       font-size: 10px;
       font-weight: 500;
@@ -226,10 +194,7 @@
       position: relative;
     }
 
-    .nav-tab-icon {
-      font-size: 20px;
-      transition: var(--tr);
-    }
+    .nav-tab-icon { font-size: 20px; transition: var(--tr); }
 
     .nav-tab-item.active {
       color: var(--orange);
@@ -244,23 +209,40 @@
       content: '';
       position: absolute;
       top: 0;
-      width: 24px;
+      width: 26px;
       height: 3px;
       background: var(--orange);
       border-radius: 0 0 4px 4px;
-      box-shadow: 0 2px 8px var(--orange);
+      box-shadow: 0 2px 10px var(--orange);
     }
 
-    /* Cards & Components */
+    /* Main Content Sections */
+    .app-body-content {
+      padding: 16px;
+    }
+
+    .tab-panel {
+      display: none;
+      animation: fadeIn 0.28s ease;
+    }
+
+    .tab-panel.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Modern Cards */
     .m-card {
       background: var(--dark2);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
+      border: 1px solid rgba(242, 92, 5, 0.25);
+      border-radius: 16px;
       padding: 18px;
       margin-bottom: 16px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
       position: relative;
+      overflow: hidden;
     }
 
     .m-title {
@@ -268,6 +250,7 @@
       font-size: 20px;
       color: var(--white);
       margin-bottom: 8px;
+      line-height: 1.35;
     }
 
     .m-title em {
@@ -285,10 +268,10 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 3px 8px;
-      background: rgba(242, 92, 5, 0.18);
+      padding: 4px 9px;
+      background: rgba(242, 92, 5, 0.22);
       color: var(--orange);
-      border: 1px solid rgba(242, 92, 5, 0.3);
+      border: 1px solid var(--orange);
       border-radius: 4px;
       font-size: 10px;
       font-weight: 700;
@@ -296,39 +279,36 @@
       letter-spacing: 0.05em;
     }
 
-    /* Home Hero Card */
+    /* Hero Banner */
     .home-hero {
       position: relative;
       height: 230px;
       border-radius: 16px;
       overflow: hidden;
       margin-bottom: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      border: 1.5px solid rgba(242, 92, 5, 0.3);
     }
 
-    .home-hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .home-hero img { width: 100%; height: 100%; object-fit: cover; }
 
     .home-hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.88) 100%);
+      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.92) 100%);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 20px;
     }
 
-    /* D-DAY Timer Clock */
+    /* D-DAY Timer Box */
     .dday-timer-box {
       display: flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(242, 92, 5, 0.25);
-      border: 1px solid var(--orange);
+      gap: 6px;
+      background: rgba(242, 92, 5, 0.28);
+      border: 1.5px solid var(--orange);
       backdrop-filter: blur(8px);
       padding: 6px 12px;
       border-radius: 20px;
@@ -337,29 +317,31 @@
       font-weight: 700;
       width: fit-content;
       margin-bottom: 10px;
+      box-shadow: 0 4px 14px rgba(242, 92, 5, 0.4);
     }
 
     .timer-unit {
       font-family: var(--ff-mono) !important;
       color: var(--orange);
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.6);
       padding: 2px 6px;
       border-radius: 4px;
+      font-size: 13px;
     }
 
-    /* Quick Grid Actions */
+    /* Quick Action Buttons Grid */
     .quick-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
       margin-bottom: 16px;
     }
 
     .quick-item {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(242, 92, 5, 0.08);
+      border: 1px solid rgba(242, 92, 5, 0.2);
       border-radius: 12px;
-      padding: 16px 10px;
+      padding: 14px 6px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -367,23 +349,24 @@
       gap: 6px;
       cursor: pointer;
       transition: var(--tr);
+      text-decoration: none;
     }
 
     .quick-item:active {
-      background: rgba(242, 92, 5, 0.2);
+      background: var(--orange);
       border-color: var(--orange);
-      transform: scale(0.95);
+      transform: scale(0.94);
     }
 
-    .quick-icon { font-size: 26px; }
-    .quick-label { font-size: 11px; font-weight: 700; color: var(--white); }
+    .quick-icon { font-size: 22px; }
+    .quick-label { font-size: 10px; font-weight: 700; color: var(--white); white-space: nowrap; }
 
-    /* Zone List Interactive */
+    /* Zone List */
     .zone-m-item {
       display: flex;
       gap: 14px;
       background: var(--dark2);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(242, 92, 5, 0.2);
       border-radius: 12px;
       padding: 14px;
       margin-bottom: 12px;
@@ -394,8 +377,8 @@
 
     .zone-m-item:active {
       border-color: var(--orange);
+      background: #2b180a;
       transform: scale(0.98);
-      background: #2b1a0e;
     }
 
     .zone-m-thumb {
@@ -405,32 +388,13 @@
       object-fit: cover;
       background: var(--espresso);
       flex-shrink: 0;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(242, 92, 5, 0.3);
     }
 
-    .zone-m-info {
-      flex: 1;
-    }
-
-    .zone-m-num {
-      font-size: 10px;
-      color: var(--orange);
-      font-weight: 700;
-      letter-spacing: 0.1em;
-    }
-
-    .zone-m-title {
-      font-size: 14px;
-      font-weight: 700;
-      margin: 2px 0 4px;
-      color: var(--white);
-    }
-
-    .zone-m-desc {
-      font-size: 11px;
-      color: var(--muted);
-      line-height: 1.35;
-    }
+    .zone-m-info { flex: 1; }
+    .zone-m-num { font-size: 10px; color: var(--orange); font-weight: 700; letter-spacing: 0.1em; }
+    .zone-m-title { font-size: 14px; font-weight: 700; margin: 2px 0 4px; color: var(--white); }
+    .zone-m-desc { font-size: 11px; color: var(--muted); line-height: 1.35; }
 
     /* Product Grid */
     .p-grid {
@@ -441,7 +405,7 @@
 
     .p-card {
       background: var(--dark2);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(242, 92, 5, 0.2);
       border-radius: 12px;
       overflow: hidden;
       display: flex;
@@ -450,10 +414,7 @@
       transition: var(--tr);
     }
 
-    .p-card:active {
-      transform: scale(0.96);
-      border-color: var(--orange);
-    }
+    .p-card:active { transform: scale(0.96); border-color: var(--orange); }
 
     .p-img-wrap {
       aspect-ratio: 1;
@@ -463,24 +424,13 @@
       background: #150d06;
     }
 
-    .p-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .p-body {
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
+    .p-img { width: 100%; height: 100%; object-fit: cover; }
+    .p-body { padding: 12px; display: flex; flex-direction: column; gap: 4px; }
     .p-brand { font-size: 9px; color: var(--clay); font-weight: 700; letter-spacing: 0.08em; }
     .p-title { font-size: 13px; font-weight: 700; color: var(--white); line-height: 1.3; }
     .p-price { font-size: 13px; font-weight: 700; color: var(--orange); margin-top: 2px; }
 
-    /* Filter Buttons */
+    /* Filter Row */
     .filter-row {
       display: flex;
       gap: 8px;
@@ -492,8 +442,8 @@
 
     .filter-btn {
       padding: 8px 16px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(242, 92, 5, 0.08);
+      border: 1px solid rgba(242, 92, 5, 0.25);
       border-radius: 20px;
       color: var(--muted);
       font-size: 12px;
@@ -509,14 +459,14 @@
       font-weight: 700;
     }
 
-    /* Scent Quiz Interactive */
+    /* Scent Quiz Box */
     .quiz-box {
       background: linear-gradient(145deg, #2A170A, #180D05);
       border: 1.5px solid var(--orange);
       border-radius: 16px;
       padding: 24px 20px;
       text-align: center;
-      box-shadow: 0 8px 30px rgba(242, 92, 5, 0.2);
+      box-shadow: 0 8px 30px rgba(242, 92, 5, 0.3);
     }
 
     .progress-bar-wrap {
@@ -543,7 +493,7 @@
       padding: 16px 18px;
       margin-bottom: 10px;
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(242, 92, 5, 0.25);
       border-radius: 12px;
       color: var(--white);
       font-size: 13px;
@@ -559,7 +509,7 @@
       transform: scale(0.98);
     }
 
-    /* Ticket / QR Modal & Pass */
+    /* Ticket Pass */
     .ticket-pass {
       background: linear-gradient(135deg, #BC453C, #594335);
       border-radius: 18px;
@@ -569,6 +519,7 @@
       position: relative;
       overflow: hidden;
       margin-bottom: 16px;
+      border: 1px solid var(--orange);
     }
 
     .ticket-header {
@@ -595,12 +546,12 @@
 
     .qr-mock svg { width: 100%; height: 100%; }
 
-    /* Mobile Form Input */
+    /* Form Inputs */
     .m-input {
       width: 100%;
       padding: 14px 16px;
       background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(242, 92, 5, 0.25);
       border-radius: 10px;
       color: var(--white);
       font-size: 14px;
@@ -609,9 +560,7 @@
       transition: border-color 0.2s;
     }
 
-    .m-input:focus {
-      border-color: var(--orange);
-    }
+    .m-input:focus { border-color: var(--orange); }
 
     .m-btn {
       width: 100%;
@@ -624,19 +573,19 @@
       font-weight: 700;
       cursor: pointer;
       transition: var(--tr);
-      box-shadow: 0 4px 16px rgba(242, 92, 5, 0.35);
+      box-shadow: 0 4px 16px rgba(242, 92, 5, 0.4);
     }
 
     .m-btn:active { transform: scale(0.98); background: var(--red); }
 
-    /* Modal Overlay */
+    /* Modals */
     .m-modal {
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.85);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      z-index: 999;
+      z-index: 2000;
       display: none;
       align-items: center;
       justify-content: center;
@@ -649,20 +598,20 @@
       width: 100%;
       max-width: 420px;
       background: var(--dark);
-      border: 1.5px solid rgba(255,255,255,0.18);
+      border: 1.5px solid var(--orange);
       border-radius: 20px;
       padding: 24px;
       position: relative;
       max-height: 85vh;
       overflow-y: auto;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.9);
     }
 
     .modal-close {
       position: absolute;
       top: 16px;
       right: 16px;
-      background: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.15);
       border: none;
       color: var(--white);
       width: 32px;
@@ -690,7 +639,7 @@
       background: #FFFFFF;
       padding: 8px 8px 12px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
       transform: rotate(-1.5deg);
       cursor: pointer;
     }
@@ -713,18 +662,40 @@
       margin-top: 6px;
       text-align: center;
     }
+
+    /* Info Grid Cell */
+    .info-m-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .info-m-cell {
+      background: rgba(242, 92, 5, 0.08);
+      border: 1px solid rgba(242, 92, 5, 0.2);
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .info-m-ico { font-size: 20px; }
+    .info-m-key { font-size: 10px; color: var(--orange); font-weight: 700; }
+    .info-m-val { font-size: 12px; font-weight: 700; color: var(--white); line-height: 1.4; }
   </style>
 </head>
 <body>
 
-<!-- Background Audio Player -->
+<!-- Audio Player -->
 <audio id="mobile-bgm" src="../bgm.mp3" loop></audio>
 
 <div id="app-container">
   
-  <!-- App Header -->
+  <!-- Sticky App Header -->
   <header class="app-header">
-    <div class="app-logo-wrap" onclick="switchTab('home')" style="cursor:pointer;" title="모바일 앱 메인 홈으로 이동">
+    <div class="app-logo-wrap" onclick="switchTab('home')" title="모바일 앱 메인 홈으로 이동">
       <img src="../kracker_logo_new.png" alt="Kracker House Logo" class="app-logo" onerror="this.src='../images/kracker_logo_new.png'" />
     </div>
     <div class="app-header-actions">
@@ -734,13 +705,13 @@
     </div>
   </header>
 
-  <!-- Main Scrollable App Viewport -->
-  <main class="app-body">
+  <!-- Scrollable App Body Content -->
+  <main class="app-body-content">
 
-    <!-- TAB 1: HOME -->
+    <!-- TAB 1: HOME (메인 홈 & 팝업 개요) -->
     <section id="tab-home" class="tab-panel active">
       
-      <!-- Web Full Version Shortcut Banner Card -->
+      <!-- Web Full Version Shortcut Card -->
       <a href="../index.html" class="m-card" style="display:flex; align-items:center; justify-content:space-between; text-decoration:none; background:linear-gradient(135deg, #241408, #3b220d); border:1.5px solid var(--orange); margin-bottom:14px; padding:14px 16px;">
         <div>
           <div class="m-badge" style="background:var(--orange); color:#fff; margin-bottom:4px; font-size:9px;">WEB FULL VERSION</div>
@@ -750,6 +721,7 @@
         <span style="font-size:22px; color:var(--orange); font-weight:900;">→</span>
       </a>
 
+      <!-- Hero Banner -->
       <div class="home-hero">
         <img src="../images/hero_laundry_store.jpg" alt="Kracker Laundry Store" onerror="this.src='../hero_laundry_store.jpg'" />
         <div class="home-hero-overlay">
@@ -765,33 +737,61 @@
         </div>
       </div>
 
-      <!-- Quick Action Buttons -->
+      <!-- Quick Action Buttons Grid -->
       <div class="quick-grid">
-        <a href="../index.html" class="quick-item" style="text-decoration:none;">
+        <a href="../index.html" class="quick-item">
           <span class="quick-icon">🌐</span>
           <span class="quick-label">웹 풀버전</span>
         </a>
-        <div class="quick-item" onclick="switchTab('ticket')">
+        <div class="quick-item" onclick="switchTab('prereg')">
           <span class="quick-icon">🎟️</span>
-          <span class="quick-label">모바일 티켓</span>
+          <span class="quick-label">사전등록</span>
         </div>
         <div class="quick-item" onclick="switchTab('quiz')">
           <span class="quick-icon">🧪</span>
           <span class="quick-label">향 테스트</span>
         </div>
+        <div class="quick-item" onclick="switchTab('zones')">
+          <span class="quick-icon">🗺️</span>
+          <span class="quick-label">8개 공간</span>
+        </div>
       </div>
 
-      <!-- Story Card -->
+      <!-- Key Info Summary Grid -->
+      <div class="info-m-grid">
+        <div class="info-m-cell">
+          <span class="info-m-ico">📍</span>
+          <span class="info-m-key">LOCATION</span>
+          <span class="info-m-val">스타필드 빌리지 1F 중앙 광장</span>
+        </div>
+        <div class="info-m-cell">
+          <span class="info-m-ico">📅</span>
+          <span class="info-m-key">DATE</span>
+          <span class="info-m-val">2026.09.11(금) ~ 09.23(수)</span>
+        </div>
+        <div class="info-m-cell">
+          <span class="info-m-ico">⏰</span>
+          <span class="info-m-key">TIME</span>
+          <span class="info-m-val">AM 10:30 ~ PM 22:00</span>
+        </div>
+        <div class="info-m-cell">
+          <span class="info-m-ico">🎁</span>
+          <span class="info-m-key">BENEFIT</span>
+          <span class="info-m-val">선착순 스너글 미니세제 증정</span>
+        </div>
+      </div>
+
+      <!-- Collaboration Story Card -->
       <div class="m-card">
         <div class="m-badge">COLLABORATION STORY</div>
         <h2 class="m-title">옷과 세탁의 <em>포근한 라이프스타일</em></h2>
         <p class="m-subtitle" style="margin-bottom:14px;">
           1980s 빈티지 워크웨어 패션 '크래커하우스'와 프리미엄 섬유유연제 '스너글'의 포근한 콜라보레이션 팝업스토어를 모바일 앱에서 경험해보세요.
         </p>
-        <button class="m-btn" style="padding:11px; font-size:13px;" onclick="switchTab('products')">한정판 콜라보 굿즈 보기 →</button>
+        <button class="m-btn" style="padding:11px; font-size:13px;" onclick="switchTab('products')">한정판 콜라보 굿즈 구경하기 →</button>
       </div>
 
-      <!-- Photo Line Gallery Preview -->
+      <!-- Photo Line Gallery Card -->
       <div class="m-card">
         <div class="m-badge">LAUNDRY PHOTO LINE</div>
         <h3 class="m-title">실시간 <em>사진 빨랫줄 갤러리</em></h3>
@@ -813,23 +813,43 @@
         </div>
       </div>
 
-      <!-- Event Notification Card -->
-      <div class="m-card" style="border-color:var(--orange); margin-bottom:0;">
+      <!-- Event Card -->
+      <div class="m-card" style="border-color:var(--orange);">
         <div class="m-badge" style="background:var(--orange); color:var(--white);">GIFT EVENT</div>
         <h3 class="m-title">사전예약자 <em>선착순 사은품 증정</em></h3>
         <p class="m-subtitle">모바일 티켓을 발급받아 방문하시면 현장에서 스너글 미니 세제를 선물로 드립니다!</p>
       </div>
     </section>
 
-    <!-- TAB 2: ZONES -->
+    <!-- TAB 2: PREREG (사전등록 & 체크인) -->
+    <section id="tab-prereg" class="tab-panel">
+      <div class="m-card">
+        <div class="m-badge">PRE-REGISTRATION</div>
+        <h2 class="m-title">팝업스토어 <em>사전등록 &amp; 체크인</em></h2>
+        <p class="m-subtitle" style="margin-bottom:16px;">사전등록 시 패스트트랙 우선 입장 및 한정판 스너글 사은품 혜택을 드립니다.</p>
+        
+        <input type="text" id="reg-name" class="m-input" placeholder="성함 (예: 홍길동)" />
+        <input type="tel" id="reg-phone" class="m-input" placeholder="휴대폰 번호 (- 제외)" />
+        <input type="email" id="reg-email" class="m-input" placeholder="이메일 주소" />
+        <select id="reg-date" class="m-input" style="background:#28180B;">
+          <option value="2026-09-11">2026.09.11 (금) 방문</option>
+          <option value="2026-09-12">2026.09.12 (토) 방문</option>
+          <option value="2026-09-13">2026.09.13 (일) 방문</option>
+          <option value="2026-09-14">2026.09.14 (월) 방문</option>
+        </select>
+        
+        <button class="m-btn" onclick="submitPrereg()">사전등록 완료 및 모바일 티켓 생성 🎟️</button>
+      </div>
+    </section>
+
+    <!-- TAB 3: ZONES (8개 공간 존 안내) -->
     <section id="tab-zones" class="tab-panel">
       <div class="m-card" onclick="openFloorplanModal()" style="cursor:pointer;">
         <div class="m-badge">3D FLOOR MAP (터치하여 크게보기)</div>
         <h2 class="m-title">팝업스토어 <em>8개 공간 구조도</em></h2>
-        <img src="../3d_map.jpg" alt="3D Floorplan Map" style="width:100%; border-radius:10px; margin-top:8px; border:1px solid rgba(255,255,255,0.1);" onerror="this.src='../images/3d_map.jpg'" />
+        <img src="../3d_map.jpg" alt="3D Floorplan Map" style="width:100%; border-radius:10px; margin-top:8px; border:1px solid rgba(242,92,5,0.3);" onerror="this.src='../images/3d_map.jpg'" />
       </div>
 
-      <!-- 8 Zone Items -->
       <div class="zone-m-item" onclick="showZoneDetail(1)">
         <img src="../zone_card_01.jpg" class="zone-m-thumb" onerror="this.src='../images/zone_001.png'" />
         <div class="zone-m-info">
@@ -885,7 +905,7 @@
       </div>
     </section>
 
-    <!-- TAB 3: PRODUCTS -->
+    <!-- TAB 4: PRODUCTS (한정판 굿즈 샵) -->
     <section id="tab-products" class="tab-panel">
       <div class="filter-row">
         <button class="filter-btn active" onclick="filterProducts('all', this)">전체보기</button>
@@ -952,7 +972,7 @@
       </div>
     </section>
 
-    <!-- TAB 4: SCENT QUIZ -->
+    <!-- TAB 5: SCENT QUIZ (향 테스트) -->
     <section id="tab-quiz" class="tab-panel">
       <div class="quiz-box" id="quiz-container">
         <div class="progress-bar-wrap">
@@ -968,7 +988,6 @@
         </div>
       </div>
 
-      <!-- Result Card -->
       <div id="quiz-result" class="m-card" style="display:none; text-align:center; padding:30px 20px; border-color:var(--orange);">
         <div class="m-badge">YOUR MATCHED SCENT</div>
         <div style="font-size:54px; margin:10px 0;" id="res-emoji">☀️</div>
@@ -984,7 +1003,7 @@
       </div>
     </section>
 
-    <!-- TAB 5: TICKET & RESERVATION -->
+    <!-- TAB 6: TICKET (모바일 티켓) -->
     <section id="tab-ticket" class="tab-panel">
       <div class="ticket-pass" id="mobile-pass-card">
         <div class="ticket-header">
@@ -1020,11 +1039,11 @@
       <div class="m-card" style="text-align:center;">
         <div style="font-size:12px; color:var(--muted);">실시간 현장 대기 순번 시뮬레이션</div>
         <div style="font-size:38px; font-weight:900; color:var(--orange); margin:8px 0;" id="queue-num">14 번</div>
-        <div style="font-size:12px; color:var(--muted);">예상 대기 시간: 약 15분 | 차례가 되면 카카오톡으로 안내드립니다.</div>
+        <div style="font-size:12px; color:var(--muted);">예상 대기 시간: 약 15분 | 차례가 되면 안내해드립니다.</div>
       </div>
     </section>
 
-    <!-- TAB 6: GUESTBOOK -->
+    <!-- TAB 7: GUESTBOOK (라이브 방명록) -->
     <section id="tab-guestbook" class="tab-panel">
       <div class="m-card">
         <div class="m-badge">LIVE GUESTBOOK</div>
@@ -1057,14 +1076,18 @@
 
   </main>
 
-  <!-- Bottom Navigation Bar -->
+  <!-- Fixed Bottom Navigation Floating Bar -->
   <nav class="bottom-nav">
     <a class="nav-tab-item active" onclick="switchTab('home')">
       <span class="nav-tab-icon">🏠</span>
       <span>홈</span>
     </a>
+    <a class="nav-tab-item" onclick="switchTab('prereg')">
+      <span class="nav-tab-icon">🎟️</span>
+      <span>사전등록</span>
+    </a>
     <a class="nav-tab-item" onclick="switchTab('zones')">
-      <span class="nav-tab-icon">🧺</span>
+      <span class="nav-tab-icon">🗺️</span>
       <span>공간</span>
     </a>
     <a class="nav-tab-item" onclick="switchTab('products')">
@@ -1111,14 +1134,6 @@
 </div>
 
 <script>
-  // Viewport Height Fix for iOS Mobile Screen
-  function setVh() {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}vh`);
-  }
-  setVh();
-  window.addEventListener('resize', setVh);
-
   // Audio Control
   let isAudioPlaying = false;
   function toggleAudio() {
@@ -1179,7 +1194,7 @@
     const activeTab = Array.from(document.querySelectorAll('.nav-tab-item')).find(el => el.getAttribute('onclick').includes(tabId));
     if (activeTab) activeTab.classList.add('active');
 
-    document.querySelector('.app-body').scrollTop = 0;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   // Filter Products
@@ -1194,6 +1209,25 @@
         card.style.display = 'none';
       }
     });
+  }
+
+  // Preregistration Form Submit
+  function submitPrereg() {
+    const name = document.getElementById('reg-name').value.trim();
+    const phone = document.getElementById('reg-phone').value.trim();
+    const date = document.getElementById('reg-date').value;
+
+    if (!name || !phone) {
+      alert('성함과 휴대폰 번호를 입력해주세요!');
+      return;
+    }
+
+    document.getElementById('pass-name').innerText = `${name} 님`;
+    const randomNo = Math.floor(1000 + Math.random() * 9000);
+    document.getElementById('pass-code').innerText = `NO. 2026-0911-${randomNo}`;
+    
+    alert(`🎉 ${name} 님! 팝업스토어 사전등록 및 체크인 티켓(NO. 2026-0911-${randomNo})이 성공적으로 발급되었습니다!`);
+    switchTab('ticket');
   }
 
   // Open Product Modal
@@ -1225,7 +1259,7 @@
     openProdDetail(`@${nick} 님의 빨랫줄 사진`, "LAUNDRY PHOTO", imgSrc, "빨랫줄 포토존에 걸린 소중한 순간입니다. 현장에서 직접 확인해보세요!");
   }
 
-  // Open Zone Detail Modal
+  // Zone Detail Modal
   function showZoneDetail(zoneId) {
     const zoneData = {
       1: { title: "ZONE 01 - 웰컴 런드리 게이트", desc: "거대한 세탁기 입구를 지나 포근한 스너글 세탁소 세상으로 진입하는 입구 공간입니다.", img: "../zone_card_01.jpg" },
@@ -1240,7 +1274,7 @@
     openProdDetail(zone.title, "체험존 공간 안내", zone.img, zone.desc);
   }
 
-  // Quiz Interactive Logic
+  // Quiz Logic
   let currentStep = 1;
   let lastResultChoice = 1;
   const questions = [
@@ -1335,7 +1369,7 @@
     ).join('');
   }
 
-  // Mobile Ticket Logic
+  // Ticket Pass Generator
   function generatePass() {
     const name = document.getElementById('input-name').value.trim();
     if (name) {
@@ -1352,7 +1386,7 @@
     switchTab('ticket');
   }
 
-  // Live Guestbook Add & Like
+  // Guestbook Add & Like
   function addGuestMsg() {
     const nick = document.getElementById('g-nick').value.trim();
     const msg = document.getElementById('g-msg').value.trim();
@@ -1367,7 +1401,6 @@
     newCard.className = 'm-card';
     newCard.style.marginBottom = '10px';
     newCard.style.padding = '14px';
-    newCard.style.animation = 'slideUp 0.3s ease';
     newCard.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center;">
         <div style="font-size:12px; font-weight:700; color:var(--orange);">${nick} ✨</div>
@@ -1389,19 +1422,6 @@
     btnEl.innerText = `❤️ ${count}`;
     btnEl.style.transform = 'scale(1.2)';
     setTimeout(() => { btnEl.style.transform = 'scale(1)'; }, 200);
-  }
-
-  function copyGithubUrl() {
-    const url = "https://nyk5473.github.io/CrackerHouse_Snuggle3/mobile";
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(url).then(() => {
-        alert("공식 모바일 앱 GitHub 주소가 복사되었습니다!\n\n" + url);
-      }).catch(() => {
-        alert("공식 모바일 앱 주소:\n" + url);
-      });
-    } else {
-      alert("공식 모바일 앱 주소:\n" + url);
-    }
   }
 </script>
 
