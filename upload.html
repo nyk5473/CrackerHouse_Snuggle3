@@ -467,15 +467,20 @@ h1, h2, h3, .hero-title, .products-big-title, .prereg-headline, .brand-headline,
 <body>
 
 <!-- ══ TOP NAV ══ -->
-<nav id="top-nav">
-  <a href="index.html" class="nav-logo" style="background:none; padding:0; display:inline-flex; align-items:center; text-decoration:none;"><img src="kracker_logo_new.png?v=1788167545" alt="Kracker Laundry Pop-up Store" style="height:36px; max-width:200px; object-fit:contain; display:block;" onerror="this.src='images/kracker_logo_new.png'; this.onerror=null;" /></a>
-    <ul class="nav-links">
-    <li><a href="promo.html#prereg-section">사전등록</a></li>
-    <li><a href="promo.html#brand-section">브랜드소개</a></li>
-    <li><a href="promo.html#product-section">상품</a></li>
-    <li><a href="promo.html#laundry-section">사진빨랫줄</a></li>
-    <li><a href="promo.html#zones-section">공간 구조 존</a></li>
-  </ul>
+<nav id="top-nav" style="position:fixed; top:0; left:0; right:0; height:58px; background:#BC453C; display:flex; align-items:center; justify-content:space-between; padding:0 36px; z-index:9999; box-shadow:0 3px 24px rgba(0,0,0,0.35);">
+  <a href="index.html" class="nav-logo" style="background:none; padding:0; display:inline-flex; align-items:center; text-decoration:none;">
+    <img src="kracker_logo_new.png?v=20260901_top" alt="Kracker Laundry Pop-up Store" style="height:36px; max-width:200px; object-fit:contain; display:block;" onerror="this.src='images/kracker_logo_new.png'; this.onerror=null;" />
+  </a>
+  <div style="display:flex; align-items:center; gap:24px;">
+    <ul class="nav-links" style="display:flex; list-style:none; gap:28px; margin:0; padding:0; align-items:center;">
+      <li><a href="#prereg-section" style="color:rgba(255,255,255,0.9); font-weight:700; font-size:14px; text-decoration:none; transition:all 0.2s ease;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='rgba(255,255,255,0.9)'">사전등록</a></li>
+      <li><a href="#brand-section" style="color:rgba(255,255,255,0.9); font-weight:700; font-size:14px; text-decoration:none; transition:all 0.2s ease;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='rgba(255,255,255,0.9)'">브랜드소개</a></li>
+      <li><a href="#product-section" style="color:rgba(255,255,255,0.9); font-weight:700; font-size:14px; text-decoration:none; transition:all 0.2s ease;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='rgba(255,255,255,0.9)'">상품</a></li>
+      <li><a href="#laundry-section" style="color:rgba(255,255,255,0.9); font-weight:700; font-size:14px; text-decoration:none; transition:all 0.2s ease;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='rgba(255,255,255,0.9)'">사진빨랫줄</a></li>
+      <li><a href="#zones-section" style="color:rgba(255,255,255,0.9); font-weight:700; font-size:14px; text-decoration:none; transition:all 0.2s ease;" onmouseover="this.style.color='#FFFFFF'" onmouseout="this.style.color='rgba(255,255,255,0.9)'">공간 구조 존</a></li>
+    </ul>
+    <audio id="bgm-player" src="bgm.mp3" controls autoplay loop style="height:24px; width:110px; outline:none; border-radius:15px; background-color:#F25C05; opacity:0.85; transition:opacity 0.28s ease;"></audio>
+  </div>
 </nav>
 
 <!-- ══ PAGE HEADER ══ -->
