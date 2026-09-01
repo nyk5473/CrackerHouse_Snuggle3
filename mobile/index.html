@@ -701,7 +701,6 @@
     <div class="app-header-actions">
       <button class="header-icon-btn" id="bgm-toggle-btn" onclick="toggleAudio()" title="배경음악 ON/OFF">🎵</button>
       <button class="header-icon-btn" onclick="openTicketModal()" title="모바일 입장권">🎟️</button>
-      <a href="../index.html" class="header-web-btn" title="웹 풀버전 페이지로 이동">🌐 웹 풀버전</a>
     </div>
   </header>
 
@@ -710,16 +709,6 @@
 
     <!-- TAB 1: HOME (메인 홈 & 팝업 개요) -->
     <section id="tab-home" class="tab-panel active">
-      
-      <!-- Web Full Version Shortcut Card -->
-      <a href="../index.html" class="m-card" style="display:flex; align-items:center; justify-content:space-between; text-decoration:none; background:linear-gradient(135deg, #241408, #3b220d); border:1.5px solid var(--orange); margin-bottom:14px; padding:14px 16px;">
-        <div>
-          <div class="m-badge" style="background:var(--orange); color:#fff; margin-bottom:4px; font-size:9px;">WEB FULL VERSION</div>
-          <div style="font-size:15px; font-weight:700; color:#fff;">🌐 PC / 웹사이트 풀버전 바로가기</div>
-          <div style="font-size:11px; color:var(--muted); margin-top:3px;">풀스크린 고화질 웹사이트(index.html)로 이동합니다</div>
-        </div>
-        <span style="font-size:22px; color:var(--orange); font-weight:900;">→</span>
-      </a>
 
       <!-- Hero Banner -->
       <div class="home-hero">
@@ -739,21 +728,21 @@
 
       <!-- Quick Action Buttons Grid -->
       <div class="quick-grid">
-        <a href="../index.html" class="quick-item">
-          <span class="quick-icon">🌐</span>
-          <span class="quick-label">웹 풀버전</span>
-        </a>
         <div class="quick-item" onclick="switchTab('prereg')">
           <span class="quick-icon">🎟️</span>
           <span class="quick-label">사전등록</span>
         </div>
-        <div class="quick-item" onclick="switchTab('quiz')">
-          <span class="quick-icon">🧪</span>
-          <span class="quick-label">향 테스트</span>
-        </div>
         <div class="quick-item" onclick="switchTab('zones')">
           <span class="quick-icon">🗺️</span>
           <span class="quick-label">8개 공간</span>
+        </div>
+        <div class="quick-item" onclick="switchTab('products')">
+          <span class="quick-icon">👕</span>
+          <span class="quick-label">굿즈 샵</span>
+        </div>
+        <div class="quick-item" onclick="switchTab('quiz')">
+          <span class="quick-icon">🧪</span>
+          <span class="quick-label">향 테스트</span>
         </div>
       </div>
 
