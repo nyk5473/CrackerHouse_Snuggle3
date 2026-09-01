@@ -683,7 +683,48 @@
 
     .info-m-ico { font-size: 20px; }
     .info-m-key { font-size: 10px; color: var(--orange); font-weight: 700; }
-    .info-m-val { font-size: 12px; font-weight: 700; color: var(--white); line-height: 1.4; }
+    .info-m-val {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.4;
+    }
+
+    /* 3D Map Interactive Hotspot Pins */
+    .map-hotspot-pin {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      background: var(--orange);
+      color: var(--white);
+      border: 2px solid var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 12px;
+      box-shadow: 0 4px 16px rgba(242, 92, 5, 0.9), 0 0 0 4px rgba(242, 92, 5, 0.35);
+      cursor: pointer;
+      z-index: 20;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .map-hotspot-pin:active {
+      transform: scale(1.3);
+      background: var(--red);
+    }
+    .hotspot-pulse {
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 2px solid var(--orange);
+      animation: pinPulse 2s infinite;
+      pointer-events: none;
+    }
+    @keyframes pinPulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      100% { transform: scale(1.85); opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -840,13 +881,39 @@
       </div>
     </section>
 
-    <!-- TAB 3: ZONES (6개 공간 존 안내) -->
-    <section id="tab-zones" class="tab-panel">
-      <div class="m-card" onclick="openFloorplanModal()" style="cursor:pointer;">
-        <div class="m-badge">3D FLOOR MAP (터치하여 크게보기)</div>
-        <h2 class="m-title">팝업스토어 <em>6개 공간 구조도</em></h2>
-        <img src="3d_map.jpg" alt="3D Floorplan Map" style="width:100%; border-radius:10px; margin-top:8px; border:1px solid rgba(242,92,5,0.3);" onerror="this.src='images/3d_map.jpg'" />
-      </div>
+      <!-- TAB 3: ZONES (6개 공간 존 안내) -->
+      <section id="tab-zones" class="tab-panel">
+        <div class="m-card" style="padding:16px;">
+          <div class="m-badge">3D FLOOR MAP (핀 번호를 터치하세요)</div>
+          <h2 class="m-title" style="margin-bottom:10px;">팝업스토어 <em>6개 공간 3D 조감도</em></h2>
+          
+          <div style="position:relative; width:100%; aspect-ratio:16/10; border-radius:12px; overflow:hidden; border:1.5px solid var(--orange); box-shadow:0 8px 24px rgba(0,0,0,0.6); cursor:pointer;" onclick="openFloorplanModal()">
+            <img src="laundry_3d_floorplan_main_final_v999.jpg" alt="3D Floorplan Map" style="width:100%; height:100%; object-fit:cover; display:block;" onerror="this.src='images/laundry_3d_floorplan_main_final_v999.jpg'; this.onerror=null;" />
+            
+            <!-- Interactive Clickable Hotspot Pins (1 ~ 6) -->
+            <div style="position:absolute; inset:0; z-index:10; pointer-events:none;">
+              <div class="map-hotspot-pin" style="top:10%; left:24%; pointer-events:auto;" onclick="event.stopPropagation(); showZoneDetail(1);" title="01. 취향 테스트존">
+                <span class="hotspot-pulse"></span><span>1</span>
+              </div>
+              <div class="map-hotspot-pin" style="top:10%; left:74%; pointer-events:auto;" onclick="event.stopPropagation(); showZoneDetail(2);" title="02. 세탁기 포토부스존">
+                <span class="hotspot-pulse"></span><span>2</span>
+              </div>
+              <div class="map-hotspot-pin" style="top:22%; left:47%; pointer-events:auto;" onclick="event.stopPropagation(); showZoneDetail(3);" title="03. 굿즈존">
+                <span class="hotspot-pulse"></span><span>3</span>
+              </div>
+              <div class="map-hotspot-pin" style="top:46%; left:81%; pointer-events:auto;" onclick="event.stopPropagation(); showZoneDetail(4);" title="04. DIY 존">
+                <span class="hotspot-pulse"></span><span>4</span>
+              </div>
+              <div class="map-hotspot-pin" style="top:76%; left:47%; pointer-events:auto;" onclick="event.stopPropagation(); showZoneDetail(5);" title="05. 커피 &amp; 미니어존">
+                <span class="hotspot-pulse"></span><span>5</span>
+              </div>
+              <div class="map-hotspot-pin" style="top:68%; left:74%; pointer-events:auto;" onclick="event.stopPropagation(); showZoneDetail(6);" title="06. 방명록 존">
+                <span class="hotspot-pulse"></span><span>6</span>
+              </div>
+            </div>
+          </div>
+          <div style="font-size:11px; color:var(--muted); text-align:center; margin-top:8px; font-weight:700;">💡 주황색 핀 번호(1~6)를 터치하면 각 공간 설명 팝업이 열립니다!</div>
+        </div>
 
       <div class="zone-m-item" onclick="showZoneDetail(1)">
         <img src="zone_card_01.jpg" class="zone-m-thumb" onerror="this.src='images/zone_card_01.jpg'" />
@@ -1102,12 +1169,35 @@
 
 <!-- 3D Floorplan Fullscreen Modal -->
 <div class="m-modal" id="floorplan-modal">
-  <div class="m-modal-box" style="max-width:460px; text-align:center;">
+  <div class="m-modal-box" style="max-width:460px; text-align:center; padding:20px;">
     <button class="modal-close" onclick="closeFloorplanModal()">✕</button>
-    <div class="m-badge">3D FLOORPLAN</div>
-    <h3 class="m-title" style="margin-bottom:12px;">스타필드 빌리지 1F 팝업 도면</h3>
-    <img src="3d_map.jpg" style="width:100%; border-radius:10px; margin-bottom:14px;" onerror="this.src='images/3d_map.jpg'" />
-    <p class="m-subtitle">8개 공간 존을 터치하여 각 공간의 시향 및 체험 정보를 확인하세요.</p>
+    <div class="m-badge">3D FLOORPLAN SHOWCASE</div>
+    <h3 class="m-title" style="margin-bottom:12px;">스타필드 빌리지 1F 팝업 3D 조감도</h3>
+    <div style="position:relative; width:100%; aspect-ratio:16/10; border-radius:10px; overflow:hidden; margin-bottom:14px; border:1.5px solid var(--orange);">
+      <img src="laundry_3d_floorplan_main_final_v999.jpg" style="width:100%; height:100%; object-fit:cover; display:block;" onerror="this.src='images/laundry_3d_floorplan_main_final_v999.jpg'" />
+      <!-- Interactive Clickable Hotspot Pins (1 ~ 6) -->
+      <div style="position:absolute; inset:0; z-index:10; pointer-events:none;">
+        <div class="map-hotspot-pin" style="top:10%; left:24%; pointer-events:auto;" onclick="event.stopPropagation(); closeFloorplanModal(); showZoneDetail(1);" title="01. 취향 테스트존">
+          <span class="hotspot-pulse"></span><span>1</span>
+        </div>
+        <div class="map-hotspot-pin" style="top:10%; left:74%; pointer-events:auto;" onclick="event.stopPropagation(); closeFloorplanModal(); showZoneDetail(2);" title="02. 세탁기 포토부스존">
+          <span class="hotspot-pulse"></span><span>2</span>
+        </div>
+        <div class="map-hotspot-pin" style="top:22%; left:47%; pointer-events:auto;" onclick="event.stopPropagation(); closeFloorplanModal(); showZoneDetail(3);" title="03. 굿즈존">
+          <span class="hotspot-pulse"></span><span>3</span>
+        </div>
+        <div class="map-hotspot-pin" style="top:46%; left:81%; pointer-events:auto;" onclick="event.stopPropagation(); closeFloorplanModal(); showZoneDetail(4);" title="04. DIY 존">
+          <span class="hotspot-pulse"></span><span>4</span>
+        </div>
+        <div class="map-hotspot-pin" style="top:76%; left:47%; pointer-events:auto;" onclick="event.stopPropagation(); closeFloorplanModal(); showZoneDetail(5);" title="05. 커피 &amp; 미니어존">
+          <span class="hotspot-pulse"></span><span>5</span>
+        </div>
+        <div class="map-hotspot-pin" style="top:68%; left:74%; pointer-events:auto;" onclick="event.stopPropagation(); closeFloorplanModal(); showZoneDetail(6);" title="06. 방명록 존">
+          <span class="hotspot-pulse"></span><span>6</span>
+        </div>
+      </div>
+    </div>
+    <p class="m-subtitle">주황색 핀 번호(1~6)를 터치하여 각 공간의 상세 설명 팝업을 확인하세요.</p>
   </div>
 </div>
 
