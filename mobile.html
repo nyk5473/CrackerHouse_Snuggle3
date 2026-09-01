@@ -970,34 +970,14 @@
       </div>
     </section>
 
-    <!-- TAB 5: SCENT QUIZ (향 테스트) -->
+    <!-- TAB 5: SCENT QUIZ (공식 3D 향 테스트 앱 모바일 내장) -->
     <section id="tab-quiz" class="tab-panel">
-      <div class="quiz-box" id="quiz-container">
-        <div class="progress-bar-wrap">
-          <div class="progress-bar-fill" id="quiz-bar"></div>
-        </div>
-        <div class="quiz-q-num">QUESTION <span id="q-step-num">1</span> / 3</div>
-        <h2 class="quiz-q-title" id="q-title">오늘 당신이 가장 느끼고 싶은 옷의 포근함은 어떤 느낌인가요?</h2>
-        
-        <div id="quiz-options">
-          <button class="quiz-opt-btn" onclick="nextQuiz(1)">☀️ 구름 위 따스한 햇살 같은 포근함</button>
-          <button class="quiz-opt-btn" onclick="nextQuiz(2)">🌊 산뜻한 봄바람의 상쾌함</button>
-          <button class="quiz-opt-btn" onclick="nextQuiz(3)">🌸 달콤하고 달달한 꽃향기의 부드러움</button>
-        </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <div class="m-badge" style="margin-bottom:0;">OFFICIAL SCENT QUIZ</div>
+        <a href="https://nyk5473.github.io/snuggle-scent-quiz/" target="_blank" style="color:var(--orange); font-size:11px; font-weight:700; text-decoration:none;">새 창에서 크게보기 ↗</a>
       </div>
-
-      <div id="quiz-result" class="m-card" style="display:none; text-align:center; padding:30px 20px; border-color:var(--orange);">
-        <div class="m-badge">YOUR MATCHED SCENT</div>
-        <div style="font-size:54px; margin:10px 0;" id="res-emoji">☀️</div>
-        <h2 class="m-title" id="res-name" style="font-size:22px;">포근한 햇살의 허그해븐</h2>
-        <p class="m-subtitle" id="res-desc" style="margin:14px 0 24px; line-height:1.6;">
-          따뜻한 건조기 열기와 햇볕에 잘 말린 이불 같은 은은하고 포근한 울 코튼 향이 당신과 완벽히 어울립니다!
-        </p>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <button class="m-btn" id="res-prod-btn" onclick="openMatchedProduct()">추천 섬유유연제 굿즈 보기 🛒</button>
-          <button class="m-btn" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);" onclick="shareQuizResult()">결과 친구에게 공유하기 🔗</button>
-          <button class="m-btn" style="background:none; color:var(--muted); font-size:12px;" onclick="restartQuiz()">다시 테스트하기 🔄</button>
-        </div>
+      <div style="width:100%; height:620px; border-radius:16px; overflow:hidden; border:1.5px solid var(--orange); box-shadow:0 8px 30px rgba(242,92,5,0.3); background:#150D06;">
+        <iframe src="https://nyk5473.github.io/snuggle-scent-quiz/" style="width:100%; height:100%; border:none; display:block;" title="스너글 향 취향 테스트"></iframe>
       </div>
     </section>
 

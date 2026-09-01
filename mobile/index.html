@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
   <meta name="theme-color" content="#F25C05" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  
+
   <meta property="og:title" content="크래커하우스 X 스너글 공식 모바일 앱 — 스타필드 빌리지" />
   <meta property="og:description" content="크래커하우스 X 스너글 콜라보 팝업스토어 공식 모바일 앱. 사전등록, 굿즈샵, 8개 공간존, 향테스트, 모바일티켓" />
   <meta property="og:image" content="https://nyk5473.github.io/CrackerHouse_Snuggle3/images/hero_laundry_store.jpg" />
   <meta property="og:url" content="https://nyk5473.github.io/CrackerHouse_Snuggle3/mobile" />
   <link rel="canonical" href="https://nyk5473.github.io/CrackerHouse_Snuggle3/mobile" />
-  
+
   <title>크래커하우스 X 스너글 모바일 앱 — 스타필드 빌리지 팝업스토어</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet" />
 
   <style>
     @font-face {
       font-family: 'LeeOkSun';
       src: url('../images/그녀_이옥선.ttf') format('truetype'),
-           url('../그녀_이옥선.ttf') format('truetype'),
-           url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_ten@1.0/Her-Leeoksun.woff') format('woff');
-      font-weight: normal; font-style: normal;
+        url('../그녀_이옥선.ttf') format('truetype'),
+        url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_ten@1.0/Her-Leeoksun.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
     }
+
     @font-face {
       font-family: 'SheLeeOkSun';
       src: url('../images/그녀_이옥선.ttf') format('truetype'),
-           url('../그녀_이옥선.ttf') format('truetype'),
-           url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_ten@1.0/Her-Leeoksun.woff') format('woff');
-      font-weight: normal; font-style: normal;
+        url('../그녀_이옥선.ttf') format('truetype'),
+        url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_ten@1.0/Her-Leeoksun.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
     }
 
     :root {
@@ -53,10 +60,17 @@
       --tr: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--ff-sans) !important; -webkit-tap-highlight-color: transparent; }
-    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: var(--ff-sans) !important;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     /* Global Body Scroll Fix - Pure Native Web Scrollable */
-    html, body {
+    html,
+    body {
       width: 100%;
       min-height: 100vh;
       background: #070402;
@@ -93,7 +107,7 @@
       position: sticky;
       top: 0;
       z-index: 900;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
 
     .app-logo-wrap {
@@ -152,8 +166,13 @@
     }
 
     @keyframes rotateDisc {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* Fixed Bottom Navigation Floating Bar */
@@ -194,7 +213,10 @@
       position: relative;
     }
 
-    .nav-tab-icon { font-size: 20px; transition: var(--tr); }
+    .nav-tab-icon {
+      font-size: 20px;
+      transition: var(--tr);
+    }
 
     .nav-tab-item.active {
       color: var(--orange);
@@ -226,11 +248,20 @@
       animation: fadeIn 0.28s ease;
     }
 
-    .tab-panel.active { display: block; }
+    .tab-panel.active {
+      display: block;
+    }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Modern Cards */
@@ -240,7 +271,7 @@
       border-radius: 16px;
       padding: 18px;
       margin-bottom: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
       position: relative;
       overflow: hidden;
     }
@@ -286,16 +317,20 @@
       border-radius: 16px;
       overflow: hidden;
       margin-bottom: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
       border: 1.5px solid rgba(242, 92, 5, 0.3);
     }
 
-    .home-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .home-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     .home-hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.92) 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.92) 100%);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -323,7 +358,7 @@
     .timer-unit {
       font-family: var(--ff-mono) !important;
       color: var(--orange);
-      background: rgba(0,0,0,0.6);
+      background: rgba(0, 0, 0, 0.6);
       padding: 2px 6px;
       border-radius: 4px;
       font-size: 13px;
@@ -358,8 +393,16 @@
       transform: scale(0.94);
     }
 
-    .quick-icon { font-size: 22px; }
-    .quick-label { font-size: 10px; font-weight: 700; color: var(--white); white-space: nowrap; }
+    .quick-icon {
+      font-size: 22px;
+    }
+
+    .quick-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--white);
+      white-space: nowrap;
+    }
 
     /* Zone List */
     .zone-m-item {
@@ -391,10 +434,29 @@
       border: 1px solid rgba(242, 92, 5, 0.3);
     }
 
-    .zone-m-info { flex: 1; }
-    .zone-m-num { font-size: 10px; color: var(--orange); font-weight: 700; letter-spacing: 0.1em; }
-    .zone-m-title { font-size: 14px; font-weight: 700; margin: 2px 0 4px; color: var(--white); }
-    .zone-m-desc { font-size: 11px; color: var(--muted); line-height: 1.35; }
+    .zone-m-info {
+      flex: 1;
+    }
+
+    .zone-m-num {
+      font-size: 10px;
+      color: var(--orange);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .zone-m-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin: 2px 0 4px;
+      color: var(--white);
+    }
+
+    .zone-m-desc {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
 
     /* Product Grid */
     .p-grid {
@@ -414,7 +476,10 @@
       transition: var(--tr);
     }
 
-    .p-card:active { transform: scale(0.96); border-color: var(--orange); }
+    .p-card:active {
+      transform: scale(0.96);
+      border-color: var(--orange);
+    }
 
     .p-img-wrap {
       aspect-ratio: 1;
@@ -424,11 +489,39 @@
       background: #150d06;
     }
 
-    .p-img { width: 100%; height: 100%; object-fit: cover; }
-    .p-body { padding: 12px; display: flex; flex-direction: column; gap: 4px; }
-    .p-brand { font-size: 9px; color: var(--clay); font-weight: 700; letter-spacing: 0.08em; }
-    .p-title { font-size: 13px; font-weight: 700; color: var(--white); line-height: 1.3; }
-    .p-price { font-size: 13px; font-weight: 700; color: var(--orange); margin-top: 2px; }
+    .p-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .p-body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .p-brand {
+      font-size: 9px;
+      color: var(--clay);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .p-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+    }
+
+    .p-price {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+      margin-top: 2px;
+    }
 
     /* Filter Row */
     .filter-row {
@@ -472,7 +565,7 @@
     .progress-bar-wrap {
       width: 100%;
       height: 6px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       margin-bottom: 16px;
       overflow: hidden;
@@ -485,8 +578,20 @@
       transition: width 0.3s ease;
     }
 
-    .quiz-q-num { font-size: 11px; color: var(--orange); font-weight: 700; margin-bottom: 8px; }
-    .quiz-q-title { font-family: var(--ff-serif) !important; font-size: 21px; margin-bottom: 20px; line-height: 1.35; color: var(--white); }
+    .quiz-q-num {
+      font-size: 11px;
+      color: var(--orange);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .quiz-q-title {
+      font-family: var(--ff-serif) !important;
+      font-size: 21px;
+      margin-bottom: 20px;
+      line-height: 1.35;
+      color: var(--white);
+    }
 
     .quiz-opt-btn {
       width: 100%;
@@ -541,10 +646,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
 
-    .qr-mock svg { width: 100%; height: 100%; }
+    .qr-mock svg {
+      width: 100%;
+      height: 100%;
+    }
 
     /* Form Inputs */
     .m-input {
@@ -560,7 +668,9 @@
       transition: border-color 0.2s;
     }
 
-    .m-input:focus { border-color: var(--orange); }
+    .m-input:focus {
+      border-color: var(--orange);
+    }
 
     .m-btn {
       width: 100%;
@@ -576,13 +686,16 @@
       box-shadow: 0 4px 16px rgba(242, 92, 5, 0.4);
     }
 
-    .m-btn:active { transform: scale(0.98); background: var(--red); }
+    .m-btn:active {
+      transform: scale(0.98);
+      background: var(--red);
+    }
 
     /* Modals */
     .m-modal {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       z-index: 2000;
@@ -592,7 +705,10 @@
       padding: 20px;
     }
 
-    .m-modal.active { display: flex; animation: fadeIn 0.25s ease; }
+    .m-modal.active {
+      display: flex;
+      animation: fadeIn 0.25s ease;
+    }
 
     .m-modal-box {
       width: 100%;
@@ -604,14 +720,14 @@
       position: relative;
       max-height: 85vh;
       overflow-y: auto;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.9);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
     }
 
     .modal-close {
       position: absolute;
       top: 16px;
       right: 16px;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.15);
       border: none;
       color: var(--white);
       width: 32px;
@@ -639,12 +755,14 @@
       background: #FFFFFF;
       padding: 8px 8px 12px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       transform: rotate(-1.5deg);
       cursor: pointer;
     }
 
-    .m-photo-item:nth-child(even) { transform: rotate(1.8deg); }
+    .m-photo-item:nth-child(even) {
+      transform: rotate(1.8deg);
+    }
 
     .m-photo-img {
       width: 100%;
@@ -681,729 +799,758 @@
       gap: 4px;
     }
 
-    .info-m-ico { font-size: 20px; }
-    .info-m-key { font-size: 10px; color: var(--orange); font-weight: 700; }
-    .info-m-val { font-size: 12px; font-weight: 700; color: var(--white); line-height: 1.4; }
+    .info-m-ico {
+      font-size: 20px;
+    }
+
+    .info-m-key {
+      font-size: 10px;
+      color: var(--orange);
+      font-weight: 700;
+    }
+
+    .info-m-val {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.4;
+    }
   </style>
 </head>
+
 <body>
 
-<!-- Audio Player -->
-<audio id="mobile-bgm" src="../bgm.mp3" loop></audio>
+  <!-- Audio Player -->
+  <audio id="mobile-bgm" src="../bgm.mp3" loop></audio>
 
-<div id="app-container">
-  
-  <!-- Sticky App Header -->
-  <header class="app-header">
-    <div class="app-logo-wrap" onclick="switchTab('home')" title="모바일 앱 메인 홈으로 이동">
-      <img src="../kracker_logo_new.png" alt="Kracker House Logo" class="app-logo" onerror="this.src='../images/kracker_logo_new.png'" />
-    </div>
-    <div class="app-header-actions">
-      <button class="header-icon-btn" id="bgm-toggle-btn" onclick="toggleAudio()" title="배경음악 ON/OFF">🎵</button>
-      <button class="header-icon-btn" onclick="openTicketModal()" title="모바일 입장권">🎟️</button>
-    </div>
-  </header>
+  <div id="app-container">
 
-  <!-- Scrollable App Body Content -->
-  <main class="app-body-content">
-
-    <!-- TAB 1: HOME (메인 홈 & 팝업 개요) -->
-    <section id="tab-home" class="tab-panel active">
-
-      <!-- Hero Banner -->
-      <div class="home-hero">
-        <img src="../images/hero_laundry_store.jpg" alt="Kracker Laundry Store" onerror="this.src='../hero_laundry_store.jpg'" />
-        <div class="home-hero-overlay">
-          <div class="dday-timer-box">
-            <span>9.11 OPEN D-DAY</span>
-            <span class="timer-unit" id="d-day-days">0</span>일
-            <span class="timer-unit" id="d-day-hours">00</span>시간
-            <span class="timer-unit" id="d-day-mins">00</span>분
-            <span class="timer-unit" id="d-day-secs">00</span>초
-          </div>
-          <h1 class="m-title" style="font-size:24px;">Unbalance<br/><em>Weightlessness</em></h1>
-          <p class="m-subtitle">스타필드 빌리지 1F 중앙 광장 | 9.11 ~ 9.23</p>
-        </div>
+    <!-- Sticky App Header -->
+    <header class="app-header">
+      <div class="app-logo-wrap" onclick="switchTab('home')" title="모바일 앱 메인 홈으로 이동">
+        <img src="../kracker_logo_new.png" alt="Kracker House Logo" class="app-logo"
+          onerror="this.src='../images/kracker_logo_new.png'" />
       </div>
-
-      <!-- Quick Action Buttons Grid -->
-      <div class="quick-grid">
-        <div class="quick-item" onclick="switchTab('prereg')">
-          <span class="quick-icon">🎟️</span>
-          <span class="quick-label">사전등록</span>
-        </div>
-        <div class="quick-item" onclick="switchTab('zones')">
-          <span class="quick-icon">🗺️</span>
-          <span class="quick-label">6개 공간</span>
-        </div>
-        <div class="quick-item" onclick="switchTab('products')">
-          <span class="quick-icon">👕</span>
-          <span class="quick-label">굿즈 샵</span>
-        </div>
-        <a href="https://nyk5473.github.io/snuggle-scent-quiz/" target="_blank" class="quick-item" style="text-decoration:none;">
-          <span class="quick-icon">🧪</span>
-          <span class="quick-label">향 테스트</span>
-        </a>
+      <div class="app-header-actions">
+        <button class="header-icon-btn" id="bgm-toggle-btn" onclick="toggleAudio()" title="배경음악 ON/OFF">🎵</button>
+        <button class="header-icon-btn" onclick="openTicketModal()" title="모바일 입장권">🎟️</button>
       </div>
+    </header>
 
-      <!-- Key Info Summary Grid -->
-      <div class="info-m-grid">
-        <div class="info-m-cell">
-          <span class="info-m-ico">📍</span>
-          <span class="info-m-key">LOCATION</span>
-          <span class="info-m-val">스타필드 빌리지 1F 중앙 광장</span>
-        </div>
-        <div class="info-m-cell">
-          <span class="info-m-ico">📅</span>
-          <span class="info-m-key">DATE</span>
-          <span class="info-m-val">2026.09.11(금) ~ 09.23(수)</span>
-        </div>
-        <div class="info-m-cell">
-          <span class="info-m-ico">⏰</span>
-          <span class="info-m-key">TIME</span>
-          <span class="info-m-val">AM 10:30 ~ PM 22:00</span>
-        </div>
-        <div class="info-m-cell">
-          <span class="info-m-ico">🎁</span>
-          <span class="info-m-key">BENEFIT</span>
-          <span class="info-m-val">선착순 스너글 미니세제 증정</span>
-        </div>
-      </div>
+    <!-- Scrollable App Body Content -->
+    <main class="app-body-content">
 
-      <!-- Collaboration Story Card -->
-      <div class="m-card">
-        <div class="m-badge">COLLABORATION STORY</div>
-        <h2 class="m-title">옷과 세탁의 <em>포근한 라이프스타일</em></h2>
-        <p class="m-subtitle" style="margin-bottom:14px;">
-          1980s 빈티지 워크웨어 패션 '크래커하우스'와 프리미엄 섬유유연제 '스너글'의 포근한 콜라보레이션 팝업스토어를 모바일 앱에서 경험해보세요.
-        </p>
-        <button class="m-btn" style="padding:11px; font-size:13px;" onclick="switchTab('products')">한정판 콜라보 굿즈 구경하기 →</button>
-      </div>
+      <!-- TAB 1: HOME (메인 홈 & 팝업 개요) -->
+      <section id="tab-home" class="tab-panel active">
 
-      <!-- Photo Line Gallery Card -->
-      <div class="m-card">
-        <div class="m-badge">LAUNDRY PHOTO LINE</div>
-        <h3 class="m-title">실시간 <em>사진 빨랫줄 갤러리</em></h3>
-        <p class="m-subtitle" style="margin-bottom:12px;">현장에 걸린 기분 좋은 순간들입니다. 터치하여 크게 감상하세요!</p>
-        
-        <div class="m-photo-row">
-          <div class="m-photo-item" onclick="openPhotoModal('../images/snuggle_photo_sample.jpg', '포근스너글')">
-            <img src="../images/snuggle_photo_sample.jpg" class="m-photo-img" onerror="this.src='../snuggle_photo_sample.jpg'" />
-            <div class="m-photo-nick">@포근스너글</div>
-          </div>
-          <div class="m-photo-item" onclick="openPhotoModal('../images/snuggle_vintage_vanilla.jpg', '바닐라러버')">
-            <img src="../images/snuggle_vintage_vanilla.jpg" class="m-photo-img" onerror="this.src='../snuggle_vintage_vanilla.jpg'" />
-            <div class="m-photo-nick">@바닐라러버</div>
-          </div>
-          <div class="m-photo-item" onclick="openPhotoModal('../images/brand_photo.jpg', '워크웨어핏')">
-            <img src="../images/brand_photo.jpg" class="m-photo-img" onerror="this.src='../brand_photo.jpg'" />
-            <div class="m-photo-nick">@워크웨어핏</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Event Card -->
-      <div class="m-card" style="border-color:var(--orange);">
-        <div class="m-badge" style="background:var(--orange); color:var(--white);">GIFT EVENT</div>
-        <h3 class="m-title">사전예약자 <em>선착순 사은품 증정</em></h3>
-        <p class="m-subtitle">모바일 티켓을 발급받아 방문하시면 현장에서 스너글 미니 세제를 선물로 드립니다!</p>
-      </div>
-    </section>
-
-    <!-- TAB 2: PREREG (사전등록 & 체크인) -->
-    <section id="tab-prereg" class="tab-panel">
-      <div class="m-card">
-        <div class="m-badge">PRE-REGISTRATION</div>
-        <h2 class="m-title">팝업스토어 <em>사전등록 &amp; 체크인</em></h2>
-        <p class="m-subtitle" style="margin-bottom:16px;">사전등록 시 패스트트랙 우선 입장 및 한정판 스너글 사은품 혜택을 드립니다.</p>
-        
-        <input type="text" id="reg-name" class="m-input" placeholder="성함 (예: 홍길동)" />
-        <input type="tel" id="reg-phone" class="m-input" placeholder="휴대폰 번호 (- 제외)" />
-        <input type="email" id="reg-email" class="m-input" placeholder="이메일 주소" />
-        <select id="reg-date" class="m-input" style="background:#28180B;">
-          <option value="2026-09-11">2026.09.11 (금) 방문</option>
-          <option value="2026-09-12">2026.09.12 (토) 방문</option>
-          <option value="2026-09-13">2026.09.13 (일) 방문</option>
-          <option value="2026-09-14">2026.09.14 (월) 방문</option>
-          <option value="2026-09-15">2026.09.15 (화) 방문</option>
-          <option value="2026-09-16">2026.09.16 (수) 방문</option>
-          <option value="2026-09-17">2026.09.17 (목) 방문</option>
-          <option value="2026-09-18">2026.09.18 (금) 방문</option>
-          <option value="2026-09-19">2026.09.19 (토) 방문</option>
-          <option value="2026-09-20">2026.09.20 (일) 방문</option>
-          <option value="2026-09-21">2026.09.21 (월) 방문</option>
-          <option value="2026-09-22">2026.09.22 (화) 방문</option>
-          <option value="2026-09-23">2026.09.23 (수) 방문</option>
-        </select>
-        
-        <button class="m-btn" onclick="submitPrereg()">사전등록 완료 및 모바일 티켓 생성 🎟️</button>
-      </div>
-    </section>
-
-    <!-- TAB 3: ZONES (6개 공간 존 안내) -->
-    <section id="tab-zones" class="tab-panel">
-      <div class="m-card" onclick="openFloorplanModal()" style="cursor:pointer;">
-        <div class="m-badge">3D FLOOR MAP (터치하여 크게보기)</div>
-        <h2 class="m-title">팝업스토어 <em>6개 공간 구조도</em></h2>
-        <img src="../3d_map.jpg" alt="3D Floorplan Map" style="width:100%; border-radius:10px; margin-top:8px; border:1px solid rgba(242,92,5,0.3);" onerror="this.src='../images/3d_map.jpg'" />
-      </div>
-
-      <div class="zone-m-item" onclick="showZoneDetail(1)">
-        <img src="../zone_card_01.jpg" class="zone-m-thumb" onerror="this.src='../images/zone_card_01.jpg'" />
-        <div class="zone-m-info">
-          <span class="zone-m-num">ZONE 01 // WHAT'S YOUR TASTE? (8.0 sqm)</span>
-          <h3 class="zone-m-title">01. 취향 테스트존</h3>
-          <p class="zone-m-desc">나만의 스너글 향기 취향을 테스트하고 맞춤 섬유유연제 시침지를 받아보는 취향 발견 전용 공간입니다.</p>
-        </div>
-      </div>
-
-      <div class="zone-m-item" onclick="showZoneDetail(2)">
-        <img src="../images/zone_001.png" class="zone-m-thumb" onerror="this.src='../zone_001.png'" />
-        <div class="zone-m-info">
-          <span class="zone-m-num">ZONE 02 // LAUNDRY PHOTO (11.0 sqm)</span>
-          <h3 class="zone-m-title">02. 세탁기 포토부스존</h3>
-          <p class="zone-m-desc">드럼 세탁기 인테리어 배경에서 특별한 순간을 폴라로이드 사진으로 남기는 레트로 포토부스 존입니다.</p>
-        </div>
-      </div>
-
-      <div class="zone-m-item" onclick="showZoneDetail(3)">
-        <img src="../zone_card_03.jpg" class="zone-m-thumb" onerror="this.src='../images/zone_card_03.jpg'" />
-        <div class="zone-m-info">
-          <span class="zone-m-num">ZONE 03 // GOODS SHOWROOM (25.5 sqm)</span>
-          <h3 class="zone-m-title">03. 굿즈존</h3>
-          <p class="zone-m-desc">크래커하우스 x 스너글 빈티지 코랄 레드 티셔츠, 옐로우 넥티, 캔버스 토트백 한정판 굿즈 쇼룸입니다.</p>
-        </div>
-      </div>
-
-      <div class="zone-m-item" onclick="showZoneDetail(4)">
-        <img src="../zone_card_04.jpg" class="zone-m-thumb" onerror="this.src='../images/zone_card_04.jpg'" />
-        <div class="zone-m-info">
-          <span class="zone-m-num">ZONE 04 // MAKE YOUR CRACKER T (8.5 sqm)</span>
-          <h3 class="zone-m-title">04. DIY 존</h3>
-          <p class="zone-m-desc">원하는 자수 와펜과 스트랩으로 나만의 커스텀 크래커 T &amp; 세탁 굿즈를 직접 인쇄하고 제작해보는 커스텀 존입니다.</p>
-        </div>
-      </div>
-
-      <div class="zone-m-item" onclick="showZoneDetail(5)">
-        <img src="../images/hero_laundry_store.jpg" class="zone-m-thumb" onerror="this.src='../hero_laundry_store.jpg'" />
-        <div class="zone-m-info">
-          <span class="zone-m-num">ZONE 05 // CAFE &amp; MINIER (26.5 sqm)</span>
-          <h3 class="zone-m-title">05. 커피 &amp; 미니어존</h3>
-          <p class="zone-m-desc">포근한 잔디밭 라운지에서 고소한 커피와 베이커리를 즐기며 편안하게 쉬어가는 힐링 휴식 공간입니다.</p>
-        </div>
-      </div>
-
-      <div class="zone-m-item" onclick="showZoneDetail(6)">
-        <img src="../zone_card_06.jpg" class="zone-m-thumb" onerror="this.src='../images/zone_card_06.jpg'" />
-        <div class="zone-m-info">
-          <span class="zone-m-num">ZONE 06 // CRACKER GUESTBOOK (6.0 sqm)</span>
-          <h3 class="zone-m-title">06. 방명록 존 (방팩록)</h3>
-          <p class="zone-m-desc">팝업스토어에서의 소중한 소감과 축하 메시지를 남기고 따뜻한 방명록을 함께 완성하는 참여 공간입니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 4: PRODUCTS (한정판 굿즈 샵) -->
-    <section id="tab-products" class="tab-panel">
-      <div class="filter-row">
-        <button class="filter-btn active" onclick="filterProducts('all', this)">전체보기</button>
-        <button class="filter-btn" onclick="filterProducts('kracker', this)">크래커하우스</button>
-        <button class="filter-btn" onclick="filterProducts('snuggle', this)">스너글</button>
-        <button class="filter-btn" onclick="filterProducts('collab', this)">콜라보 한정판</button>
-      </div>
-
-      <div class="p-grid" id="m-product-grid">
-        <div class="p-card" data-cat="kracker" onclick="openProdDetail('빈티지 피그먼트 티셔츠 (Red)', '45,000원', '../kracker_basic_t_shirts_red.jpg', '1980년대 빈티지 붉은 피그먼트 워싱이 인상적인 워크웨어 반팔 티셔츠입니다.')">
-          <div class="p-img-wrap">
-            <img src="../kracker_basic_t_shirts_red.jpg" class="p-img" onerror="this.src='../images/mock_product_2.png'" />
-          </div>
-          <div class="p-body">
-            <span class="p-brand">KRACKER HOUSE</span>
-            <div class="p-title">피그먼트 티셔츠 Red</div>
-            <div class="p-price">₩45,000</div>
+        <!-- Hero Banner -->
+        <div class="home-hero">
+          <img src="../images/hero_laundry_store.jpg" alt="Kracker Laundry Store"
+            onerror="this.src='../hero_laundry_store.jpg'" />
+          <div class="home-hero-overlay">
+            <div class="dday-timer-box">
+              <span>9.11 OPEN D-DAY</span>
+              <span class="timer-unit" id="d-day-days">0</span>일
+              <span class="timer-unit" id="d-day-hours">00</span>시간
+              <span class="timer-unit" id="d-day-mins">00</span>분
+              <span class="timer-unit" id="d-day-secs">00</span>초
+            </div>
+            <h1 class="m-title" style="font-size:24px;">Unbalance<br /><em>Weightlessness</em></h1>
+            <p class="m-subtitle">스타필드 빌리지 1F 중앙 광장 | 9.11 ~ 9.23</p>
           </div>
         </div>
 
-        <div class="p-card" data-cat="kracker" onclick="openProdDetail('빈티지 피그먼트 티셔츠 (Yellow)', '45,000원', '../kracker_basic_t_shirts_yellow.jpg', '따스한 햇살 아래 바랜 듯한 옐로우 톤의 피그먼트 워크웨어 아이템입니다.')">
-          <div class="p-img-wrap">
-            <img src="../kracker_basic_t_shirts_yellow.jpg" class="p-img" onerror="this.src='../images/mock_product_1.png'" />
+        <!-- Quick Action Buttons Grid -->
+        <div class="quick-grid">
+          <div class="quick-item" onclick="switchTab('prereg')">
+            <span class="quick-icon">🎟️</span>
+            <span class="quick-label">사전등록</span>
           </div>
-          <div class="p-body">
-            <span class="p-brand">KRACKER HOUSE</span>
-            <div class="p-title">피그먼트 티셔츠 Yellow</div>
-            <div class="p-price">₩45,000</div>
+          <div class="quick-item" onclick="switchTab('zones')">
+            <span class="quick-icon">🗺️</span>
+            <span class="quick-label">6개 공간</span>
           </div>
-        </div>
-
-        <div class="p-card" data-cat="collab" onclick="openProdDetail('크래커 런드리 캔버스 토트백', '28,000원', '../kracker_tote_bag.jpg', '두꺼운 캔버스 원단으로 제작되어 빨래와 소지품을 넉넉히 담을 수 있는 한정판 토트백.')">
-          <div class="p-img-wrap">
-            <img src="../kracker_tote_bag.jpg" class="p-img" onerror="this.src='../images/mock_laundry_1.jpg'" />
+          <div class="quick-item" onclick="switchTab('products')">
+            <span class="quick-icon">👕</span>
+            <span class="quick-label">굿즈 샵</span>
           </div>
-          <div class="p-body">
-            <span class="p-brand">COLLABORATION</span>
-            <div class="p-title">런드리 토트백</div>
-            <div class="p-price">₩28,000</div>
+          <div class="quick-item" onclick="switchTab('quiz')">
+            <span class="quick-icon">🧪</span>
+            <span class="quick-label">향 테스트</span>
           </div>
         </div>
 
-        <div class="p-card" data-cat="snuggle" onclick="openProdDetail('스너글 빈티지 바닐라 세트', '19,900원', '../snuggle_vintage_vanilla.jpg', '은은하고 매력적인 빈티지 바닐라 포근 세제 &amp; 섬유유연제 팝업 스페셜 패키지.')">
-          <div class="p-img-wrap">
-            <img src="../snuggle_vintage_vanilla.jpg" class="p-img" onerror="this.src='../images/mock_laundry_2.jpg'" />
+        <!-- Key Info Summary Grid -->
+        <div class="info-m-grid">
+          <div class="info-m-cell">
+            <span class="info-m-ico">📍</span>
+            <span class="info-m-key">LOCATION</span>
+            <span class="info-m-val">스타필드 빌리지 1F 중앙 광장</span>
           </div>
-          <div class="p-body">
-            <span class="p-brand">SNUGGLE</span>
-            <div class="p-title">빈티지 바닐라 세제세트</div>
-            <div class="p-price">₩19,900</div>
+          <div class="info-m-cell">
+            <span class="info-m-ico">📅</span>
+            <span class="info-m-key">DATE</span>
+            <span class="info-m-val">2026.09.11(금) ~ 09.23(수)</span>
+          </div>
+          <div class="info-m-cell">
+            <span class="info-m-ico">⏰</span>
+            <span class="info-m-key">TIME</span>
+            <span class="info-m-val">AM 10:30 ~ PM 22:00</span>
+          </div>
+          <div class="info-m-cell">
+            <span class="info-m-ico">🎁</span>
+            <span class="info-m-key">BENEFIT</span>
+            <span class="info-m-val">선착순 스너글 미니세제 증정</span>
           </div>
         </div>
 
-        <div class="p-card" data-cat="collab" onclick="openProdDetail('스너글 카페인 컬렉션 패키지', '35,000원', '../snuggle_kaffeine_collection.jpg', '커피 향과 포근한 런드리 세제의 만남! 스너글 x 크래커 콜라보 스페셜 컬렉션.')">
-          <div class="p-img-wrap">
-            <img src="../snuggle_kaffeine_collection.jpg" class="p-img" onerror="this.src='../images/collab_collection.jpg'" />
+        <!-- Collaboration Story Card -->
+        <div class="m-card">
+          <div class="m-badge">COLLABORATION STORY</div>
+          <h2 class="m-title">옷과 세탁의 <em>포근한 라이프스타일</em></h2>
+          <p class="m-subtitle" style="margin-bottom:14px;">
+            1980s 빈티지 워크웨어 패션 '크래커하우스'와 프리미엄 섬유유연제 '스너글'의 포근한 콜라보레이션 팝업스토어를 모바일 앱에서 경험해보세요.
+          </p>
+          <button class="m-btn" style="padding:11px; font-size:13px;" onclick="switchTab('products')">한정판 콜라보 굿즈 구경하기
+            →</button>
+        </div>
+
+        <!-- Photo Line Gallery Card -->
+        <div class="m-card">
+          <div class="m-badge">LAUNDRY PHOTO LINE</div>
+          <h3 class="m-title">실시간 <em>사진 빨랫줄 갤러리</em></h3>
+          <p class="m-subtitle" style="margin-bottom:12px;">현장에 걸린 기분 좋은 순간들입니다. 터치하여 크게 감상하세요!</p>
+
+          <div class="m-photo-row">
+            <div class="m-photo-item" onclick="openPhotoModal('../images/snuggle_photo_sample.jpg', '포근스너글')">
+              <img src="../images/snuggle_photo_sample.jpg" class="m-photo-img"
+                onerror="this.src='../snuggle_photo_sample.jpg'" />
+              <div class="m-photo-nick">@포근스너글</div>
+            </div>
+            <div class="m-photo-item" onclick="openPhotoModal('../images/snuggle_vintage_vanilla.jpg', '바닐라러버')">
+              <img src="../images/snuggle_vintage_vanilla.jpg" class="m-photo-img"
+                onerror="this.src='../snuggle_vintage_vanilla.jpg'" />
+              <div class="m-photo-nick">@바닐라러버</div>
+            </div>
+            <div class="m-photo-item" onclick="openPhotoModal('../images/brand_photo.jpg', '워크웨어핏')">
+              <img src="../images/brand_photo.jpg" class="m-photo-img" onerror="this.src='../brand_photo.jpg'" />
+              <div class="m-photo-nick">@워크웨어핏</div>
+            </div>
           </div>
-          <div class="p-body">
-            <span class="p-brand">COLLABORATION</span>
-            <div class="p-title">카페인 세탁 패키지</div>
-            <div class="p-price">₩35,000</div>
+        </div>
+
+        <!-- Event Card -->
+        <div class="m-card" style="border-color:var(--orange);">
+          <div class="m-badge" style="background:var(--orange); color:var(--white);">GIFT EVENT</div>
+          <h3 class="m-title">사전예약자 <em>선착순 사은품 증정</em></h3>
+          <p class="m-subtitle">모바일 티켓을 발급받아 방문하시면 현장에서 스너글 미니 세제를 선물로 드립니다!</p>
+        </div>
+      </section>
+
+      <!-- TAB 2: PREREG (사전등록 & 체크인) -->
+      <section id="tab-prereg" class="tab-panel">
+        <div class="m-card">
+          <div class="m-badge">PRE-REGISTRATION</div>
+          <h2 class="m-title">팝업스토어 <em>사전등록 &amp; 체크인</em></h2>
+          <p class="m-subtitle" style="margin-bottom:16px;">사전등록 시 패스트트랙 우선 입장 및 한정판 스너글 사은품 혜택을 드립니다.</p>
+
+          <input type="text" id="reg-name" class="m-input" placeholder="성함 (예: 홍길동)" />
+          <input type="tel" id="reg-phone" class="m-input" placeholder="휴대폰 번호 (- 제외)" />
+          <input type="email" id="reg-email" class="m-input" placeholder="이메일 주소" />
+          <select id="reg-date" class="m-input" style="background:#28180B;">
+            <option value="2026-09-11">2026.09.11 (금) 방문</option>
+            <option value="2026-09-12">2026.09.12 (토) 방문</option>
+            <option value="2026-09-13">2026.09.13 (일) 방문</option>
+            <option value="2026-09-14">2026.09.14 (월) 방문</option>
+            <option value="2026-09-15">2026.09.15 (화) 방문</option>
+            <option value="2026-09-16">2026.09.16 (수) 방문</option>
+            <option value="2026-09-17">2026.09.17 (목) 방문</option>
+            <option value="2026-09-18">2026.09.18 (금) 방문</option>
+            <option value="2026-09-19">2026.09.19 (토) 방문</option>
+            <option value="2026-09-20">2026.09.20 (일) 방문</option>
+            <option value="2026-09-21">2026.09.21 (월) 방문</option>
+            <option value="2026-09-22">2026.09.22 (화) 방문</option>
+            <option value="2026-09-23">2026.09.23 (수) 방문</option>
+          </select>
+
+          <button class="m-btn" onclick="submitPrereg()">사전등록 완료 및 모바일 티켓 생성 🎟️</button>
+        </div>
+      </section>
+
+      <!-- TAB 3: ZONES (6개 공간 존 안내) -->
+      <section id="tab-zones" class="tab-panel">
+        <div class="m-card" onclick="openFloorplanModal()" style="cursor:pointer;">
+          <div class="m-badge">3D FLOOR MAP (터치하여 크게보기)</div>
+          <h2 class="m-title">팝업스토어 <em>6개 공간 구조도</em></h2>
+          <img src="../3d_map.jpg" alt="3D Floorplan Map"
+            style="width:100%; border-radius:10px; margin-top:8px; border:1px solid rgba(242,92,5,0.3);"
+            onerror="this.src='../images/3d_map.jpg'" />
+        </div>
+
+        <div class="zone-m-item" onclick="showZoneDetail(1)">
+          <img src="../zone_card_01.jpg" class="zone-m-thumb" onerror="this.src='../images/zone_card_01.jpg'" />
+          <div class="zone-m-info">
+            <span class="zone-m-num">ZONE 01 // WHAT'S YOUR TASTE? (8.0 sqm)</span>
+            <h3 class="zone-m-title">01. 취향 테스트존</h3>
+            <p class="zone-m-desc">나만의 스너글 향기 취향을 테스트하고 맞춤 섬유유연제 시침지를 받아보는 취향 발견 전용 공간입니다.</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- TAB 5: SCENT QUIZ (향 테스트) -->
-    <section id="tab-quiz" class="tab-panel">
-      <div class="quiz-box" id="quiz-container">
-        <div class="progress-bar-wrap">
-          <div class="progress-bar-fill" id="quiz-bar"></div>
-        </div>
-        <div class="quiz-q-num">QUESTION <span id="q-step-num">1</span> / 3</div>
-        <h2 class="quiz-q-title" id="q-title">오늘 당신이 가장 느끼고 싶은 옷의 포근함은 어떤 느낌인가요?</h2>
-        
-        <div id="quiz-options">
-          <button class="quiz-opt-btn" onclick="nextQuiz(1)">☀️ 구름 위 따스한 햇살 같은 포근함</button>
-          <button class="quiz-opt-btn" onclick="nextQuiz(2)">🌊 산뜻한 봄바람의 상쾌함</button>
-          <button class="quiz-opt-btn" onclick="nextQuiz(3)">🌸 달콤하고 달달한 꽃향기의 부드러움</button>
-        </div>
-      </div>
-
-      <div id="quiz-result" class="m-card" style="display:none; text-align:center; padding:30px 20px; border-color:var(--orange);">
-        <div class="m-badge">YOUR MATCHED SCENT</div>
-        <div style="font-size:54px; margin:10px 0;" id="res-emoji">☀️</div>
-        <h2 class="m-title" id="res-name" style="font-size:22px;">포근한 햇살의 허그해븐</h2>
-        <p class="m-subtitle" id="res-desc" style="margin:14px 0 24px; line-height:1.6;">
-          따뜻한 건조기 열기와 햇볕에 잘 말린 이불 같은 은은하고 포근한 울 코튼 향이 당신과 완벽히 어울립니다!
-        </p>
-        <div style="display:flex; flex-direction:column; gap:10px;">
-          <button class="m-btn" id="res-prod-btn" onclick="openMatchedProduct()">추천 섬유유연제 굿즈 보기 🛒</button>
-          <button class="m-btn" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);" onclick="shareQuizResult()">결과 친구에게 공유하기 🔗</button>
-          <button class="m-btn" style="background:none; color:var(--muted); font-size:12px;" onclick="restartQuiz()">다시 테스트하기 🔄</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 6: TICKET (모바일 티켓) -->
-    <section id="tab-ticket" class="tab-panel">
-      <div class="ticket-pass" id="mobile-pass-card">
-        <div class="ticket-header">
-          <div>
-            <div style="font-size:10px; opacity:0.85; letter-spacing:0.1em;">KRACKER X SNUGGLE</div>
-            <div style="font-size:17px; font-weight:900;">POP-UP MOBILE PASS</div>
+        <div class="zone-m-item" onclick="showZoneDetail(2)">
+          <img src="../images/zone_001.png" class="zone-m-thumb" onerror="this.src='../zone_001.png'" />
+          <div class="zone-m-info">
+            <span class="zone-m-num">ZONE 02 // LAUNDRY PHOTO (11.0 sqm)</span>
+            <h3 class="zone-m-title">02. 세탁기 포토부스존</h3>
+            <p class="zone-m-desc">드럼 세탁기 인테리어 배경에서 특별한 순간을 폴라로이드 사진으로 남기는 레트로 포토부스 존입니다.</p>
           </div>
-          <div style="font-size:11px; font-weight:700; background:rgba(0,0,0,0.35); padding:4px 12px; border-radius:12px;" id="ticket-status-badge">PASS ISSUED</div>
         </div>
 
-        <div style="text-align:center;">
-          <div style="font-size:12px; opacity:0.85;">입장 예약자명</div>
-          <div style="font-size:22px; font-weight:900; margin:4px 0;" id="pass-name">방문객 (손님)</div>
-          
-          <div class="qr-mock">
-            <svg width="110" height="110" viewBox="0 0 100 100">
-              <rect width="100" height="100" fill="#ffffff"/>
-              <path d="M10 10h30v30h-30zM15 15v20h20v-20zM60 10h30v30h-30zM65 15v20h20v-20zM10 60h30v30h-30zM15 65v20h20v-20zM22 22h6v6h-6zM72 22h6v6h-6zM22 72h6v6h-6zM50 10h5v15h-5zM45 50h15v10h-15zM70 50h20v20h-20zM50 70h15v20h-15z" fill="#1A1208"/>
-            </svg>
+        <div class="zone-m-item" onclick="showZoneDetail(3)">
+          <img src="../zone_card_03.jpg" class="zone-m-thumb" onerror="this.src='../images/zone_card_03.jpg'" />
+          <div class="zone-m-info">
+            <span class="zone-m-num">ZONE 03 // GOODS SHOWROOM (25.5 sqm)</span>
+            <h3 class="zone-m-title">03. 굿즈존</h3>
+            <p class="zone-m-desc">크래커하우스 x 스너글 빈티지 코랄 레드 티셔츠, 옐로우 넥티, 캔버스 토트백 한정판 굿즈 쇼룸입니다.</p>
           </div>
-          <div style="font-family:var(--ff-mono); font-size:11px; letter-spacing:0.12em; opacity:0.85;" id="pass-code">NO. 2026-0911-8842</div>
         </div>
-      </div>
 
-      <div class="m-card">
-        <div class="m-badge">현장 대기 등록 &amp; 티켓 발급</div>
-        <h3 class="m-title">모바일 <em>체크인 정보</em></h3>
-        <input type="text" id="input-name" class="m-input" placeholder="성함을 입력하세요 (예: 홍길동)" />
-        <input type="tel" id="input-phone" class="m-input" placeholder="휴대폰 번호 (- 제외)" />
-        <button class="m-btn" onclick="generatePass()">모바일 티켓 즉시 발급 🎟️</button>
-      </div>
-
-      <div class="m-card" style="text-align:center;">
-        <div style="font-size:12px; color:var(--muted);">실시간 현장 대기 순번 시뮬레이션</div>
-        <div style="font-size:38px; font-weight:900; color:var(--orange); margin:8px 0;" id="queue-num">14 번</div>
-        <div style="font-size:12px; color:var(--muted);">예상 대기 시간: 약 15분 | 차례가 되면 안내해드립니다.</div>
-      </div>
-    </section>
-
-    <!-- TAB 7: GUESTBOOK (라이브 방명록) -->
-    <section id="tab-guestbook" class="tab-panel">
-      <div class="m-card">
-        <div class="m-badge">LIVE GUESTBOOK</div>
-        <h2 class="m-title">방문 <em>응원 한마디</em> 남기기</h2>
-        <input type="text" id="g-nick" class="m-input" placeholder="닉네임" />
-        <textarea id="g-msg" class="m-input" style="height:76px; resize:none;" placeholder="스너글 세제 향기와 크래커하우스 팝업 방문 소감을 남겨주세요!"></textarea>
-        <button class="m-btn" onclick="addGuestMsg()">모바일 방명록 등록 ✍️</button>
-      </div>
-
-      <div id="m-guest-list">
-        <div class="m-card" style="margin-bottom:10px; padding:14px;">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div style="font-size:12px; font-weight:700; color:var(--orange);">포근스너글 ✨</div>
-            <button style="background:none; border:none; color:var(--red); font-size:12px; cursor:pointer;" onclick="likeMsg(this)">❤️ 12</button>
+        <div class="zone-m-item" onclick="showZoneDetail(4)">
+          <img src="../zone_card_04.jpg" class="zone-m-thumb" onerror="this.src='../images/zone_card_04.jpg'" />
+          <div class="zone-m-info">
+            <span class="zone-m-num">ZONE 04 // MAKE YOUR CRACKER T (8.5 sqm)</span>
+            <h3 class="zone-m-title">04. DIY 존</h3>
+            <p class="zone-m-desc">원하는 자수 와펜과 스트랩으로 나만의 커스텀 크래커 T &amp; 세탁 굿즈를 직접 인쇄하고 제작해보는 커스텀 존입니다.</p>
           </div>
-          <div style="font-size:13px; margin:6px 0; color:rgba(255,255,255,0.92);">스너글 세제 향기가 팝업 입구부터 너무 솔솔 느껴져요! 피그먼트 티셔츠 꼭 살 겁니다!</div>
-          <div style="font-size:10px; color:var(--muted);">2026.09.11 14:20</div>
         </div>
 
-        <div class="m-card" style="margin-bottom:10px; padding:14px;">
-          <div style="display:flex; justify-content:space-between; align-items:center;">
-            <div style="font-size:12px; font-weight:700; color:var(--orange);">빈티지매니아 👕</div>
-            <button style="background:none; border:none; color:var(--red); font-size:12px; cursor:pointer;" onclick="likeMsg(this)">❤️ 8</button>
+        <div class="zone-m-item" onclick="showZoneDetail(5)">
+          <img src="../images/hero_laundry_store.jpg" class="zone-m-thumb"
+            onerror="this.src='../hero_laundry_store.jpg'" />
+          <div class="zone-m-info">
+            <span class="zone-m-num">ZONE 05 // CAFE &amp; MINIER (26.5 sqm)</span>
+            <h3 class="zone-m-title">05. 커피 &amp; 미니어존</h3>
+            <p class="zone-m-desc">포근한 잔디밭 라운지에서 고소한 커피와 베이커리를 즐기며 편안하게 쉬어가는 힐링 휴식 공간입니다.</p>
           </div>
-          <div style="font-size:13px; margin:6px 0; color:rgba(255,255,255,0.92);">피그먼트 티셔츠 핏이 예술입니다. 런드리 토트백이랑 한정 세트 구매완료!</div>
-          <div style="font-size:10px; color:var(--muted);">2026.09.11 13:05</div>
         </div>
-      </div>
-    </section>
 
-  </main>
+        <div class="zone-m-item" onclick="showZoneDetail(6)">
+          <img src="../zone_card_06.jpg" class="zone-m-thumb" onerror="this.src='../images/zone_card_06.jpg'" />
+          <div class="zone-m-info">
+            <span class="zone-m-num">ZONE 06 // CRACKER GUESTBOOK (6.0 sqm)</span>
+            <h3 class="zone-m-title">06. 방명록 존 (방팩록)</h3>
+            <p class="zone-m-desc">팝업스토어에서의 소중한 소감과 축하 메시지를 남기고 따뜻한 방명록을 함께 완성하는 참여 공간입니다.</p>
+          </div>
+        </div>
+      </section>
 
-  <!-- Fixed Bottom Navigation Floating Bar -->
-  <nav class="bottom-nav">
-    <a class="nav-tab-item active" onclick="switchTab('home')">
-      <span class="nav-tab-icon">🏠</span>
-      <span>홈</span>
-    </a>
-    <a class="nav-tab-item" onclick="switchTab('prereg')">
-      <span class="nav-tab-icon">🎟️</span>
-      <span>사전등록</span>
-    </a>
-    <a class="nav-tab-item" onclick="switchTab('zones')">
-      <span class="nav-tab-icon">🗺️</span>
-      <span>공간</span>
-    </a>
-    <a class="nav-tab-item" onclick="switchTab('products')">
-      <span class="nav-tab-icon">👕</span>
-      <span>굿즈</span>
-    </a>
-    <a class="nav-tab-item" href="https://nyk5473.github.io/snuggle-scent-quiz/" target="_blank">
-      <span class="nav-tab-icon">🧪</span>
-      <span>향테스트</span>
-    </a>
-    <a class="nav-tab-item" onclick="switchTab('ticket')">
-      <span class="nav-tab-icon">🎟️</span>
-      <span>티켓</span>
-    </a>
-    <a class="nav-tab-item" onclick="switchTab('guestbook')">
-      <span class="nav-tab-icon">📝</span>
-      <span>방명록</span>
-    </a>
-  </nav>
+      <!-- TAB 4: PRODUCTS (한정판 굿즈 샵) -->
+      <section id="tab-products" class="tab-panel">
+        <div class="filter-row">
+          <button class="filter-btn active" onclick="filterProducts('all', this)">전체보기</button>
+          <button class="filter-btn" onclick="filterProducts('kracker', this)">크래커하우스</button>
+          <button class="filter-btn" onclick="filterProducts('snuggle', this)">스너글</button>
+          <button class="filter-btn" onclick="filterProducts('collab', this)">콜라보 한정판</button>
+        </div>
 
-</div>
+        <div class="p-grid" id="m-product-grid">
+          <div class="p-card" data-cat="kracker"
+            onclick="openProdDetail('빈티지 피그먼트 티셔츠 (Red)', '45,000원', '../kracker_basic_t_shirts_red.jpg', '1980년대 빈티지 붉은 피그먼트 워싱이 인상적인 워크웨어 반팔 티셔츠입니다.')">
+            <div class="p-img-wrap">
+              <img src="../kracker_basic_t_shirts_red.jpg" class="p-img"
+                onerror="this.src='../images/mock_product_2.png'" />
+            </div>
+            <div class="p-body">
+              <span class="p-brand">KRACKER HOUSE</span>
+              <div class="p-title">피그먼트 티셔츠 Red</div>
+              <div class="p-price">₩45,000</div>
+            </div>
+          </div>
 
-<!-- Product & Zone Detail Modal -->
-<div class="m-modal" id="prod-modal">
-  <div class="m-modal-box">
-    <button class="modal-close" onclick="closeProdDetail()">✕</button>
-    <img id="m-modal-img" src="" style="width:100%; height:210px; object-fit:cover; border-radius:12px; margin-bottom:14px;" />
-    <h2 class="m-title" id="m-modal-title">상품 상세</h2>
-    <div style="font-size:18px; font-weight:700; color:var(--orange); margin-bottom:10px;" id="m-modal-price">₩0</div>
-    <p class="m-subtitle" id="m-modal-desc" style="margin-bottom:18px; line-height:1.6;">크래커하우스 X 스너글 팝업스토어 현장에서 실물로 확인하실 수 있는 스페셜 아이템입니다.</p>
-    <button class="m-btn" onclick="alert('스타필드 빌리지 1F 팝업 현장에서 구매 및 체험이 가능합니다!'); closeProdDetail();">현장 수령 / 담기 🛒</button>
+          <div class="p-card" data-cat="kracker"
+            onclick="openProdDetail('빈티지 피그먼트 티셔츠 (Yellow)', '45,000원', '../kracker_basic_t_shirts_yellow.jpg', '따스한 햇살 아래 바랜 듯한 옐로우 톤의 피그먼트 워크웨어 아이템입니다.')">
+            <div class="p-img-wrap">
+              <img src="../kracker_basic_t_shirts_yellow.jpg" class="p-img"
+                onerror="this.src='../images/mock_product_1.png'" />
+            </div>
+            <div class="p-body">
+              <span <!-- TAB 5: SCENT QUIZ (공식 3D 향 테스트 앱 모바일 내장) -->
+                <section id="tab-quiz" class="tab-panel">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                    <div class="m-badge" style="margin-bottom:0;">OFFICIAL SCENT QUIZ</div>
+                    <a href="https://nyk5473.github.io/snuggle-scent-quiz/" target="_blank"
+                      style="color:var(--orange); font-size:11px; font-weight:700; text-decoration:none;">새 창에서 크게보기
+                      ↗</a>
+                  </div>
+                  <div
+                    style="width:100%; height:620px; border-radius:16px; overflow:hidden; border:1.5px solid var(--orange); box-shadow:0 8px 30px rgba(242,92,5,0.3); background:#150D06;">
+                    <iframe src="https://nyk5473.github.io/snuggle-scent-quiz/"
+                      style="width:100%; height:100%; border:none; display:block;" title="스너글 향 취향 테스트"></iframe>
+                  </div>
+                </section> 컬렉션.')">
+                <div class="p-img-wrap">
+                  <img src="../snuggle_kaffeine_collection.jpg" class="p-img"
+                    onerror="this.src='../images/collab_collection.jpg'" />
+                </div>
+                <div class="p-body">
+                  <span class="p-brand">COLLABORATION</span>
+                  <div class="p-title">카페인 세탁 패키지</div>
+                  <div class="p-price">₩35,000</div>
+                </div>
+            </div>
+          </div>
+      </section>
+
+      <!-- TAB 5: SCENT QUIZ (향 테스트) -->
+      <section id="tab-quiz" class="tab-panel">
+        <div class="quiz-box" id="quiz-container">
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="quiz-bar"></div>
+          </div>
+          <div class="quiz-q-num">QUESTION <span id="q-step-num">1</span> / 3</div>
+          <h2 class="quiz-q-title" id="q-title">오늘 당신이 가장 느끼고 싶은 옷의 포근함은 어떤 느낌인가요?</h2>
+
+          <div id="quiz-options">
+            <button class="quiz-opt-btn" onclick="nextQuiz(1)">☀️ 구름 위 따스한 햇살 같은 포근함</button>
+            <button class="quiz-opt-btn" onclick="nextQuiz(2)">🌊 산뜻한 봄바람의 상쾌함</button>
+            <button class="quiz-opt-btn" onclick="nextQuiz(3)">🌸 달콤하고 달달한 꽃향기의 부드러움</button>
+          </div>
+        </div>
+
+        <div id="quiz-result" class="m-card"
+          style="display:none; text-align:center; padding:30px 20px; border-color:var(--orange);">
+          <div class="m-badge">YOUR MATCHED SCENT</div>
+          <div style="font-size:54px; margin:10px 0;" id="res-emoji">☀️</div>
+          <h2 class="m-title" id="res-name" style="font-size:22px;">포근한 햇살의 허그해븐</h2>
+          <p class="m-subtitle" id="res-desc" style="margin:14px 0 24px; line-height:1.6;">
+            따뜻한 건조기 열기와 햇볕에 잘 말린 이불 같은 은은하고 포근한 울 코튼 향이 당신과 완벽히 어울립니다!
+          </p>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <button class="m-btn" id="res-prod-btn" onclick="openMatchedProduct()">추천 섬유유연제 굿즈 보기 🛒</button>
+            <button class="m-btn" style="background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);"
+              onclick="shareQuizResult()">결과 친구에게 공유하기 🔗</button>
+            <button class="m-btn" style="background:none; color:var(--muted); font-size:12px;"
+              onclick="restartQuiz()">다시 테스트하기 🔄</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 6: TICKET (모바일 티켓) -->
+      <section id="tab-ticket" class="tab-panel">
+        <div class="ticket-pass" id="mobile-pass-card">
+          <div class="ticket-header">
+            <div>
+              <div style="font-size:10px; opacity:0.85; letter-spacing:0.1em;">KRACKER X SNUGGLE</div>
+              <div style="font-size:17px; font-weight:900;">POP-UP MOBILE PASS</div>
+            </div>
+            <div
+              style="font-size:11px; font-weight:700; background:rgba(0,0,0,0.35); padding:4px 12px; border-radius:12px;"
+              id="ticket-status-badge">PASS ISSUED</div>
+          </div>
+
+          <div style="text-align:center;">
+            <div style="font-size:12px; opacity:0.85;">입장 예약자명</div>
+            <div style="font-size:22px; font-weight:900; margin:4px 0;" id="pass-name">방문객 (손님)</div>
+
+            <div class="qr-mock">
+              <svg width="110" height="110" viewBox="0 0 100 100">
+                <rect width="100" height="100" fill="#ffffff" />
+                <path
+                  d="M10 10h30v30h-30zM15 15v20h20v-20zM60 10h30v30h-30zM65 15v20h20v-20zM10 60h30v30h-30zM15 65v20h20v-20zM22 22h6v6h-6zM72 22h6v6h-6zM22 72h6v6h-6zM50 10h5v15h-5zM45 50h15v10h-15zM70 50h20v20h-20zM50 70h15v20h-15z"
+                  fill="#1A1208" />
+              </svg>
+            </div>
+            <div style="font-family:var(--ff-mono); font-size:11px; letter-spacing:0.12em; opacity:0.85;"
+              id="pass-code">NO. 2026-0911-8842</div>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-badge">현장 대기 등록 &amp; 티켓 발급</div>
+          <h3 class="m-title">모바일 <em>체크인 정보</em></h3>
+          <input type="text" id="input-name" class="m-input" placeholder="성함을 입력하세요 (예: 홍길동)" />
+          <input type="tel" id="input-phone" class="m-input" placeholder="휴대폰 번호 (- 제외)" />
+          <button class="m-btn" onclick="generatePass()">모바일 티켓 즉시 발급 🎟️</button>
+        </div>
+
+        <div class="m-card" style="text-align:center;">
+          <div style="font-size:12px; color:var(--muted);">실시간 현장 대기 순번 시뮬레이션</div>
+          <div style="font-size:38px; font-weight:900; color:var(--orange); margin:8px 0;" id="queue-num">14 번</div>
+          <div style="font-size:12px; color:var(--muted);">예상 대기 시간: 약 15분 | 차례가 되면 안내해드립니다.</div>
+        </div>
+      </section>
+
+      <!-- TAB 7: GUESTBOOK (라이브 방명록) -->
+      <section id="tab-guestbook" class="tab-panel">
+        <div class="m-card">
+          <div class="m-badge">LIVE GUESTBOOK</div>
+          <h2 class="m-title">방문 <em>응원 한마디</em> 남기기</h2>
+          <input type="text" id="g-nick" class="m-input" placeholder="닉네임" />
+          <textarea id="g-msg" class="m-input" style="height:76px; resize:none;"
+            placeholder="스너글 세제 향기와 크래커하우스 팝업 방문 소감을 남겨주세요!"></textarea>
+          <button class="m-btn" onclick="addGuestMsg()">모바일 방명록 등록 ✍️</button>
+        </div>
+
+        <div id="m-guest-list">
+          <div class="m-card" style="margin-bottom:10px; padding:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div style="font-size:12px; font-weight:700; color:var(--orange);">포근스너글 ✨</div>
+              <button style="background:none; border:none; color:var(--red); font-size:12px; cursor:pointer;"
+                onclick="likeMsg(this)">❤️ 12</button>
+            </div>
+            <div style="font-size:13px; margin:6px 0; color:rgba(255,255,255,0.92);">스너글 세제 향기가 팝업 입구부터 너무 솔솔 느껴져요! 피그먼트
+              티셔츠 꼭 살 겁니다!</div>
+            <div style="font-size:10px; color:var(--muted);">2026.09.11 14:20</div>
+          </div>
+
+          <div class="m-card" style="margin-bottom:10px; padding:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <div style="font-size:12px; font-weight:700; color:var(--orange);">빈티지매니아 👕</div>
+              <button style="background:none; border:none; color:var(--red); font-size:12px; cursor:pointer;"
+                onclick="likeMsg(this)">❤️ 8</button>
+            </div>
+            <div style="font-size:13px; margin:6px 0; color:rgba(255,255,255,0.92);">피그먼트 티셔츠 핏이 예술입니다. 런드리 토트백이랑 한정 세트
+              구매완료!</div>
+            <div style="font-size:10px; color:var(--muted);">2026.09.11 13:05</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Fixed Bottom Navigation Floating Bar -->
+    <nav class="bottom-nav">
+      <a class="nav-tab-item active" onclick="switchTab('home')">
+        <span class="nav-tab-icon">🏠</span>
+        <span>홈</span>
+      </a>
+      <a class="nav-tab-item" onclick="switchTab('prereg')">
+        <span class="nav-tab-icon">🎟️</span>
+        <span>사전등록</span>
+      </a>
+      <a class="nav-tab-item" onclick="switchTab('zones')">
+        <span class="nav-tab-icon">🗺️</span>
+        <span>공간</span>
+      </a>
+      <a class="nav-tab-item" onclick="switchTab('products')">
+        <span class="nav-tab-icon">👕</span>
+        <span>굿즈</span>
+      </a>
+      <a class="nav-tab-item" href="https://nyk5473.github.io/snuggle-scent-quiz/" target="_blank">
+        <span class="nav-tab-icon">🧪</span>
+        <span>향테스트</span>
+      </a>
+      <a class="nav-tab-item" onclick="switchTab('ticket')">
+        <span class="nav-tab-icon">🎟️</span>
+        <span>티켓</span>
+      </a>
+      <a class="nav-tab-item" onclick="switchTab('guestbook')">
+        <span class="nav-tab-icon">📝</span>
+        <span>방명록</span>
+      </a>
+    </nav>
+
   </div>
-</div>
 
-<!-- 3D Floorplan Fullscreen Modal -->
-<div class="m-modal" id="floorplan-modal">
-  <div class="m-modal-box" style="max-width:460px; text-align:center;">
-    <button class="modal-close" onclick="closeFloorplanModal()">✕</button>
-    <div class="m-badge">3D FLOORPLAN</div>
-    <h3 class="m-title" style="margin-bottom:12px;">스타필드 빌리지 1F 팝업 도면</h3>
-    <img src="../3d_map.jpg" style="width:100%; border-radius:10px; margin-bottom:14px;" onerror="this.src='../images/3d_map.jpg'" />
-    <p class="m-subtitle">8개 공간 존을 터치하여 각 공간의 시향 및 체험 정보를 확인하세요.</p>
+  <!-- Product & Zone Detail Modal -->
+  <div class="m-modal" id="prod-modal">
+    <div class="m-modal-box">
+      <button class="modal-close" onclick="closeProdDetail()">✕</button>
+      <img id="m-modal-img" src=""
+        style="width:100%; height:210px; object-fit:cover; border-radius:12px; margin-bottom:14px;" />
+      <h2 class="m-title" id="m-modal-title">상품 상세</h2>
+      <div style="font-size:18px; font-weight:700; color:var(--orange); margin-bottom:10px;" id="m-modal-price">₩0</div>
+      <p class="m-subtitle" id="m-modal-desc" style="margin-bottom:18px; line-height:1.6;">크래커하우스 X 스너글 팝업스토어 현장에서 실물로
+        확인하실 수 있는 스페셜 아이템입니다.</p>
+      <button class="m-btn" onclick="alert('스타필드 빌리지 1F 팝업 현장에서 구매 및 체험이 가능합니다!'); closeProdDetail();">현장 수령 / 담기
+        🛒</button>
+    </div>
   </div>
-</div>
 
-<script>
-  // Audio Control
-  let isAudioPlaying = false;
-  function toggleAudio() {
-    const bgm = document.getElementById('mobile-bgm');
-    const btn = document.getElementById('bgm-toggle-btn');
-    if (bgm) {
-      if (isAudioPlaying) {
-        bgm.pause();
-        btn.classList.remove('playing');
-        isAudioPlaying = false;
-      } else {
-        bgm.play().then(() => {
-          btn.classList.add('playing');
-          isAudioPlaying = true;
-        }).catch(err => {
-          alert('오디오를 재생하려면 화면을 터치해주세요!');
-        });
+  <!-- 3D Floorplan Fullscreen Modal -->
+  <div class="m-modal" id="floorplan-modal">
+    <div class="m-modal-box" style="max-width:460px; text-align:center;">
+      <button class="modal-close" onclick="closeFloorplanModal()">✕</button>
+      <div class="m-badge">3D FLOORPLAN</div>
+      <h3 class="m-title" style="margin-bottom:12px;">스타필드 빌리지 1F 팝업 도면</h3>
+      <img src="../3d_map.jpg" style="width:100%; border-radius:10px; margin-bottom:14px;"
+        onerror="this.src='../images/3d_map.jpg'" />
+      <p class="m-subtitle">8개 공간 존을 터치하여 각 공간의 시향 및 체험 정보를 확인하세요.</p>
+    </div>
+  </div>
+
+  <script>
+    // Audio Control
+    let isAudioPlaying = false;
+    function toggleAudio() {
+      const bgm = document.getElementById('mobile-bgm');
+      const btn = document.getElementById('bgm-toggle-btn');
+      if (bgm) {
+        if (isAudioPlaying) {
+          bgm.pause();
+          btn.classList.remove('playing');
+          isAudioPlaying = false;
+        } else {
+          bgm.play().then(() => {
+            btn.classList.add('playing');
+            isAudioPlaying = true;
+          }).catch(err => {
+            alert('오디오를 재생하려면 화면을 터치해주세요!');
+          });
+        }
       }
     }
-  }
 
-  // D-DAY Countdown Clock (Target: 2026-09-11 10:30 AM)
-  function updateCountdown() {
-    const targetDate = new Date('2026-09-11T10:30:00+09:00').getTime();
-    const now = new Date().getTime();
-    const diff = targetDate - now;
+    // D-DAY Countdown Clock (Target: 2026-09-11 10:30 AM)
+    function updateCountdown() {
+      const targetDate = new Date('2026-09-11T10:30:00+09:00').getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
 
-    if (diff > 0) {
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
 
-      const daysEl = document.getElementById('d-day-days');
-      if (daysEl) daysEl.innerText = String(days);
-      document.getElementById('d-day-hours').innerText = String(hours).padStart(2, '0');
-      document.getElementById('d-day-mins').innerText = String(mins).padStart(2, '0');
-      document.getElementById('d-day-secs').innerText = String(secs).padStart(2, '0');
-    } else {
-      const daysEl = document.getElementById('d-day-days');
-      if (daysEl) daysEl.innerText = '0';
-      document.getElementById('d-day-hours').innerText = '00';
-      document.getElementById('d-day-mins').innerText = '00';
-      document.getElementById('d-day-secs').innerText = '00';
-    }
-  }
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-
-  // Tab Switcher
-  function switchTab(tabId) {
-    if (tabId === 'quiz') {
-      window.open('https://nyk5473.github.io/snuggle-scent-quiz/', '_blank');
-      return;
-    }
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-tab-item').forEach(t => t.classList.remove('active'));
-
-    const targetPanel = document.getElementById(`tab-${tabId}`);
-    if (targetPanel) targetPanel.classList.add('active');
-
-    const activeTab = Array.from(document.querySelectorAll('.nav-tab-item')).find(el => el.getAttribute('onclick').includes(tabId));
-    if (activeTab) activeTab.classList.add('active');
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // Filter Products
-  function filterProducts(cat, btnEl) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btnEl.classList.add('active');
-
-    document.querySelectorAll('#m-product-grid .p-card').forEach(card => {
-      if (cat === 'all' || card.getAttribute('data-cat') === cat) {
-        card.style.display = 'flex';
+        const daysEl = document.getElementById('d-day-days');
+        if (daysEl) daysEl.innerText = String(days);
+        document.getElementById('d-day-hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('d-day-mins').innerText = String(mins).padStart(2, '0');
+        document.getElementById('d-day-secs').innerText = String(secs).padStart(2, '0');
       } else {
-        card.style.display = 'none';
+        const daysEl = document.getElementById('d-day-days');
+        if (daysEl) daysEl.innerText = '0';
+        document.getElementById('d-day-hours').innerText = '00';
+        document.getElementById('d-day-mins').innerText = '00';
+        document.getElementById('d-day-secs').innerText = '00';
       }
-    });
-  }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-  // Preregistration Form Submit
-  function submitPrereg() {
-    const name = document.getElementById('reg-name').value.trim();
-    const phone = document.getElementById('reg-phone').value.trim();
-    const date = document.getElementById('reg-date').value;
+    // Tab Switcher
+    function switchTab(tabId) {
+      if (tabId === 'quiz') {
+        window.open('https://nyk5473.github.io/snuggle-scent-quiz/', '_blank');
+        return;
+      }
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-item').forEach(t => t.classList.remove('active'));
 
-    if (!name || !phone) {
-      alert('성함과 휴대폰 번호를 입력해주세요!');
-      return;
+      const targetPanel = document.getElementById(`tab-${tabId}`);
+      if (targetPanel) targetPanel.classList.add('active');
+
+      const activeTab = Array.from(document.querySelectorAll('.nav-tab-item')).find(el => el.getAttribute('onclick').includes(tabId));
+      if (activeTab) activeTab.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    document.getElementById('pass-name').innerText = `${name} 님`;
-    const randomNo = Math.floor(1000 + Math.random() * 9000);
-    document.getElementById('pass-code').innerText = `NO. 2026-0911-${randomNo}`;
-    
-    alert(`🎉 ${name} 님! 팝업스토어 사전등록 및 체크인 티켓(NO. 2026-0911-${randomNo})이 성공적으로 발급되었습니다!`);
-    switchTab('ticket');
-  }
+    // Filter Products
+    function filterProducts(cat, btnEl) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btnEl.classList.add('active');
 
-  // Open Product Modal
-  function openProdDetail(title, price, img, desc = "") {
-    document.getElementById('m-modal-title').innerText = title;
-    document.getElementById('m-modal-price').innerText = price;
-    document.getElementById('m-modal-img').src = img;
-    if (desc) {
-      document.getElementById('m-modal-desc').innerText = desc;
-    } else {
-      document.getElementById('m-modal-desc').innerText = "크래커하우스 X 스너글 팝업스토어 현장에서 실물로 확인하실 수 있는 시그니처 콜라보 아이템입니다.";
+      document.querySelectorAll('#m-product-grid .p-card').forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     }
-    document.getElementById('prod-modal').classList.add('active');
-  }
 
-  function closeProdDetail() {
-    document.getElementById('prod-modal').classList.remove('active');
-  }
+    // Preregistration Form Submit
+    function submitPrereg() {
+      const name = document.getElementById('reg-name').value.trim();
+      const phone = document.getElementById('reg-phone').value.trim();
+      const date = document.getElementById('reg-date').value;
 
-  function openFloorplanModal() {
-    document.getElementById('floorplan-modal').classList.add('active');
-  }
+      if (!name || !phone) {
+        alert('성함과 휴대폰 번호를 입력해주세요!');
+        return;
+      }
 
-  function closeFloorplanModal() {
-    document.getElementById('floorplan-modal').classList.remove('active');
-  }
-
-  function openPhotoModal(imgSrc, nick) {
-    openProdDetail(`@${nick} 님의 빨랫줄 사진`, "LAUNDRY PHOTO", imgSrc, "빨랫줄 포토존에 걸린 소중한 순간입니다. 현장에서 직접 확인해보세요!");
-  }
-
-  // Zone Detail Modal Matching Website 100%
-  function showZoneDetail(zoneId) {
-    const zoneData = {
-      1: { title: "01. 취향 테스트존", desc: "나만의 스너글 향기 취향을 테스트하고 맞춤 섬유유연제 시침지를 받아보는 취향 발견 전용 공간입니다. (WHAT'S YOUR TASTE? | 8.0 sqm)", img: "../zone_card_01.jpg" },
-      2: { title: "02. 세탁기 포토부스존", desc: "드럼 세탁기 인테리어 배경에서 특별한 순간을 폴라로이드 사진으로 남기는 레트로 포토부스 존입니다. (LAUNDRY PHOTO | 11.0 sqm)", img: "../images/zone_001.png" },
-      3: { title: "03. 굿즈존", desc: "크래커하우스 x 스너글 빈티지 코랄 레드 티셔츠, 옐로우 넥티, 캔버스 토트백 한정판 굿즈 쇼룸입니다. (GOODS SHOWROOM | 25.5 sqm)", img: "../zone_card_03.jpg" },
-      4: { title: "04. DIY 존", desc: "원하는 자수 와펜과 스트랩으로 나만의 커스텀 크래커 T & 세탁 굿즈를 직접 인쇄하고 제작해보는 커스텀 존입니다. (MAKE YOUR CRACKER T | 8.5 sqm)", img: "../zone_card_04.jpg" },
-      5: { title: "05. 커피 & 미니어존", desc: "포근한 잔디밭 라운지에서 고소한 커피와 베이커리를 즐기며 편안하게 쉬어가는 힐링 휴식 공간입니다. (CAFE & MINIER | 26.5 sqm)", img: "../images/hero_laundry_store.jpg" },
-      6: { title: "06. 방명록 존 (방팩록)", desc: "팝업스토어에서의 소중한 소감과 축하 메시지를 남기고 따뜻한 방명록을 함께 완성하는 참여 공간입니다. (CRACKER GUESTBOOK | 6.0 sqm)", img: "../zone_card_06.jpg" }
-    };
-
-    const zone = zoneData[zoneId] || zoneData[1];
-    openProdDetail(zone.title, "체험존 공간 안내", zone.img, zone.desc);
-  }
-
-  // Quiz Logic
-  let currentStep = 1;
-  let lastResultChoice = 1;
-  const questions = [
-    {
-      title: "오늘 당신이 가장 느끼고 싶은 옷의 포근함은 어떤 느낌인가요?",
-      opts: [
-        "☀️ 구름 위 따스한 햇살 같은 포근함",
-        "🌊 산뜻한 봄바람의 상쾌함",
-        "🌸 달콤하고 달달한 꽃향기의 부드러움"
-      ]
-    },
-    {
-      title: "선호하는 세탁 향 노트를 선택해주세요!",
-      opts: [
-        "🧺 깨끗하게 건조된 맑은 코튼향",
-        "🍊 상큼함이 톡톡 터지는 시트러스 노트",
-        "🌿 마음을 정돈해주는 은은한 허브 노트"
-      ]
-    },
-    {
-      title: "팝업스토어에서 가장 기대되는 순간은?",
-      opts: [
-        "📸 빨랫줄 포토존에서 인생샷 찍기",
-        "👕 한정판 피그먼트 워크웨어 구경하기",
-        "🧪 나만의 섬유유연제 향 굿즈 받기"
-      ]
-    }
-  ];
-
-  function nextQuiz(choiceIndex) {
-    currentStep++;
-    const bar = document.getElementById('quiz-bar');
-    if (bar) bar.style.width = `${Math.min(100, (currentStep / 3) * 100)}%`;
-
-    if (currentStep <= questions.length) {
-      const q = questions[currentStep - 1];
-      document.getElementById('q-step-num').innerText = currentStep;
-      document.getElementById('q-title').innerText = q.title;
-      const optsDiv = document.getElementById('quiz-options');
-      optsDiv.innerHTML = q.opts.map((opt, i) => 
-        `<button class="quiz-opt-btn" onclick="nextQuiz(${i+1})">${opt}</button>`
-      ).join('');
-    } else {
-      showQuizResult(choiceIndex);
-    }
-  }
-
-  function showQuizResult(finalChoice) {
-    lastResultChoice = finalChoice;
-    document.getElementById('quiz-container').style.display = 'none';
-    const resDiv = document.getElementById('quiz-result');
-    resDiv.style.display = 'block';
-
-    if (finalChoice === 1) {
-      document.getElementById('res-emoji').innerText = '☀️';
-      document.getElementById('res-name').innerText = '포근한 햇살의 허그해븐';
-      document.getElementById('res-desc').innerText = '따뜻하고 매끄러운 건조기 열기와 햇볕에 잘 말린 이불 같은 은은하고 포근한 울 코튼 향이 당신과 완벽히 어울립니다!';
-    } else if (finalChoice === 2) {
-      document.getElementById('res-emoji').innerText = '🌊';
-      document.getElementById('res-name').innerText = '청량한 봄바람의 블루스파클';
-      document.getElementById('res-desc').innerText = '산뜻하고 맑은 스파클링 리프레시 향! 지친 일상에 기분 좋은 청량함을 선사합니다.';
-    } else {
-      document.getElementById('res-emoji').innerText = '🌸';
-      document.getElementById('res-name').innerText = '달콤한 로맨스 불루밍부케';
-      document.getElementById('res-desc').innerText = '부드러운 은방울꽃과 포근한 세탁 향의 조화! 감성적인 당신을 위한 최적의 추천 향입니다.';
-    }
-  }
-
-  function openMatchedProduct() {
-    if (lastResultChoice === 1) {
-      openProdDetail('스너글 빈티지 바닐라 세트', '19,900원', '../snuggle_vintage_vanilla.jpg');
-    } else if (lastResultChoice === 2) {
-      openProdDetail('스너글 카페인 컬렉션 패키지', '35,000원', '../snuggle_kaffeine_collection.jpg');
-    } else {
-      openProdDetail('크래커 런드리 캔버스 토트백', '28,000원', '../kracker_tote_bag.jpg');
-    }
-  }
-
-  function shareQuizResult() {
-    alert('향 테스트 결과 링크가 복사되었습니다! 카카오톡이나 SNS에 공유해보세요.');
-  }
-
-  function restartQuiz() {
-    currentStep = 1;
-    document.getElementById('quiz-bar').style.width = '33%';
-    document.getElementById('quiz-container').style.display = 'block';
-    document.getElementById('quiz-result').style.display = 'none';
-    document.getElementById('q-step-num').innerText = '1';
-    document.getElementById('q-title').innerText = questions[0].title;
-    document.getElementById('quiz-options').innerHTML = questions[0].opts.map((opt, i) => 
-      `<button class="quiz-opt-btn" onclick="nextQuiz(${i+1})">${opt}</button>`
-    ).join('');
-  }
-
-  // Ticket Pass Generator
-  function generatePass() {
-    const name = document.getElementById('input-name').value.trim();
-    if (name) {
       document.getElementById('pass-name').innerText = `${name} 님`;
       const randomNo = Math.floor(1000 + Math.random() * 9000);
       document.getElementById('pass-code').innerText = `NO. 2026-0911-${randomNo}`;
-      alert(`✨ ${name} 님의 모바일 체크인 입장권(NO. 2026-0911-${randomNo})이 성공적으로 발급되었습니다!`);
-    } else {
-      alert('성함을 입력해주세요!');
-    }
-  }
 
-  function openTicketModal() {
-    switchTab('ticket');
-  }
-
-  // Guestbook Add & Like
-  function addGuestMsg() {
-    const nick = document.getElementById('g-nick').value.trim();
-    const msg = document.getElementById('g-msg').value.trim();
-
-    if (!nick || !msg) {
-      alert('닉네임과 소감을 모두 입력해주세요!');
-      return;
+      alert(`🎉 ${name} 님! 팝업스토어 사전등록 및 체크인 티켓(NO. 2026-0911-${randomNo})이 성공적으로 발급되었습니다!`);
+      switchTab('ticket');
     }
 
-    const list = document.getElementById('m-guest-list');
-    const newCard = document.createElement('div');
-    newCard.className = 'm-card';
-    newCard.style.marginBottom = '10px';
-    newCard.style.padding = '14px';
-    newCard.innerHTML = `
+    // Open Product Modal
+    function openProdDetail(title, price, img, desc = "") {
+      document.getElementById('m-modal-title').innerText = title;
+      document.getElementById('m-modal-price').innerText = price;
+      document.getElementById('m-modal-img').src = img;
+      if (desc) {
+        document.getElementById('m-modal-desc').innerText = desc;
+      } else {
+        document.getElementById('m-modal-desc').innerText = "크래커하우스 X 스너글 팝업스토어 현장에서 실물로 확인하실 수 있는 시그니처 콜라보 아이템입니다.";
+      }
+      document.getElementById('prod-modal').classList.add('active');
+    }
+
+    function closeProdDetail() {
+      document.getElementById('prod-modal').classList.remove('active');
+    }
+
+    function openFloorplanModal() {
+      document.getElementById('floorplan-modal').classList.add('active');
+    }
+
+    function closeFloorplanModal() {
+      document.getElementById('floorplan-modal').classList.remove('active');
+    }
+
+    function openPhotoModal(imgSrc, nick) {
+      openProdDetail(`@${nick} 님의 빨랫줄 사진`, "LAUNDRY PHOTO", imgSrc, "빨랫줄 포토존에 걸린 소중한 순간입니다. 현장에서 직접 확인해보세요!");
+    }
+
+    // Zone Detail Modal Matching Website 100%
+    function showZoneDetail(zoneId) {
+      const zoneData = {
+        1: { title: "01. 취향 테스트존", desc: "나만의 스너글 향기 취향을 테스트하고 맞춤 섬유유연제 시침지를 받아보는 취향 발견 전용 공간입니다. (WHAT'S YOUR TASTE? | 8.0 sqm)", img: "../zone_card_01.jpg" },
+        2: { title: "02. 세탁기 포토부스존", desc: "드럼 세탁기 인테리어 배경에서 특별한 순간을 폴라로이드 사진으로 남기는 레트로 포토부스 존입니다. (LAUNDRY PHOTO | 11.0 sqm)", img: "../images/zone_001.png" },
+        3: { title: "03. 굿즈존", desc: "크래커하우스 x 스너글 빈티지 코랄 레드 티셔츠, 옐로우 넥티, 캔버스 토트백 한정판 굿즈 쇼룸입니다. (GOODS SHOWROOM | 25.5 sqm)", img: "../zone_card_03.jpg" },
+        4: { title: "04. DIY 존", desc: "원하는 자수 와펜과 스트랩으로 나만의 커스텀 크래커 T & 세탁 굿즈를 직접 인쇄하고 제작해보는 커스텀 존입니다. (MAKE YOUR CRACKER T | 8.5 sqm)", img: "../zone_card_04.jpg" },
+        5: { title: "05. 커피 & 미니어존", desc: "포근한 잔디밭 라운지에서 고소한 커피와 베이커리를 즐기며 편안하게 쉬어가는 힐링 휴식 공간입니다. (CAFE & MINIER | 26.5 sqm)", img: "../images/hero_laundry_store.jpg" },
+        6: { title: "06. 방명록 존 (방팩록)", desc: "팝업스토어에서의 소중한 소감과 축하 메시지를 남기고 따뜻한 방명록을 함께 완성하는 참여 공간입니다. (CRACKER GUESTBOOK | 6.0 sqm)", img: "../zone_card_06.jpg" }
+      };
+
+      const zone = zoneData[zoneId] || zoneData[1];
+      openProdDetail(zone.title, "체험존 공간 안내", zone.img, zone.desc);
+    }
+
+    // Quiz Logic
+    let currentStep = 1;
+    let lastResultChoice = 1;
+    const questions = [
+      {
+        title: "오늘 당신이 가장 느끼고 싶은 옷의 포근함은 어떤 느낌인가요?",
+        opts: [
+          "☀️ 구름 위 따스한 햇살 같은 포근함",
+          "🌊 산뜻한 봄바람의 상쾌함",
+          "🌸 달콤하고 달달한 꽃향기의 부드러움"
+        ]
+      },
+      {
+        title: "선호하는 세탁 향 노트를 선택해주세요!",
+        opts: [
+          "🧺 깨끗하게 건조된 맑은 코튼향",
+          "🍊 상큼함이 톡톡 터지는 시트러스 노트",
+          "🌿 마음을 정돈해주는 은은한 허브 노트"
+        ]
+      },
+      {
+        title: "팝업스토어에서 가장 기대되는 순간은?",
+        opts: [
+          "📸 빨랫줄 포토존에서 인생샷 찍기",
+          "👕 한정판 피그먼트 워크웨어 구경하기",
+          "🧪 나만의 섬유유연제 향 굿즈 받기"
+        ]
+      }
+    ];
+
+    function nextQuiz(choiceIndex) {
+      currentStep++;
+      const bar = document.getElementById('quiz-bar');
+      if (bar) bar.style.width = `${Math.min(100, (currentStep / 3) * 100)}%`;
+
+      if (currentStep <= questions.length) {
+        const q = questions[currentStep - 1];
+        document.getElementById('q-step-num').innerText = currentStep;
+        document.getElementById('q-title').innerText = q.title;
+        const optsDiv = document.getElementById('quiz-options');
+        optsDiv.innerHTML = q.opts.map((opt, i) =>
+          `<button class="quiz-opt-btn" onclick="nextQuiz(${i + 1})">${opt}</button>`
+        ).join('');
+      } else {
+        showQuizResult(choiceIndex);
+      }
+    }
+
+    function showQuizResult(finalChoice) {
+      lastResultChoice = finalChoice;
+      document.getElementById('quiz-container').style.display = 'none';
+      const resDiv = document.getElementById('quiz-result');
+      resDiv.style.display = 'block';
+
+      if (finalChoice === 1) {
+        document.getElementById('res-emoji').innerText = '☀️';
+        document.getElementById('res-name').innerText = '포근한 햇살의 허그해븐';
+        document.getElementById('res-desc').innerText = '따뜻하고 매끄러운 건조기 열기와 햇볕에 잘 말린 이불 같은 은은하고 포근한 울 코튼 향이 당신과 완벽히 어울립니다!';
+      } else if (finalChoice === 2) {
+        document.getElementById('res-emoji').innerText = '🌊';
+        document.getElementById('res-name').innerText = '청량한 봄바람의 블루스파클';
+        document.getElementById('res-desc').innerText = '산뜻하고 맑은 스파클링 리프레시 향! 지친 일상에 기분 좋은 청량함을 선사합니다.';
+      } else {
+        document.getElementById('res-emoji').innerText = '🌸';
+        document.getElementById('res-name').innerText = '달콤한 로맨스 불루밍부케';
+        document.getElementById('res-desc').innerText = '부드러운 은방울꽃과 포근한 세탁 향의 조화! 감성적인 당신을 위한 최적의 추천 향입니다.';
+      }
+    }
+
+    function openMatchedProduct() {
+      if (lastResultChoice === 1) {
+        openProdDetail('스너글 빈티지 바닐라 세트', '19,900원', '../snuggle_vintage_vanilla.jpg');
+      } else if (lastResultChoice === 2) {
+        openProdDetail('스너글 카페인 컬렉션 패키지', '35,000원', '../snuggle_kaffeine_collection.jpg');
+      } else {
+        openProdDetail('크래커 런드리 캔버스 토트백', '28,000원', '../kracker_tote_bag.jpg');
+      }
+    }
+
+    function shareQuizResult() {
+      alert('향 테스트 결과 링크가 복사되었습니다! 카카오톡이나 SNS에 공유해보세요.');
+    }
+
+    function restartQuiz() {
+      currentStep = 1;
+      document.getElementById('quiz-bar').style.width = '33%';
+      document.getElementById('quiz-container').style.display = 'block';
+      document.getElementById('quiz-result').style.display = 'none';
+      document.getElementById('q-step-num').innerText = '1';
+      document.getElementById('q-title').innerText = questions[0].title;
+      document.getElementById('quiz-options').innerHTML = questions[0].opts.map((opt, i) =>
+        `<button class="quiz-opt-btn" onclick="nextQuiz(${i + 1})">${opt}</button>`
+      ).join('');
+    }
+
+    // Ticket Pass Generator
+    function generatePass() {
+      const name = document.getElementById('input-name').value.trim();
+      if (name) {
+        document.getElementById('pass-name').innerText = `${name} 님`;
+        const randomNo = Math.floor(1000 + Math.random() * 9000);
+        document.getElementById('pass-code').innerText = `NO. 2026-0911-${randomNo}`;
+        alert(`✨ ${name} 님의 모바일 체크인 입장권(NO. 2026-0911-${randomNo})이 성공적으로 발급되었습니다!`);
+      } else {
+        alert('성함을 입력해주세요!');
+      }
+    }
+
+    function openTicketModal() {
+      switchTab('ticket');
+    }
+
+    // Guestbook Add & Like
+    function addGuestMsg() {
+      const nick = document.getElementById('g-nick').value.trim();
+      const msg = document.getElementById('g-msg').value.trim();
+
+      if (!nick || !msg) {
+        alert('닉네임과 소감을 모두 입력해주세요!');
+        return;
+      }
+
+      const list = document.getElementById('m-guest-list');
+      const newCard = document.createElement('div');
+      newCard.className = 'm-card';
+      newCard.style.marginBottom = '10px';
+      newCard.style.padding = '14px';
+      newCard.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center;">
         <div style="font-size:12px; font-weight:700; color:var(--orange);">${nick} ✨</div>
         <button style="background:none; border:none; color:var(--red); font-size:12px; cursor:pointer;" onclick="likeMsg(this)">❤️ 1</button>
@@ -1412,20 +1559,21 @@
       <div style="font-size:10px; color:var(--muted);">방금 전</div>
     `;
 
-    list.prepend(newCard);
-    document.getElementById('g-nick').value = '';
-    document.getElementById('g-msg').value = '';
-    alert('모바일 방명록이 성공적으로 등록되었습니다! ❤️');
-  }
+      list.prepend(newCard);
+      document.getElementById('g-nick').value = '';
+      document.getElementById('g-msg').value = '';
+      alert('모바일 방명록이 성공적으로 등록되었습니다! ❤️');
+    }
 
-  function likeMsg(btnEl) {
-    let count = parseInt(btnEl.innerText.replace(/[^0-9]/g, '')) || 0;
-    count++;
-    btnEl.innerText = `❤️ ${count}`;
-    btnEl.style.transform = 'scale(1.2)';
-    setTimeout(() => { btnEl.style.transform = 'scale(1)'; }, 200);
-  }
-</script>
+    function likeMsg(btnEl) {
+      let count = parseInt(btnEl.innerText.replace(/[^0-9]/g, '')) || 0;
+      count++;
+      btnEl.innerText = `❤️ ${count}`;
+      btnEl.style.transform = 'scale(1.2)';
+      setTimeout(() => { btnEl.style.transform = 'scale(1)'; }, 200);
+    }
+  </script>
 
 </body>
+
 </html>
