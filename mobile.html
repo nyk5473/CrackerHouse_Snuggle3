@@ -740,10 +740,10 @@
           <span class="quick-icon">👕</span>
           <span class="quick-label">굿즈 샵</span>
         </div>
-        <div class="quick-item" onclick="switchTab('quiz')">
+        <a href="https://nyk5473.github.io/snuggle-scent-quiz/" target="_blank" class="quick-item" style="text-decoration:none;">
           <span class="quick-icon">🧪</span>
           <span class="quick-label">향 테스트</span>
-        </div>
+        </a>
       </div>
 
       <!-- Key Info Summary Grid -->
@@ -1083,7 +1083,7 @@
       <span class="nav-tab-icon">👕</span>
       <span>굿즈</span>
     </a>
-    <a class="nav-tab-item" onclick="switchTab('quiz')">
+    <a class="nav-tab-item" href="https://nyk5473.github.io/snuggle-scent-quiz/" target="_blank">
       <span class="nav-tab-icon">🧪</span>
       <span>향테스트</span>
     </a>
@@ -1174,6 +1174,10 @@
 
   // Tab Switcher
   function switchTab(tabId) {
+    if (tabId === 'quiz') {
+      window.open('https://nyk5473.github.io/snuggle-scent-quiz/', '_blank');
+      return;
+    }
     document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-tab-item').forEach(t => t.classList.remove('active'));
 
