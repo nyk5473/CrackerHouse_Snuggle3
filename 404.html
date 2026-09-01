@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>페이지 이동 중...</title>
+  <script>
+    (function() {
+      var fullUrl = window.location.href.toLowerCase();
+      var pathName = window.location.pathname;
+
+      if (fullUrl.indexOf('mobile') !== -1) {
+        // Mobile Page Fallback
+        if (pathName.endsWith('/mobile') || pathName.endsWith('/mobile/')) {
+          var baseDir = pathName.endsWith('/') ? pathName.slice(0, -1) : pathName;
+          window.location.replace(baseDir + '/index.html');
+        } else {
+          var lastIdx = pathName.lastIndexOf('/mobile');
+          var dir = pathName.substring(0, lastIdx);
+          window.location.replace(dir + '/mobile.html');
+        }
+      } else {
+        // Main Page Fallback
+        var rootDir = pathName.substring(0, pathName.lastIndexOf('/'));
+        window.location.replace(rootDir + '/index.html');
+      }
+    })();
+  </script>
+</head>
+<body style="background:#0D0804; color:#FFFFFF; font-family:sans-serif; display:flex; align-items:center; justify-content:center; height:100vh; margin:0; text-align:center;">
+  <div>
+    <h2 style="color:#F25C05;">페이지로 이동하고 있습니다... 🍊</h2>
+    <p style="color:#C4B9AE; font-size:14px;">잠시만 기다려주세요.</p>
+  </div>
+</body>
+</html>
